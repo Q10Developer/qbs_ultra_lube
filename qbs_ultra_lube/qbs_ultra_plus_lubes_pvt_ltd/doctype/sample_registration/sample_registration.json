@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "prompt",
+ "autoname": "format:{name_of_customer}-{####}",
  "creation": "2025-08-11 16:32:46.256928",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -147,11 +147,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-01 08:40:02.152006",
+ "modified": "2025-09-01 10:15:58.577983",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Registration",
- "naming_rule": "Set by user",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

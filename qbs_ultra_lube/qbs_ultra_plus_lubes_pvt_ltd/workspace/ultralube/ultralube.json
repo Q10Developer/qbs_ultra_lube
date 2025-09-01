@@ -1,0 +1,104 @@
+{
+ "charts": [
+  {
+   "chart_name": "Quality Inspection Analysis",
+   "label": "Quality Inspection Analysis"
+  }
+ ],
+ "content": "[{\"id\":\"8E5p0pOTQI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ultralube</span>\",\"col\":12}},{\"id\":\"EMDZc6lqKC\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Quality Inspection Analysis\",\"col\":12}},{\"id\":\"HE_7hl1Xr5\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"J6xA3Sbc_w\",\"type\":\"card\",\"data\":{\"card_name\":\"Sample\",\"col\":4}}]",
+ "creation": "2025-08-14 12:07:41.996011",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "external-link",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Ultralube",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sample",
+   "link_count": 6,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sample Name",
+   "link_count": 0,
+   "link_to": "Item",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sample Types",
+   "link_count": 0,
+   "link_to": "Sample Types",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Sample Registeration",
+   "link_count": 0,
+   "link_to": "Sample Registration",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Chemist Users",
+   "link_count": 0,
+   "link_to": "Chemist Users",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Chemist",
+   "link_count": 0,
+   "link_to": "User",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Item Group",
+   "link_count": 0,
+   "link_to": "Item Group",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2025-08-25 14:08:55.522721",
+ "modified_by": "Administrator",
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "Ultralube",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 23.0,
+ "shortcuts": [],
+ "title": "Ultralube"
+}

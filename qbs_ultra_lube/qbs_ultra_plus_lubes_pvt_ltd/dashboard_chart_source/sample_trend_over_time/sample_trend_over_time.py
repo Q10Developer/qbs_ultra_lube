@@ -36,7 +36,9 @@ def get(
 	# Customer filter (optional)
 	customer_condition = ""
 	if filters.get("name_of_customer"):
-		customer_condition = f"AND name_of_customer = '{filters.get('name_of_customer')}'"
+		# Escape single quotes to prevent SQL injection
+		customer_name = filters.get('name_of_customer').replace("'", "''")
+		customer_condition = f"AND name_of_customer = '{customer_name}'"
 	
 	# Query to get daily data grouped by date and type
 	query = f"""

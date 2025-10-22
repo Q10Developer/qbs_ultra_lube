@@ -28,17 +28,20 @@ def get(
 	"""
 	filters = frappe.parse_json(filters) or {}
 	
-	# Date filtering
+	# Date filtering - handle filter values from dropdown
 	date_condition = ""
-	if filters.get("date_range") == "today":
+	date_range = filters.get("date_range", "This Year")
+	
+	if date_range == "Today":
 		date_condition = f"AND DATE(date_of_sample__receipt) = '{getdate(today())}'"
-	elif filters.get("date_range") == "this_month":
+	elif date_range == "This Month":
 		first_day = get_first_day(today())
 		last_day = get_last_day(today())
 		date_condition = f"AND DATE(date_of_sample__receipt) BETWEEN '{first_day}' AND '{last_day}'"
-	elif filters.get("date_range") == "this_year":
+	elif date_range == "This Year":
 		year = getdate(today()).year
 		date_condition = f"AND YEAR(date_of_sample__receipt) = {year}"
+	# else "All Time" - no date filter
 	
 	# Query to get data grouped by customer and type
 	query = f"""

@@ -1,0 +1,11 @@
+{
+ "chart_name": "Total Samples per Customer (by Type)",
+ "chart_type": "Custom",
+ "custom_options": "{\"type\": \"bar\", \"barOptions\": {\"stacked\": 1}, \"height\": 300}",
+ "document_type": "Sample Registration",
+ "doctype": "Dashboard Chart",
+ "is_public": 1,
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "Total Samples per Customer (by Type)",
+ "source": "Total Samples per Customer"
+}

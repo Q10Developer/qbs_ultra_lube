@@ -1,12 +1,20 @@
 {
  "charts": [
   {
-   "chart": "Sample Registration Summary by Customer",
+   "chart": "Sample Volume by Customer and Type",
    "width": "Half"
   },
   {
-   "chart": "Sample Registrations by Type",
+   "chart": "Total Samples per Customer (by Type)",
    "width": "Half"
+  },
+  {
+   "chart": "Sample Trend Over Time",
+   "width": "Full"
+  },
+  {
+   "chart": "Customer Sample Activity",
+   "width": "Full"
   }
  ],
  "dashboard_name": "Sample Registration Analytics",

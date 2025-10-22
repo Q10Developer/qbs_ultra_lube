@@ -1,0 +1,11 @@
+{
+ "chart_name": "Sample Trend Over Time",
+ "chart_type": "Custom",
+ "custom_options": "{\"type\": \"line\", \"barOptions\": {\"stacked\": 0}, \"height\": 300}",
+ "document_type": "Sample Registration",
+ "doctype": "Dashboard Chart",
+ "is_public": 1,
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "Sample Trend Over Time",
+ "source": "Sample Trend Over Time"
+}

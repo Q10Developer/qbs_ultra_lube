@@ -1,0 +1,11 @@
+{
+ "chart_name": "Customer Sample Activity",
+ "chart_type": "Custom",
+ "custom_options": "{\"type\": \"bar\", \"barOptions\": {\"stacked\": 0}, \"height\": 300}",
+ "document_type": "Sample Registration",
+ "doctype": "Dashboard Chart",
+ "is_public": 1,
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "Customer Sample Activity",
+ "source": "Customer Sample Activity"
+}

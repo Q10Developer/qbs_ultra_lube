@@ -1,12 +1,7 @@
 {
  "charts": [
   {
-   "chart_name": "Sample Registration Summary by Customer",
-   "label": "Sample Registration Summary by Customer"
-  },
-  {
-   "chart_name": "Quality Inspection Analysis",
-   "label": "Quality Inspection Analysis"
+   "chart_name": "Sample Registration Summary by Customer"
   }
  ],
  "content": "[{\"id\":\"8E5p0pOTQI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ultralube</span>\",\"col\":12}},{\"id\":\"EMDZc6lqKC\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Quality Inspection Analysis\",\"col\":12}},{\"id\":\"HE_7hl1Xr5\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"J6xA3Sbc_w\",\"type\":\"card\",\"data\":{\"card_name\":\"Sample\",\"col\":4}}]",
@@ -92,7 +87,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-10-22 21:34:48.006088",
+ "modified": "2025-10-22 21:47:05.568704",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Ultralube",

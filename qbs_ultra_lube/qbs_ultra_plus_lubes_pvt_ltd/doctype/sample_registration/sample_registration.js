@@ -24,12 +24,3 @@ frappe.ui.form.on('Sample Registration', {
     }
 });
 
-// Add Dashboard button to list view
-frappe.listview_settings['Sample Registration'] = {
-    onload: function(listview) {
-        listview.page.add_inner_button(__('Customer Dashboard'), function() {
-            window.open('/sample-registration-dashboard', '_blank');
-        });
-    }
-};
-

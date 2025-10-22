@@ -2,7 +2,11 @@
  "charts": [
   {
    "chart": "Sample Registration Summary by Customer",
-   "width": "Full"
+   "width": "Half"
+  },
+  {
+   "chart": "Sample Registrations by Type",
+   "width": "Half"
   }
  ],
  "dashboard_name": "Sample Registration Analytics",

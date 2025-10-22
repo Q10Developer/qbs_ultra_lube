@@ -1,0 +1,15 @@
+{
+ "chart_name": "Sample Registrations by Type",
+ "chart_type": "Group By",
+ "document_type": "Sample Registration",
+ "doctype": "Dashboard Chart",
+ "filters_json": "[]",
+ "group_by_based_on": "type_of_sample",
+ "group_by_type": "Count",
+ "is_public": 1,
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "Sample Registrations by Type",
+ "number_of_groups": 10,
+ "timespan": "Last Year",
+ "type": "Bar"
+}

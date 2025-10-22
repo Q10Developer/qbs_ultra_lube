@@ -7,5 +7,5 @@
  "is_public": 1,
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Registration Summary by Customer",
- "source": "qbs_ultra_lube.qbs_ultra_plus_lubes_pvt_ltd.doctype.sample_registration.sample_registration_chart.get_sample_registration_summary"
+ "source": "Sample Registration Summary"
 }

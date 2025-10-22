@@ -118,7 +118,7 @@
    "fieldname": "sample_retention_period",
    "fieldtype": "Select",
    "label": "Sample Retention Period",
-   "options": "\n3 MONTHS\n6 MONTHS\n1 YEAR\n2 YEAR\nNA"
+   "options": "\n3 MONTHS\n6 MONTHS\n1 YEAR\n1.5 YEAR\n1.8 YEAR\n2 YEAR\nNA"
   },
   {
    "fieldname": "appearance",
@@ -147,7 +147,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-09-01 10:15:58.577983",
+ "modified": "2025-10-07 11:29:49.756447",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Registration",

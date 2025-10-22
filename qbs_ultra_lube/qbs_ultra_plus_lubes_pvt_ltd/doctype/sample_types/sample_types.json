@@ -1,23 +1,39 @@
 {
  "actions": [],
+ "allow_rename": 1,
  "autoname": "prompt",
  "creation": "2025-08-11 17:21:42.557079",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "sample_name"
+  "sample_name",
+  "parent_type",
+  "is_parent"
  ],
  "fields": [
   {
    "fieldname": "sample_name",
    "fieldtype": "Data",
    "label": "Sample Name"
+  },
+  {
+   "fieldname": "parent_type",
+   "fieldtype": "Link",
+   "label": "Parent Type",
+   "link_filters": "[[\"Sample Types\",\"is_parent\",\"=\",1]]",
+   "options": "Sample Types"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_parent",
+   "fieldtype": "Check",
+   "label": "Is Parent"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-21 14:10:08.388696",
+ "modified": "2025-10-08 16:38:01.477470",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Types",

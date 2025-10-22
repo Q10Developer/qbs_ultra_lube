@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-10-09 15:51:08.182905",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "equipment_id",
+  "make",
+  "range__accuracy",
+  "date_of_receipt",
+  "column_break_jwcf",
+  "name_of_equipment",
+  "location",
+  "modelsrnotypeyear_of_make"
+ ],
+ "fields": [
+  {
+   "fieldname": "equipment_id",
+   "fieldtype": "Data",
+   "label": "Equipment ID "
+  },
+  {
+   "fieldname": "make",
+   "fieldtype": "Data",
+   "label": "Make"
+  },
+  {
+   "fieldname": "range__accuracy",
+   "fieldtype": "Data",
+   "label": "Range / Accuracy"
+  },
+  {
+   "fieldname": "column_break_jwcf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "name_of_equipment",
+   "fieldtype": "Data",
+   "label": "Name Of Equipment "
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "modelsrnotypeyear_of_make",
+   "fieldtype": "Data",
+   "label": "Model/Sr.No./Type/Year Of Make"
+  },
+  {
+   "fieldname": "date_of_receipt",
+   "fieldtype": "Data",
+   "label": "Date Of Receipt"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-10-16 16:55:08.417669",
+ "modified_by": "Administrator",
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "Master Glassware",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

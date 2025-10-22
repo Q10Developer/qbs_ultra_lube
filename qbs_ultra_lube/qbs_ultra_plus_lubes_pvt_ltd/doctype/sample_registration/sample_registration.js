@@ -3,6 +3,9 @@
 
 frappe.ui.form.on('Sample Registration', {
     refresh(frm) {
+        
+    },
+    refresh: function(frm) {
         if (!frm.is_new()) {
             frm.add_custom_button(__('Reanalysis/Resample'), function() {
                 frappe.call({
@@ -20,3 +23,13 @@ frappe.ui.form.on('Sample Registration', {
         }
     }
 });
+
+// Add Dashboard button to list view
+frappe.listview_settings['Sample Registration'] = {
+    onload: function(listview) {
+        listview.page.add_inner_button(__('Customer Dashboard'), function() {
+            window.open('/sample-registration-dashboard', '_blank');
+        });
+    }
+};
+

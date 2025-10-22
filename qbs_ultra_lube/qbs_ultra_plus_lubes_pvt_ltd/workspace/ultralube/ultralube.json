@@ -50,7 +50,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Sample Registeration",
+   "label": "Sample Registration",
    "link_count": 0,
    "link_to": "Sample Registration",
    "link_type": "DocType",
@@ -88,7 +88,7 @@
    "type": "Link"
   }
  ],
- "modified": "2025-08-25 14:08:55.522721",
+ "modified": "2025-09-01 18:11:10.337043",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Ultralube",

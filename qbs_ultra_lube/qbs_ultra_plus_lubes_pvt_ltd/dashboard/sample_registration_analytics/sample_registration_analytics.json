@@ -1,0 +1,13 @@
+{
+ "charts": [
+  {
+   "chart": "Sample Registration Summary by Customer",
+   "width": "Full"
+  }
+ ],
+ "dashboard_name": "Sample Registration Analytics",
+ "doctype": "Dashboard",
+ "is_default": 0,
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "Sample Registration Analytics"
+}

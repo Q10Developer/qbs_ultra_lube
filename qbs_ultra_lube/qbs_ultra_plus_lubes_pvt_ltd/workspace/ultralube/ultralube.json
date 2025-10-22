@@ -1,16 +1,8 @@
 {
  "charts": [
   {
-   "chart_name": "Sample Registrations - This Month by Customer",
-   "label": "Sample Registrations - This Month by Customer"
-  },
-  {
-   "chart_name": "Sample Registrations - This Year by Customer",
-   "label": "Sample Registrations - This Year by Customer"
-  },
-  {
-   "chart_name": "Sample Registrations - By Sample Type",
-   "label": "Sample Registrations - By Sample Type"
+   "chart_name": "Sample Registration Summary by Customer",
+   "label": "Sample Registration Summary by Customer"
   },
   {
    "chart_name": "Quality Inspection Analysis",

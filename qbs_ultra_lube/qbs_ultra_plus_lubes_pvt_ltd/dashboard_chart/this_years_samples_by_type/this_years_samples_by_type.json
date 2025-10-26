@@ -1,0 +1,11 @@
+{
+ "chart_name": "This Year's Samples by Type",
+ "chart_type": "Custom",
+ "custom_options": "{\"type\": \"pie\", \"height\": 300}",
+ "document_type": "Sample Registration",
+ "doctype": "Dashboard Chart",
+ "is_public": 1,
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "This Year's Samples by Type",
+ "source": "Samples This Year by Type"
+}

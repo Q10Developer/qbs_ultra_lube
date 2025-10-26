@@ -1,6 +1,18 @@
 {
  "charts": [
   {
+   "chart": "Today's Samples by Type",
+   "width": "Half"
+  },
+  {
+   "chart": "This Month's Samples by Type",
+   "width": "Half"
+  },
+  {
+   "chart": "This Year's Samples by Type",
+   "width": "Full"
+  },
+  {
    "chart": "Sample Volume by Customer and Type",
    "width": "Half"
   },

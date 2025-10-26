@@ -12,3 +12,4 @@ frappe.dashboards.chart_sources["Sample Trend Over Time"] = {
 	]
 };
 
+

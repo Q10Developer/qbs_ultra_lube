@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-11-01 08:49:56.263127",
+ "creation": "2025-11-07 18:38:22.333200",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -74,7 +74,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-11-01 18:58:07.219081",
+ "modified": "2025-11-07 18:38:22.333200",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "CRM Unit IV List - WCL",

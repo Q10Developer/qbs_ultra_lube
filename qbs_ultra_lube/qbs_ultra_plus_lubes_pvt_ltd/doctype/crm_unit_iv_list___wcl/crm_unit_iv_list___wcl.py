@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class CRMMarvelListWCL(Document):
+class CRMUnitIVListWCL(Document):
 	pass

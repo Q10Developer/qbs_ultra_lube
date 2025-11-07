@@ -22,10 +22,20 @@ def get(
 ):
 	"""
 	Pie Chart - This Year's Samples by Type
-	Shows distribution of sample types for current year
-	Filterable by customer
+	Shows distribution of sample types for selected year
+	Filterable by year and customer
 	"""
 	filters = frappe.parse_json(filters) or {}
+	
+	# Get selected year from filters, default to current year
+	selected_year = filters.get("selected_year")
+	if selected_year:
+		year = int(selected_year)
+	else:
+		year = getdate(today()).year
+	
+	first_day_of_year = f"{year}-01-01"
+	last_day_of_year = f"{year}-12-31"
 	
 	# Customer filter (optional)
 	customer_condition = ""
@@ -33,24 +43,43 @@ def get(
 		customer_name = filters.get('name_of_customer').replace("'", "''")
 		customer_condition = f"AND name_of_customer = '{customer_name}'"
 	
-	# Query for this year's data by type
-	year = getdate(today()).year
-	first_day_of_year = f"{year}-01-01"
-	last_day_of_year = f"{year}-12-31"
-	
-	query = f"""
-		SELECT 
-			type_of_sample,
-			COUNT(*) as count
-		FROM `tabSample Registration`
-		WHERE docstatus < 2
-		AND DATE(date_of_sample__receipt) BETWEEN '{first_day_of_year}' AND '{last_day_of_year}'
-		AND type_of_sample IS NOT NULL
-		{customer_condition}
-		GROUP BY type_of_sample
-		ORDER BY count DESC
-		LIMIT 10
-	"""
+	# If customer filter is applied, group by customer; otherwise aggregate all customers
+	if filters.get("name_of_customer"):
+		query = f"""
+			SELECT 
+				type_of_sample,
+				name_of_customer,
+				COUNT(*) as count
+			FROM `tabSample Registration`
+			WHERE docstatus < 2
+			AND DATE(date_of_sample__receipt) BETWEEN '{first_day_of_year}' AND '{last_day_of_year}'
+			AND type_of_sample IS NOT NULL
+			{customer_condition}
+			GROUP BY type_of_sample, name_of_customer
+			ORDER BY count DESC
+			LIMIT 10
+		"""
+	else:
+		# Aggregate by type_of_sample only (sum across all customers)
+		query = f"""
+			SELECT 
+				type_of_sample,
+				SUM(count) as count
+			FROM (
+				SELECT 
+					type_of_sample,
+					name_of_customer,
+					COUNT(*) as count
+				FROM `tabSample Registration`
+				WHERE docstatus < 2
+				AND DATE(date_of_sample__receipt) BETWEEN '{first_day_of_year}' AND '{last_day_of_year}'
+				AND type_of_sample IS NOT NULL
+				GROUP BY type_of_sample, name_of_customer
+			) as subquery
+			GROUP BY type_of_sample
+			ORDER BY count DESC
+			LIMIT 10
+		"""
 	
 	data = frappe.db.sql(query, as_dict=True)
 	
@@ -58,15 +87,46 @@ def get(
 		return {
 			"labels": [_("No Data")],
 			"datasets": [{"name": _("Count"), "values": [0]}],
-			"type": "pie"
+			"type": "pie",
+			"customer_name": filters.get("name_of_customer") or "All Customers"
 		}
 	
 	labels = [_(row.type_of_sample) for row in data]
 	values = [row.count for row in data]
 	
+	# Get customer name from filters
+	customer_name = filters.get("name_of_customer") or "All Customers"
+	
+	# Create custom HTML banner for customer name
+	custom_html = f"""
+	<div class='customer-name-banner' style='
+		background: linear-gradient(135deg, #f093fb 0%, #f5576cdd 100%);
+		color: white;
+		padding: 12px 20px;
+		margin: -10px -10px 15px -10px;
+		border-radius: 8px;
+		font-weight: 600;
+		font-size: 16px;
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+	'>
+		<span style='font-size: 24px;'>📈</span>
+		<span>Customer: <strong style='font-size: 18px;'>{customer_name}</strong></span>
+	</div>
+	"""
+	
 	return {
 		"labels": labels,
 		"datasets": [{"name": _("Count"), "values": values}],
-		"type": "pie"
+		"type": "pie",
+		"customer_name": customer_name,
+		"custom_options": {
+			"custom_html": custom_html
+		}
 	}
+
+
+
 

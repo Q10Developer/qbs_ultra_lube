@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class Marwel(Document):
+class RMWCLList(Document):
 	pass

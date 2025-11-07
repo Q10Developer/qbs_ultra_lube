@@ -137,13 +137,11 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Sample Registration": {
+		"before_insert": "qbs_ultra_lube.api.set_sample_code"
+	}
+}
 
 # Scheduled Tasks
 # ---------------

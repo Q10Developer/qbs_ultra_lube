@@ -13,3 +13,6 @@ frappe.dashboards.chart_sources["Sample Registration Summary"] = {
 };
 
 
+
+
+

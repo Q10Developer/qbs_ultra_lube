@@ -16,7 +16,11 @@
   "marwel",
   "dimensions_measuring_tool",
   "weighing_balance_verification_tool",
-  "viscosity_measuring_equipment"
+  "viscosity_measuring_equipment",
+  "crm_marvel",
+  "crm",
+  "rm_marvel",
+  "rm_wcl"
  ],
  "fields": [
   {
@@ -75,8 +79,8 @@
    "depends_on": "eval:doc.name_of_the_company==\"Ultra Plus Lubes Pvt. Ltd.\"",
    "fieldname": "marwel",
    "fieldtype": "Table",
-   "label": "Marwel",
-   "options": "Marwel"
+   "label": "Unit IV",
+   "options": "Unit IV"
   },
   {
    "depends_on": "eval:doc.name_of_the_company==\"West Coast Lubricants & Asphalts Pvt. Ltd.\"",
@@ -98,12 +102,40 @@
    "fieldtype": "Table",
    "label": "Viscosity measuring equipment",
    "options": "Viscosity measuring equipment"
+  },
+  {
+   "depends_on": "eval:doc.name_of_the_company==\"West Coast Lubricants & Asphalts Pvt. Ltd.\"",
+   "fieldname": "crm_marvel",
+   "fieldtype": "Table",
+   "label": "CRM Unit IV",
+   "options": "CRM Unit IV List - WCL"
+  },
+  {
+   "depends_on": "eval:doc.name_of_the_company==\"West Coast Lubricants & Asphalts Pvt. Ltd.\"",
+   "fieldname": "crm",
+   "fieldtype": "Table",
+   "label": "CRM-WCL ",
+   "options": "CRM-WCL List"
+  },
+  {
+   "depends_on": "eval:doc.name_of_the_company==\"Ultra Plus Lubes Pvt. Ltd.\"",
+   "fieldname": "rm_marvel",
+   "fieldtype": "Table",
+   "label": "Rm Unit IV",
+   "options": "RM Unit IV List"
+  },
+  {
+   "depends_on": "eval:doc.name_of_the_company==\"West Coast Lubricants & Asphalts Pvt. Ltd.\"",
+   "fieldname": "rm_wcl",
+   "fieldtype": "Table",
+   "label": "RM-WCL",
+   "options": "RM-WCL List"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-16 17:52:04.158217",
+ "modified": "2025-11-04 09:11:11.978652",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Master Data",

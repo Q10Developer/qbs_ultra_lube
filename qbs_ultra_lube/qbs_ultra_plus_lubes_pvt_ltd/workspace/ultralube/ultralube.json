@@ -1,10 +1,6 @@
 {
- "charts": [
-  {
-   "chart_name": "Sample Registration Summary by Customer"
-  }
- ],
- "content": "[{\"id\":\"8E5p0pOTQI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ultralube</span>\",\"col\":12}},{\"id\":\"EMDZc6lqKC\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Quality Inspection Analysis\",\"col\":12}},{\"id\":\"HE_7hl1Xr5\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"J6xA3Sbc_w\",\"type\":\"card\",\"data\":{\"card_name\":\"Sample\",\"col\":4}}]",
+ "charts": [],
+ "content": "[{\"id\":\"8E5p0pOTQI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ultralube</span>\",\"col\":12}},{\"id\":\"HE_7hl1Xr5\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"TeL4d5XVl6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sample Registration Analytics Dashboard\",\"col\":3}},{\"id\":\"-WohEdc_dQ\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"J6xA3Sbc_w\",\"type\":\"card\",\"data\":{\"card_name\":\"Sample\",\"col\":4}}]",
  "creation": "2025-08-14 12:07:41.996011",
  "custom_blocks": [],
  "docstatus": 0,
@@ -21,7 +17,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Sample",
-   "link_count": 6,
+   "link_count": 4,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -59,16 +55,6 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Chemist Users",
-   "link_count": 0,
-   "link_to": "Chemist Users",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Chemist",
    "link_count": 0,
    "link_to": "User",
@@ -79,15 +65,16 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Item Group",
+   "label": "Sample by Customer and Type",
    "link_count": 0,
-   "link_to": "Item Group",
-   "link_type": "DocType",
-   "onboard": 0,
+   "link_to": "Sample Reg",
+   "link_type": "Report",
+   "onboard": 1,
+   "report_ref_doctype": "Sample Registration",
    "type": "Link"
   }
  ],
- "modified": "2025-10-22 21:47:05.568704",
+ "modified": "2025-11-04 19:15:43.386545",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Ultralube",
@@ -100,13 +87,10 @@
  "sequence_id": 23.0,
  "shortcuts": [
   {
-   "color": "#7cd6fd",
-   "doc_view": "",
-   "format": "{} Open",
-   "icon": "chart",
-   "label": "Sample Registration Analytics",
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Sample Registration Analytics Dashboard",
    "link_to": "Sample Registration Analytics",
-   "stats_filter": "",
    "type": "Dashboard"
   }
  ],

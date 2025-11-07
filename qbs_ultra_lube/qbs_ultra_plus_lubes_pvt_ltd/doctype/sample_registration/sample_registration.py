@@ -15,66 +15,55 @@ class SampleRegistration(Document):
 
         # === Step 1: Define Prefix Rules ===
         prefix_map = {
-            "Valvoline Cummins (I) Pvt. Ltd.": {
-                "Lube oil": "VCPLL",
-                "Coolant": "VCPLC"
-            },
-            "Shell India Marketing Pvt. Ltd.": "SIMPL",
+            "Valvoline Cummins (I) Pvt. Ltd. (Lube oil)": "VCPLLO",
+            "Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)": "VCPLLO",  # Handle double space
+            "Petronas": "PLI",
+            "Valvoline Cummins (I) Pvt. Ltd. (coolant)": "VCPLC",
+            "Valvoline Cummins (I) Pvt. Ltd.  (coolant)": "VCPLC",  # Handle double space
+            "BASF (Coolant)": "BASFC",
             "G S Caltex": "GSC",
-            "Exxon Mobil": "EM",
-            "BASF": {
-                "Brake Fluid": "BASFB",
-                "Coolant": "BASFC"
-            },
+            "G S Caltex (Base Oil Trading)": "GSCT",
+            "Nynas": "NYNAS",
+            "Sperry": "SPERRY",
+            "BASF (Brake Fluid)": "BASFB",
+            "Raj Petro (Solvent)": "RPS",
+            "Raj Petro (Blending)": "RPB",
+            "Shell India Marketing Pvt. Ltd.": "SIMPL",
             "Castrol (I) Pvt. Ltd.": "CIL",
+            "ENSOOILS": "EO",
+            "Exxon Mobil": "EM"
         }
 
-        prefix = None
-        subcategory = None
-
-        # === Step 2: Identify main customer & subcategory properly ===
-        # If brackets are at the end, like "BASF (Coolant)" → subcategory = "Coolant"
-        match = re.match(r'^(.*?)(?:\s*\(([^)]+)\))?$', customer)
-        if match:
-            main_customer = match.group(1).strip()
-            subcategory_candidate = match.group(2).strip() if match.group(2) else None
-
-            # Only treat it as a subcategory if the main_customer itself
-            # is in the prefix_map (meaning parentheses are not part of company name)
-            if main_customer in prefix_map and isinstance(prefix_map[main_customer], dict):
-                subcategory = subcategory_candidate
-        else:
-            main_customer = customer
-
-        # === Step 3: Resolve prefix from mapping ===
-        if main_customer in prefix_map:
-            value = prefix_map[main_customer]
-            if isinstance(value, dict):
-                prefix = value.get(subcategory)
-            else:
-                prefix = value
-
-        # === Step 4: Fallback if no match found ===
+        # === Step 2: Check direct match first (avoids regex issues with parentheses) ===
+        prefix = prefix_map.get(customer)
+        
+        # === Step 3: Fallback if no direct match found ===
         if not prefix:
-            prefix = "".join([word[0].upper() for word in main_customer.split() if word])
+            # Generate prefix from initials
+            prefix = "".join([word[0].upper() for word in customer.split() if word and word[0].isalpha()])
 
-        # === Step 5: Get last used number for this prefix ===
-        last = frappe.db.sql(
+        # === Step 4: Get last used number for this prefix ===
+        # Get ALL records with this prefix and find the maximum number
+        all_records = frappe.db.sql(
             """SELECT name FROM `tabSample Registration`
-               WHERE name LIKE %s AND name REGEXP %s
-               ORDER BY creation DESC LIMIT 1""",
-            (prefix + "/%", f"^{prefix}/[0-9]+$")
+               WHERE name LIKE %s""",
+            (prefix + "/%",)
         )
 
-        if last:
-            try:
-                last_number = int(last[0][0].split("/")[-1])
-                new_number = str(last_number + 1).zfill(4)
-            except Exception:
-                new_number = "0001"
-        else:
-            new_number = "0001"
-
+        max_number = 0
+        if all_records:
+            # Extract all numbers and find the maximum
+            for record in all_records:
+                try:
+                    num_str = record[0].split("/")[-1]
+                    # Extract only numeric part (handles cases like "0016-01")
+                    num = int(num_str.split("-")[0])
+                    if num > max_number:
+                        max_number = num
+                except (ValueError, IndexError):
+                    continue
+        
+        new_number = str(max_number + 1).zfill(4)
         self.name = f"{prefix}/{new_number}"
 
 

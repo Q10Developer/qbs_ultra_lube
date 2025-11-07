@@ -43,6 +43,41 @@
   "copper_strip_corrosion_astm_d130",
   "sulphated_ash__wt_astm_d874",
   "rust_preventive_astm_d665b",
+  "ash_astm_d482",
+  "sulphur_wt_astm_d4951",
+  "rpvot_astm_d2272_min",
+  "filterability_factor_stage_1wet_iso_13357_1",
+  "filterability_factor_stage_1dry_iso_13357_1",
+  "sms_3010",
+  "four_ball_wear_scar_astm_d4172_mm",
+  "brookfield_viscosity_12c_astm_d2983_mpas",
+  "brookfield_viscosity_55c_astm_d2983_mpas",
+  "kinematic_viscosity_after_100hrs_krl_astm_d445_mm\u00b2s",
+  "kinematic_viscosity_378c_astm_d445_mm\u00b2s",
+  "brookfield_viscosity_18c_astm_d2983_mpas",
+  "calcium__wt_astm_d5185",
+  "phosphorous__wt_astm_d5185",
+  "sulphur__wt_astm_d5185",
+  "molybdenum__wt_astm_d5185",
+  "aniline_point_astm_d611_c",
+  "suspended__matter_visual",
+  "ph_25c_d_1287",
+  "ph_25c_20__dil__astm_d1287",
+  "ph_25c_33__dil__astm_d1287",
+  "refractive_index_200c_astm_d1747",
+  "reserve_alkalnity_10gm_astm_d1121",
+  "boiling_point_50_dil_astm_d1120",
+  "freezing_point_50_dil_astm_d3321astm_d1177",
+  "chloride_content_ppm_astm_d3634",
+  "ph_25c_iso_3696",
+  "total_dissolve_solid__iso_3696_mgl",
+  "silicon_astm_d6130_ppm",
+  "erbp__astm_d1120_nearest_03c",
+  "dewatering_property_with_dm_water_ihtp_q13",
+  "viscosity__100_deg_c_astm_d6278",
+  "fbp",
+  "cp",
+  "sulphur_astm_d_4294",
   "column_break_xjhu",
   "item_name",
   "appearance_visual",
@@ -78,7 +113,43 @@
   "m2",
   "air_release_astm_d3427_min",
   "nitrogen__wt_ams_1208",
-  "brookfield"
+  "brookfield",
+  "density_1560c_astm_d4052_gml",
+  "sulphur_astm_d4294",
+  "silicon",
+  "lubad_1128",
+  "demulsibility_ip_19_sec",
+  "filterability_factor_stage_2wet_iso_13357_1",
+  "filterability_factor_stage_2dry_iso_13357_1",
+  "four_ball_wear_load_astm_d2783_kgf",
+  "brookfield_viscosity_20c_astm_d2983_mpas",
+  "brookfield_viscosity_40c_astm_d2983_mpas",
+  "chlorine_content_astm_d4927_ppm",
+  "filterability_factor_tms_371",
+  "density_1550c_astm_d4052_gml",
+  "cloud_point_astm_d2500_c",
+  "brookfield_viscosity_35c_astm_d2983_mpas",
+  "zinc__wt_astm_d5185",
+  "boron__wt_astm_d5185",
+  "magnessium__wt_astm_d5185",
+  "silicon__wt_astm_d5185",
+  "ph_50__dil__astm_d1287",
+  "ph_d_1287",
+  "ph_25c_10__dil_astm_d1287",
+  "ph_25c_30__dil__astm_d1287",
+  "ph_25c_50__dil__astm_d1287",
+  "reserve_alkalnity_10_ml_astm_d1121",
+  "boiling_point_astm_d1120_c",
+  "freezing_point_point_astm_d3321astm_d1177_c",
+  "foaming_replicate_880_c_astm_d1881_tendency",
+  "foaming_replicate_880_c_astm_d1881_stability",
+  "conductivity_25c_iso_3696_\u00b5scm",
+  "solubility_in_water_inhouse",
+  "wet_erbp_astm_d1120_nearest_03c",
+  "dewatering_property_with_3_nacl_solution_ihtp_q13",
+  "ibp",
+  "ca",
+  "cn"
  ],
  "fields": [
   {
@@ -93,121 +164,104 @@
   },
   {
    "fieldname": "item_name",
-   "fieldtype": "Data",
-   "label": "Item Name",
-   "length": 100
+   "fieldtype": "Small Text",
+   "label": "Item Name"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Blending Kettle Flushing\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "colour_astm_d1500",
-   "fieldtype": "Data",
-   "label": "Colour (ASTM D1500)",
-   "length": 25
+   "fieldtype": "Small Text",
+   "label": "Colour (ASTM D1500)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "ccs",
-   "fieldtype": "Data",
-   "label": "CCS @ -20 (ASTM D5293) (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "CCS @ -20 (ASTM D5293) (cP)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt - Base oil\"",
    "fieldname": "ccs3",
-   "fieldtype": "Data",
-   "label": "CCS @ -30 (ASTM D5293) (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "CCS @ -30 (ASTM D5293) (cP)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "ccs_1",
-   "fieldtype": "Data",
-   "label": "CCS @ -15 (ASTM D5293) (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "CCS @ -15 (ASTM D5293) (cP)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "ccs_2",
-   "fieldtype": "Data",
-   "label": "CCS @ -25 (ASTM D5293) (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "CCS @ -25 (ASTM D5293) (cP)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\"",
    "fieldname": "ccs_9",
-   "fieldtype": "Data",
-   "label": "CCS @ -35 (ASTM D5293) (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "CCS @ -35 (ASTM D5293) (cP)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\"",
    "fieldname": "ti_astm_d4951_",
-   "fieldtype": "Data",
-   "label": "Ti (ASTM D4951) (%)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Ti (ASTM D4951) (%)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "water_content_karl_fischer_volumetricastm_d1123_",
-   "fieldtype": "Data",
-   "label": "Water Content Karl Fischer (volumetric)(ASTM D1123) (%)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Water Content Karl Fischer (volumetric)(ASTM D1123) (%)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "boiling_point",
-   "fieldtype": "Data",
-   "label": "Boiling Point (ASTM D1120) (\u00b0C)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Boiling Point (ASTM D1120) (\u00b0C)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "viscosity",
-   "fieldtype": "Data",
-   "label": "Viscosity, MRV / Yield Stress -25C (15W) (ASTM D4684) (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Viscosity, MRV / Yield Stress -25C (15W) (ASTM D4684) (cP)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "srno_of_pack",
-   "fieldtype": "Data",
-   "label": "Sr.No of Pack",
-   "length": 50
+   "fieldtype": "Small Text",
+   "label": "Sr.No of Pack"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "viscosity1",
-   "fieldtype": "Data",
-   "label": "Viscosity, Blend @100\u00b0C (ASTM D445) (mm\u00b2/s)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Viscosity, Blend @100\u00b0C (ASTM D445) (mm\u00b2/s)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 Additive\"",
    "fieldname": "odour",
-   "fieldtype": "Data",
-   "label": "Odour",
-   "length": 30
+   "fieldtype": "Small Text",
+   "label": "Odour"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "viscosity4",
-   "fieldtype": "Data",
-   "label": "Viscosity, MRV / Yield Stress -30C (10W) (ASTM D4684) (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Viscosity, MRV / Yield Stress -30C (10W) (ASTM D4684) (cP)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "copper_corrosion_astm_d130",
-   "fieldtype": "Data",
-   "label": "Copper Corrosion (ASTM D130)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Copper Corrosion (ASTM D130)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "water_content_astm_d6304",
-   "fieldtype": "Data",
-   "label": "Water Content (ASTM D6304)(%)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Water Content (ASTM D6304)(%)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Blending Kettle Flushing\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
@@ -218,212 +272,182 @@
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "crackle",
-   "fieldtype": "Data",
-   "label": "Crackle Test (Inhouse)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Crackle Test (Inhouse)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "calcium",
-   "fieldtype": "Data",
-   "label": "Calcium, % wt (ASTM D4951)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Calcium, % wt (ASTM D4951)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "zinc",
-   "fieldtype": "Data",
-   "label": "Zinc, % wt (ASTM D4951)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Zinc, % wt (ASTM D4951)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "phosphorus",
-   "fieldtype": "Data",
-   "label": "Phosphorus, % wt (ASTM D4951)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Phosphorus, % wt (ASTM D4951)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\"",
    "fieldname": "boron",
-   "fieldtype": "Data",
-   "label": "Boron, % wt (ASTM D4951)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Boron, % wt (ASTM D4951)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "magnesium",
-   "fieldtype": "Data",
-   "label": "Magnesium, % wt (ASTM D4951)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Magnesium, % wt (ASTM D4951)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "molybdenum",
-   "fieldtype": "Data",
-   "label": "Molybdenum, % (ASTM D4951)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Molybdenum, % (ASTM D4951)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "colour_visual",
-   "fieldtype": "Data",
-   "label": "color (Visual)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "color (Visual)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\"",
    "fieldname": "ftir_comparison_with_std",
-   "fieldtype": "Data",
-   "label": "FTIR",
-   "length": 30
+   "fieldtype": "Small Text",
+   "label": "FTIR"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "refractive_index",
-   "fieldtype": "Data",
-   "label": "Refractive Index (NFT method)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Refractive Index (NFT method)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "sequence_ii_935c_stability",
-   "fieldtype": "Data",
-   "label": "Foam Sequence II, Stability (ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Foam Sequence II, Stability (ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "data_rkpq",
-   "fieldtype": "Data",
-   "label": "pH (SAE J1703/ASTM D 1287)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "pH (SAE J1703/ASTM D 1287)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Blending Kettle Flushing\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "average_kv_100c_four_significant_figure",
-   "fieldtype": "Data",
-   "label": "Kinematic Viscosity@ 100C (ASTM D445) (mm\u00b2/s)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Kinematic Viscosity@ 100C (ASTM D445) (mm\u00b2/s)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Blending Kettle Flushing\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\"",
    "fieldname": "average_kv_40c_four_significant_figure",
-   "fieldtype": "Data",
-   "label": "Kinematic Viscosity@ 40C (ASTM D445) (mm\u00b2/s)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Kinematic Viscosity@ 40C (ASTM D445) (mm\u00b2/s)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "average_four_significant_figure",
-   "fieldtype": "Data",
-   "label": "Density @29.5\u00b0C (ASTM D4052) (g/ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Density @29.5\u00b0C (ASTM D4052) (g/ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 Additive\"",
    "fieldname": "a",
-   "fieldtype": "Data",
-   "label": "Density @ 15C (ASTM D4052) (g/ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Density @ 15C (ASTM D4052) (g/ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "reported_flash_point_fp",
-   "fieldtype": "Data",
-   "label": "Flash Point, PMCC (ASTM D93) (\u00b0C)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Flash Point, PMCC (ASTM D93) (\u00b0C)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "average",
-   "fieldtype": "Data",
-   "label": "Density @20.0\u00b0C (ASTM D4052) (g/ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Density @20.0\u00b0C (ASTM D4052) (g/ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "mrv_viscosity_astm_d4684",
-   "fieldtype": "Data",
-   "label": "Viscosity, MRV / Yield Stress -20C (20W) (ASTM D4684)  (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Viscosity, MRV / Yield Stress -20C (20W) (ASTM D4684)  (cP)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "sequence_i_240c_stability",
-   "fieldtype": "Data",
-   "label": "Foam Sequence I, Stability (ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Foam Sequence I, Stability (ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "reported_pour_point_nearest_1c",
-   "fieldtype": "Data",
-   "label": "Pour Point (ASTM D97) (\u00b0C)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Pour Point (ASTM D97) (\u00b0C)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "sequence_ii_935c_tendency",
-   "fieldtype": "Data",
-   "label": "Foam Sequence II, Tendency (ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Foam Sequence II, Tendency (ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "hths",
-   "fieldtype": "Data",
-   "label": "Viscosity, HTHS 150C (ASTM D4683) (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Viscosity, HTHS 150C (ASTM D4683) (cP)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "sequence_iii_240c_tendency",
-   "fieldtype": "Data",
-   "label": "Foam Sequence III, Tendency (ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Foam Sequence III, Tendency (ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "sequence_iii_240c_stability",
-   "fieldtype": "Data",
-   "label": "Foam Sequence III, Stability (ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Foam Sequence III, Stability (ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "seq1",
-   "fieldtype": "Data",
-   "label": "Foam Sequence IV, Tendency (ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Foam Sequence IV, Tendency (ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "seq2",
-   "fieldtype": "Data",
-   "label": "Foam Sequence IV, Stability (ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Foam Sequence IV, Stability (ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "reported_flash_point_nearest_1c",
-   "fieldtype": "Data",
-   "label": "Flash Point (ASTM D92) (\u00b0C)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Flash Point (ASTM D92) (\u00b0C)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "sequence_i_240c_tendency",
-   "fieldtype": "Data",
-   "label": "Foam Sequence I, Tendency (ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Foam Sequence I, Tendency (ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "noack_volatality",
-   "fieldtype": "Data",
-   "label": "Noack Volatality (ASTM D5800)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Noack Volatality (ASTM D5800)"
   },
   {
    "fieldname": "sample_types",
@@ -434,151 +458,491 @@
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "kv",
-   "fieldtype": "Data",
-   "label": "Kinematic Viscosity@ -40C (ASTM D445) (mm\u00b2/s)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Kinematic Viscosity@ -40C (ASTM D445) (mm\u00b2/s)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\"",
    "fieldname": "density_15c",
-   "fieldtype": "Data",
-   "label": "Density @ 15C, Relative (g/ml)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Density @ 15C, Relative (g/ml)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Blending\"",
    "fieldname": "viscosity_index",
-   "fieldtype": "Data",
-   "label": "Viscosity Index (ASTMD2270)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Viscosity Index (ASTM D2270)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"BulkBulk Filling Tanker OUT- Blending\"",
    "fieldname": "average_total_base_number",
-   "fieldtype": "Data",
-   "label": "TBN (ASTM D2896) (mg of koH/g)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "TBN (ASTM D2896) (mg of koH/g)"
   },
   {
    "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt \u2013 Additive\"",
    "fieldname": "average_total_acid_number",
-   "fieldtype": "Data",
-   "label": "TAN (ASTM D664) (mg of koH/gm)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "TAN (ASTM D664) (mg of koH/gm)"
   },
   {
    "fieldname": "iso_4406",
-   "fieldtype": "Data",
-   "label": "ISO 4406",
-   "length": 15
+   "fieldtype": "Small Text",
+   "label": "ISO 4406"
   },
   {
    "fieldname": "demulsibility_astm_d1401",
-   "fieldtype": "Data",
-   "label": "Demulsibility (ASTM D1401)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Demulsibility (ASTM D1401)"
   },
   {
    "fieldname": "saponification_value_astm_d94",
-   "fieldtype": "Data",
-   "label": "Saponification Value (ASTM D94)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Saponification Value (ASTM D94)"
   },
   {
    "fieldname": "total_acid_number_astm_d974_mg_of_kog",
-   "fieldtype": "Data",
-   "label": "Total Acid Number (ASTM D974) (mg of Ko/g)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Total Acid Number (ASTM D974) (mg of Ko/g)"
   },
   {
    "fieldname": "viscosity9",
-   "fieldtype": "Data",
-   "label": "Viscosity, MRV / Yield Stress -35C (10W) (ASTM D4684) (cP)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Viscosity, MRV / Yield Stress -35C (10W) (ASTM D4684) (cP)"
   },
   {
    "fieldname": "mrv",
-   "fieldtype": "Data",
-   "label": "MRV  Yield Stress -35C (ASTM D4684) (Pa)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "MRV  Yield Stress -35C (ASTM D4684) (Pa)"
   },
   {
    "fieldname": "mrv1",
-   "fieldtype": "Data",
-   "label": "MRV  Yield Stress -30C (ASTM D4684) (Pa)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "MRV  Yield Stress -30C (ASTM D4684) (Pa)"
   },
   {
    "fieldname": "m",
-   "fieldtype": "Data",
-   "label": "MRV  Yield Stress -20C (ASTM D4684) (Pa)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "MRV  Yield Stress -20C (ASTM D4684) (Pa)"
   },
   {
    "fieldname": "m2",
-   "fieldtype": "Data",
-   "label": "MRV  Yield Stress -25C (ASTM D4684) (Pa)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "MRV  Yield Stress -25C (ASTM D4684) (Pa)"
   },
   {
    "fieldname": "demulsibibility_astm_d1401",
-   "fieldtype": "Data",
-   "label": "Demulsibibility (ASTM D1401)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Demulsibibility (ASTM D1401)"
   },
   {
    "fieldname": "air_release_astm_d3427_min",
-   "fieldtype": "Data",
-   "label": "Air Release (ASTM D3427) (Min)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Air Release (ASTM D3427) (Min)"
   },
   {
    "fieldname": "phenolic_inhibitor_ams_872_wt",
-   "fieldtype": "Data",
-   "label": "Phenolic Inhibitor (AMS 872) (%wt)",
-   "length": 20
+   "fieldtype": "Small Text",
+   "label": "Phenolic Inhibitor (AMS 872) (%wt)"
   },
   {
    "fieldname": "filterability_1_st_100_ml_08_\u00b5mams_1082_sec",
-   "fieldtype": "Data",
-   "label": "Filterability, 1 st 100 ml, 0.8 \u00b5m(AMS 1082) (Sec)",
-   "length": 10
+   "fieldtype": "Small Text",
+   "label": "Filterability, 1 st 100 ml, 0.8 \u00b5m(AMS 1082) (Sec)"
   },
   {
    "fieldname": "copper_strip_corrosion_astm_d130",
-   "fieldtype": "Data",
-   "label": "Copper Strip Corrosion (ASTM D130)",
-   "length": 10
+   "fieldtype": "Small Text",
+   "label": "Copper Strip Corrosion (ASTM D130)"
   },
   {
    "fieldname": "nitrogen__wt_ams_1208",
-   "fieldtype": "Data",
-   "label": "Nitrogen, % wt (AMS 1208)",
-   "length": 10
+   "fieldtype": "Small Text",
+   "label": "Nitrogen, % wt (AMS 1208)"
   },
   {
    "fieldname": "sulphated_ash__wt_astm_d874",
-   "fieldtype": "Data",
-   "label": "Sulphated Ash, % wt (ASTM D874)",
-   "length": 10
+   "fieldtype": "Small Text",
+   "label": "Sulphated Ash, % wt (ASTM D874)"
   },
   {
    "fieldname": "brookfield",
-   "fieldtype": "Data",
-   "label": "brookfield Viscosity @-26C (ASTM D2983) (m.pas)",
-   "length": 10
+   "fieldtype": "Small Text",
+   "label": "Brookfield Viscosity @-26C (ASTM D2983) (m.pas)"
   },
   {
    "fieldname": "rust_preventive_astm_d665b",
-   "fieldtype": "Data",
-   "label": "Rust Preventive (ASTM D665B)",
-   "length": 10
+   "fieldtype": "Small Text",
+   "label": "Rust Preventive (ASTM D665B)"
+  },
+  {
+   "fieldname": "density_1560c_astm_d4052_gml",
+   "fieldtype": "Small Text",
+   "label": "Density @15.60C (ASTM D4052) (g/ml)"
+  },
+  {
+   "fieldname": "sulphur_astm_d4294",
+   "fieldtype": "Small Text",
+   "label": "Sulphur (ASTM D4294) (%wt)"
+  },
+  {
+   "fieldname": "ash_astm_d482",
+   "fieldtype": "Small Text",
+   "label": "Ash (ASTM D482)"
+  },
+  {
+   "fieldname": "silicon",
+   "fieldtype": "Small Text",
+   "label": "Silicon, % wt (ASTM D4951)"
+  },
+  {
+   "fieldname": "sulphur_wt_astm_d4951",
+   "fieldtype": "Small Text",
+   "label": "Sulphur,  % wt (ASTM D4951)"
+  },
+  {
+   "fieldname": "lubad_1128",
+   "fieldtype": "Small Text",
+   "label": "Lubad 1128 (%)"
+  },
+  {
+   "fieldname": "rpvot_astm_d2272_min",
+   "fieldtype": "Small Text",
+   "label": "RPVOT (ASTM D2272) (Min)"
+  },
+  {
+   "fieldname": "demulsibility_ip_19_sec",
+   "fieldtype": "Small Text",
+   "label": "Demulsibility (IP 19) (Sec)"
+  },
+  {
+   "fieldname": "filterability_factor_stage_1wet_iso_13357_1",
+   "fieldtype": "Small Text",
+   "label": "Filterability factor Stage 1-Wet (ISO 13357-1)"
+  },
+  {
+   "fieldname": "filterability_factor_stage_2wet_iso_13357_1",
+   "fieldtype": "Small Text",
+   "label": "Filterability factor Stage 2-Wet (ISO 13357-1)"
+  },
+  {
+   "fieldname": "filterability_factor_stage_1dry_iso_13357_1",
+   "fieldtype": "Small Text",
+   "label": "Filterability factor Stage 1-Dry (ISO 13357-1)"
+  },
+  {
+   "fieldname": "filterability_factor_stage_2dry_iso_13357_1",
+   "fieldtype": "Small Text",
+   "label": "Filterability factor Stage 2-Dry (ISO 13357-1)"
+  },
+  {
+   "fieldname": "sms_3010",
+   "fieldtype": "Small Text",
+   "label": "SMS 3010"
+  },
+  {
+   "fieldname": "four_ball_wear_load_astm_d2783_kgf",
+   "fieldtype": "Small Text",
+   "label": "Four Ball wear Load (ASTM D2783) (kgf)"
+  },
+  {
+   "fieldname": "four_ball_wear_scar_astm_d4172_mm",
+   "fieldtype": "Small Text",
+   "label": "Four Ball Wear Scar (ASTM D4172) (mm)"
+  },
+  {
+   "fieldname": "brookfield_viscosity_20c_astm_d2983_mpas",
+   "fieldtype": "Small Text",
+   "label": "Brookfield Viscosity @ -20C (ASTM D2983) (mPa-s) "
+  },
+  {
+   "fieldname": "brookfield_viscosity_12c_astm_d2983_mpas",
+   "fieldtype": "Small Text",
+   "label": "Brookfield Viscosity @ -12C (ASTM D2983) (mPa-s) "
+  },
+  {
+   "fieldname": "brookfield_viscosity_40c_astm_d2983_mpas",
+   "fieldtype": "Small Text",
+   "label": "Brookfield Viscosity @ -40C (ASTM D2983) (mPa-s)"
+  },
+  {
+   "fieldname": "brookfield_viscosity_55c_astm_d2983_mpas",
+   "fieldtype": "Small Text",
+   "label": "Brookfield Viscosity @ -55C (ASTM D2983) (mPa-s)"
+  },
+  {
+   "fieldname": "chlorine_content_astm_d4927_ppm",
+   "fieldtype": "Small Text",
+   "label": "Chlorine Content (ASTM D4927) (ppm) "
+  },
+  {
+   "fieldname": "kinematic_viscosity_after_100hrs_krl_astm_d445_mm\u00b2s",
+   "fieldtype": "Small Text",
+   "label": "Kinematic Viscosity after 100hrs KRL (ASTM D445) (mm\u00b2/s)"
+  },
+  {
+   "fieldname": "filterability_factor_tms_371",
+   "fieldtype": "Small Text",
+   "label": "Filterability factor (TMS 371)"
+  },
+  {
+   "fieldname": "density_1550c_astm_d4052_gml",
+   "fieldtype": "Small Text",
+   "label": "Density @15.50\u00b0C (ASTM D4052) (g/ml)"
+  },
+  {
+   "fieldname": "kinematic_viscosity_378c_astm_d445_mm\u00b2s",
+   "fieldtype": "Small Text",
+   "label": "Kinematic Viscosity @ 37.8C (ASTM D445) (mm\u00b2/s)"
+  },
+  {
+   "fieldname": "cloud_point_astm_d2500_c",
+   "fieldtype": "Small Text",
+   "label": "Cloud Point (ASTM D2500) (\u00b0C)"
+  },
+  {
+   "fieldname": "brookfield_viscosity_18c_astm_d2983_mpas",
+   "fieldtype": "Small Text",
+   "label": "Brookfield Viscosity @-18C (ASTM D2983) (m.pas)"
+  },
+  {
+   "fieldname": "brookfield_viscosity_35c_astm_d2983_mpas",
+   "fieldtype": "Small Text",
+   "label": "Brookfield Viscosity @-35C (ASTM D2983) (m.pas)"
+  },
+  {
+   "fieldname": "calcium__wt_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Calcium, % wt (ASTM D5185)"
+  },
+  {
+   "fieldname": "zinc__wt_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Zinc, % wt (ASTM D5185)"
+  },
+  {
+   "fieldname": "phosphorous__wt_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Phosphorous, % wt (ASTM D5185)"
+  },
+  {
+   "fieldname": "boron__wt_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Boron, % wt (ASTM D5185)"
+  },
+  {
+   "fieldname": "sulphur__wt_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Sulphur, % wt (ASTM D5185)"
+  },
+  {
+   "fieldname": "magnessium__wt_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Magnessium, % wt (ASTM D5185)"
+  },
+  {
+   "fieldname": "molybdenum__wt_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Molybdenum, % wt (ASTM D5185)"
+  },
+  {
+   "fieldname": "silicon__wt_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Silicon, % wt (ASTM D5185)"
+  },
+  {
+   "fieldname": "aniline_point_astm_d611_c",
+   "fieldtype": "Small Text",
+   "label": "Aniline Point (ASTM D611) (\u00b0C)"
+  },
+  {
+   "fieldname": "suspended__matter_visual",
+   "fieldtype": "Small Text",
+   "label": "Suspended  Matter (Visual)"
+  },
+  {
+   "fieldname": "ph_50__dil__astm_d1287",
+   "fieldtype": "Small Text",
+   "label": "pH 50 % Dil.  (ASTM D1287)"
+  },
+  {
+   "fieldname": "ph_d_1287",
+   "fieldtype": "Small Text",
+   "label": "pH (ASTM D1287)"
+  },
+  {
+   "fieldname": "ph_25c_d_1287",
+   "fieldtype": "Small Text",
+   "label": "pH @ 25C (ASTM D1287)"
+  },
+  {
+   "fieldname": "ph_25c_10__dil_astm_d1287",
+   "fieldtype": "Small Text",
+   "label": "pH @25\u02daC - 10 % Dil.  (ASTM D1287)"
+  },
+  {
+   "fieldname": "ph_25c_20__dil__astm_d1287",
+   "fieldtype": "Small Text",
+   "label": "pH @25\u02daC - 20 % Dil.  (ASTM D1287)"
+  },
+  {
+   "fieldname": "ph_25c_30__dil__astm_d1287",
+   "fieldtype": "Small Text",
+   "label": "pH @25\u02daC - 30 % Dil.  (ASTM D1287)"
+  },
+  {
+   "fieldname": "ph_25c_33__dil__astm_d1287",
+   "fieldtype": "Small Text",
+   "label": "pH @25\u02daC - 33 % Dil.  (ASTM D1287)"
+  },
+  {
+   "fieldname": "ph_25c_50__dil__astm_d1287",
+   "fieldtype": "Small Text",
+   "label": "pH @25\u02daC - 50 % Dil.  (ASTM D1287)"
+  },
+  {
+   "fieldname": "refractive_index_200c_astm_d1747",
+   "fieldtype": "Small Text",
+   "label": "Refractive Index @20.0\u00b0C (ASTM D1747)"
+  },
+  {
+   "fieldname": "reserve_alkalnity_10_ml_astm_d1121",
+   "fieldtype": "Small Text",
+   "label": "Reserve Alkalnity 10 ml (ASTM D1121)"
+  },
+  {
+   "fieldname": "reserve_alkalnity_10gm_astm_d1121",
+   "fieldtype": "Small Text",
+   "label": "Reserve Alkalnity 10gm (ASTM D1121)"
+  },
+  {
+   "fieldname": "boiling_point_astm_d1120_c",
+   "fieldtype": "Small Text",
+   "label": "Boiling Point (ASTM D1120) (\u00b0C)"
+  },
+  {
+   "fieldname": "boiling_point_50_dil_astm_d1120",
+   "fieldtype": "Small Text",
+   "label": "Boiling Point 50% Dil. (ASTM D1120) "
+  },
+  {
+   "fieldname": "freezing_point_point_astm_d3321astm_d1177_c",
+   "fieldtype": "Small Text",
+   "label": "Freezing Point Point (ASTM D3321/ASTM D1177) (\u00b0C)"
+  },
+  {
+   "fieldname": "freezing_point_50_dil_astm_d3321astm_d1177",
+   "fieldtype": "Small Text",
+   "label": " Freezing Point 50% Dil. (ASTM D3321/ASTM D1177)"
+  },
+  {
+   "fieldname": "chloride_content_ppm_astm_d3634",
+   "fieldtype": "Small Text",
+   "label": "Chloride Content (ASTM D3634) (ppm) "
+  },
+  {
+   "fieldname": "ph_25c_iso_3696",
+   "fieldtype": "Small Text",
+   "label": "pH @25C (ISO 3696)"
+  },
+  {
+   "fieldname": "conductivity_25c_iso_3696_\u00b5scm",
+   "fieldtype": "Small Text",
+   "label": "Conductivity @25C (ISO 3696) (\u00b5S/cm)"
+  },
+  {
+   "fieldname": "total_dissolve_solid__iso_3696_mgl",
+   "fieldtype": "Small Text",
+   "label": "Total Dissolve Solid  (ISO 3696) (mg/L)"
+  },
+  {
+   "fieldname": "foaming_replicate_880_c_astm_d1881_tendency",
+   "fieldtype": "Small Text",
+   "label": "Foaming Replicate @ 88.0 \u00b0C Tendency (ASTM D1881)"
+  },
+  {
+   "fieldname": "foaming_replicate_880_c_astm_d1881_stability",
+   "fieldtype": "Small Text",
+   "label": "Foaming Replicate @ 88.0 \u00b0C Stability (ASTM D1881)"
+  },
+  {
+   "fieldname": "silicon_astm_d6130_ppm",
+   "fieldtype": "Small Text",
+   "label": "Silicon (ASTM D6130) (ppm) "
+  },
+  {
+   "description": "\u00b0C",
+   "fieldname": "erbp__astm_d1120_nearest_03c",
+   "fieldtype": "Small Text",
+   "label": "ERBP  (ASTM D1120) (Nearest 0.3\u00b0C)"
+  },
+  {
+   "fieldname": "dewatering_property_with_dm_water_ihtp_q13",
+   "fieldtype": "Small Text",
+   "label": "Dewatering Property with DM Water (IHTP Q13)"
+  },
+  {
+   "fieldname": "viscosity__100_deg_c_astm_d6278",
+   "fieldtype": "Small Text",
+   "label": "Viscosity @ 100 Deg C (ASTM D6278)"
+  },
+  {
+   "description": "\u00b0C",
+   "fieldname": "fbp",
+   "fieldtype": "Small Text",
+   "label": "FBP"
+  },
+  {
+   "description": "%",
+   "fieldname": "cp",
+   "fieldtype": "Small Text",
+   "label": "CP"
+  },
+  {
+   "description": "ppm",
+   "fieldname": "sulphur_astm_d_4294",
+   "fieldtype": "Small Text",
+   "label": "Sulphur (ASTM D 4294)"
+  },
+  {
+   "fieldname": "solubility_in_water_inhouse",
+   "fieldtype": "Small Text",
+   "label": "Solubility in Water (Inhouse)"
+  },
+  {
+   "description": "\u00b0C",
+   "fieldname": "wet_erbp_astm_d1120_nearest_03c",
+   "fieldtype": "Small Text",
+   "label": "Wet ERBP (ASTM D1120) (Nearest 0.3\u00b0C)"
+  },
+  {
+   "fieldname": "dewatering_property_with_3_nacl_solution_ihtp_q13",
+   "fieldtype": "Small Text",
+   "label": "Dewatering Property with 3% Nacl Solution (IHTP Q13)"
+  },
+  {
+   "description": "\u00b0C",
+   "fieldname": "ibp",
+   "fieldtype": "Small Text",
+   "label": "IBP"
+  },
+  {
+   "description": "%",
+   "fieldname": "ca",
+   "fieldtype": "Small Text",
+   "label": "CA"
+  },
+  {
+   "description": "%",
+   "fieldname": "cn",
+   "fieldtype": "Small Text",
+   "label": "CN"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-10-22 09:28:29.366141",
+ "modified": "2025-11-06 18:35:28.132834",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Parameters",

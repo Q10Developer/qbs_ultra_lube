@@ -1,12 +1,14 @@
 {
  "actions": [],
- "autoname": "format:{name_of_customer}-{####}",
- "creation": "2025-08-11 16:32:46.256928",
+ "allow_import": 1,
+ "autoname": "format:CIL/{####}",
+ "creation": "2025-11-07 18:56:53.014373",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "sample_register_items_section",
+  "company",
   "date_of_sample__receipt",
   "sample_registration_no",
   "type_of_sample",
@@ -25,7 +27,8 @@
   "sample_retention_period",
   "appearance",
   "sample_disposed_by",
-  "amended_from"
+  "amended_from",
+  "frequency"
  ],
  "fields": [
   {
@@ -47,14 +50,18 @@
   {
    "fieldname": "name_of_sample",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Name of Sample ",
-   "options": "Item"
+   "options": "Item",
+   "reqd": 1
   },
   {
    "fieldname": "type_of_sample",
    "fieldtype": "Link",
    "label": "Type of Sample",
-   "options": "Sample Types"
+   "link_filters": "[[\"Sample Types\",\"is_parent\",\"=\",0]]",
+   "options": "Sample Types",
+   "reqd": 1
   },
   {
    "fieldname": "name_of_supplier",
@@ -84,8 +91,10 @@
   {
    "fieldname": "name_of_customer",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Name of Customer",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "batch_no",
@@ -141,51 +150,35 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.name_of_customer==\"Castrol (I) Pvt. Ltd.\" && \ndoc.type_of_sample==\"Blending\"",
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "\nEACH BATCH\nANNUAL FIRST PROD\nFIRST PROD\nNA"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-10-27 14:42:51.439547",
+ "modified": "2025-11-12 14:10:54.786150",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Registration",
  "naming_rule": "Expression",
  "owner": "Administrator",
- "permissions": [
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  },
-  {
-   "amend": 1,
-   "cancel": 1,
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Quality Manager",
-   "select": 1,
-   "share": 1,
-   "submit": 1,
-   "write": 1
-  }
- ],
+ "permissions": [],
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",

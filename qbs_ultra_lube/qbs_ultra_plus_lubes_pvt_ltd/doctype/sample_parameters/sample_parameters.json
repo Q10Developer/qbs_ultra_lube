@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-09-11 14:46:01.651681",
+ "creation": "2025-11-07 18:56:56.362520",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -78,6 +78,10 @@
   "fbp",
   "cp",
   "sulphur_astm_d_4294",
+  "viscosity__100c_astm_d7042",
+  "ccs__10_astm_d5293_cp",
+  "viscosity_mrv__yield_stress_40c_astm_d4684_cp",
+  "refractive_index__20c_astm_d1218",
   "column_break_xjhu",
   "item_name",
   "appearance_visual",
@@ -149,7 +153,11 @@
   "dewatering_property_with_3_nacl_solution_ihtp_q13",
   "ibp",
   "ca",
-  "cn"
+  "cn",
+  "titanium__wt_astm_d5185",
+  "viscosity__40c_astm_d7042",
+  "viscosity_mrv__yield_stress_10c_astm_d4684_cp",
+  "viscosity_mrv__yield_stress_15c_astm_d4684_cp"
  ],
  "fields": [
   {
@@ -163,288 +171,242 @@
    "fieldtype": "Column Break"
   },
   {
+   "fetch_from": "item_code.item_name",
    "fieldname": "item_name",
    "fieldtype": "Small Text",
    "label": "Item Name"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Blending Kettle Flushing\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "colour_astm_d1500",
    "fieldtype": "Small Text",
    "label": "Colour (ASTM D1500)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "ccs",
    "fieldtype": "Small Text",
    "label": "CCS @ -20 (ASTM D5293) (cP)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt - Base oil\"",
    "fieldname": "ccs3",
    "fieldtype": "Small Text",
    "label": "CCS @ -30 (ASTM D5293) (cP)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "ccs_1",
    "fieldtype": "Small Text",
    "label": "CCS @ -15 (ASTM D5293) (cP)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "ccs_2",
    "fieldtype": "Small Text",
    "label": "CCS @ -25 (ASTM D5293) (cP)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\"",
    "fieldname": "ccs_9",
    "fieldtype": "Small Text",
    "label": "CCS @ -35 (ASTM D5293) (cP)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\"",
    "fieldname": "ti_astm_d4951_",
    "fieldtype": "Small Text",
    "label": "Ti (ASTM D4951) (%)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "water_content_karl_fischer_volumetricastm_d1123_",
    "fieldtype": "Small Text",
    "label": "Water Content Karl Fischer (volumetric)(ASTM D1123) (%)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "boiling_point",
    "fieldtype": "Small Text",
    "label": "Boiling Point (ASTM D1120) (\u00b0C)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "viscosity",
    "fieldtype": "Small Text",
    "label": "Viscosity, MRV / Yield Stress -25C (15W) (ASTM D4684) (cP)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "srno_of_pack",
    "fieldtype": "Small Text",
    "label": "Sr.No of Pack"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "viscosity1",
    "fieldtype": "Small Text",
    "label": "Viscosity, Blend @100\u00b0C (ASTM D445) (mm\u00b2/s)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 Additive\"",
    "fieldname": "odour",
    "fieldtype": "Small Text",
    "label": "Odour"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "viscosity4",
    "fieldtype": "Small Text",
    "label": "Viscosity, MRV / Yield Stress -30C (10W) (ASTM D4684) (cP)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "copper_corrosion_astm_d130",
    "fieldtype": "Small Text",
    "label": "Copper Corrosion (ASTM D130)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "water_content_astm_d6304",
    "fieldtype": "Small Text",
    "label": "Water Content (ASTM D6304)(%)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Blending Kettle Flushing\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "appearance_visual",
    "fieldtype": "Small Text",
    "label": "Appearance (Visual)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "crackle",
    "fieldtype": "Small Text",
    "label": "Crackle Test (Inhouse)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "calcium",
    "fieldtype": "Small Text",
    "label": "Calcium, % wt (ASTM D4951)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "zinc",
    "fieldtype": "Small Text",
    "label": "Zinc, % wt (ASTM D4951)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "phosphorus",
    "fieldtype": "Small Text",
    "label": "Phosphorus, % wt (ASTM D4951)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\"",
    "fieldname": "boron",
    "fieldtype": "Small Text",
    "label": "Boron, % wt (ASTM D4951)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "magnesium",
    "fieldtype": "Small Text",
    "label": "Magnesium, % wt (ASTM D4951)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "molybdenum",
    "fieldtype": "Small Text",
    "label": "Molybdenum, % (ASTM D4951)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "colour_visual",
    "fieldtype": "Small Text",
    "label": "color (Visual)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\"",
    "fieldname": "ftir_comparison_with_std",
    "fieldtype": "Small Text",
    "label": "FTIR"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "refractive_index",
    "fieldtype": "Small Text",
    "label": "Refractive Index (NFT method)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "sequence_ii_935c_stability",
    "fieldtype": "Small Text",
    "label": "Foam Sequence II, Stability (ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "data_rkpq",
    "fieldtype": "Small Text",
    "label": "pH (SAE J1703/ASTM D 1287)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Blending Kettle Flushing\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "average_kv_100c_four_significant_figure",
    "fieldtype": "Small Text",
    "label": "Kinematic Viscosity@ 100C (ASTM D445) (mm\u00b2/s)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Blending Kettle Flushing\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\"",
    "fieldname": "average_kv_40c_four_significant_figure",
    "fieldtype": "Small Text",
    "label": "Kinematic Viscosity@ 40C (ASTM D445) (mm\u00b2/s)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Bulk Filling Tanker OUT- Blending\"",
    "fieldname": "average_four_significant_figure",
    "fieldtype": "Small Text",
    "label": "Density @29.5\u00b0C (ASTM D4052) (g/ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 Additive\"",
    "fieldname": "a",
    "fieldtype": "Small Text",
    "label": "Density @ 15C (ASTM D4052) (g/ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "reported_flash_point_fp",
    "fieldtype": "Small Text",
    "label": "Flash Point, PMCC (ASTM D93) (\u00b0C)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "average",
    "fieldtype": "Small Text",
    "label": "Density @20.0\u00b0C (ASTM D4052) (g/ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "mrv_viscosity_astm_d4684",
    "fieldtype": "Small Text",
    "label": "Viscosity, MRV / Yield Stress -20C (20W) (ASTM D4684)  (cP)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "sequence_i_240c_stability",
    "fieldtype": "Small Text",
    "label": "Foam Sequence I, Stability (ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\" || doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "reported_pour_point_nearest_1c",
    "fieldtype": "Small Text",
    "label": "Pour Point (ASTM D97) (\u00b0C)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"Blending\"",
    "fieldname": "sequence_ii_935c_tendency",
    "fieldtype": "Small Text",
    "label": "Foam Sequence II, Tendency (ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "hths",
    "fieldtype": "Small Text",
    "label": "Viscosity, HTHS 150C (ASTM D4683) (cP)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "sequence_iii_240c_tendency",
    "fieldtype": "Small Text",
    "label": "Foam Sequence III, Tendency (ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "sequence_iii_240c_stability",
    "fieldtype": "Small Text",
    "label": "Foam Sequence III, Stability (ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "seq1",
    "fieldtype": "Small Text",
    "label": "Foam Sequence IV, Tendency (ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "seq2",
    "fieldtype": "Small Text",
    "label": "Foam Sequence IV, Stability (ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "reported_flash_point_nearest_1c",
    "fieldtype": "Small Text",
    "label": "Flash Point (ASTM D92) (\u00b0C)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Blending\"",
    "fieldname": "sequence_i_240c_tendency",
    "fieldtype": "Small Text",
    "label": "Foam Sequence I, Tendency (ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\"",
    "fieldname": "noack_volatality",
    "fieldtype": "Small Text",
    "label": "Noack Volatality (ASTM D5800)"
@@ -456,31 +418,26 @@
    "options": "Sample Types"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"Bulk Filling Tanker OUT\" || doc.sample_types==\"Filling Line Tea Break Sample\" || doc.sample_types==\"Filling Line Lunch Break Sample\" || doc.sample_types==\"Filling Line End Sample\" || doc.sample_types==\"Filling Line Break Sample\" || doc.sample_types==\"Storage Tank flushing\"",
    "fieldname": "kv",
    "fieldtype": "Small Text",
    "label": "Kinematic Viscosity@ -40C (ASTM D445) (mm\u00b2/s)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\"",
    "fieldname": "density_15c",
    "fieldtype": "Small Text",
    "label": "Density @ 15C, Relative (g/ml)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt \u2013 Additive\" || doc.sample_types==\"Blending\"",
    "fieldname": "viscosity_index",
    "fieldtype": "Small Text",
    "label": "Viscosity Index (ASTM D2270)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt \u2013 SFG\" || doc.sample_types==\"First Filled sample\" || doc.sample_types==\"BulkBulk Filling Tanker OUT- Blending\"",
    "fieldname": "average_total_base_number",
    "fieldtype": "Small Text",
    "label": "TBN (ASTM D2896) (mg of koH/g)"
   },
   {
-   "depends_on": "eval:doc.sample_types==\"Receipt - Base oil\" || doc.sample_types==\"Bulk Filling Tanker OUT- Base oil\" || doc.sample_types==\"Receipt \u2013 Additive\"",
    "fieldname": "average_total_acid_number",
    "fieldtype": "Small Text",
    "label": "TAN (ASTM D664) (mg of koH/gm)"
@@ -902,7 +859,7 @@
    "description": "ppm",
    "fieldname": "sulphur_astm_d_4294",
    "fieldtype": "Small Text",
-   "label": "Sulphur (ASTM D 4294)"
+   "label": "Sulphur (ASTM D4294)"
   },
   {
    "fieldname": "solubility_in_water_inhouse",
@@ -937,12 +894,52 @@
    "fieldname": "cn",
    "fieldtype": "Small Text",
    "label": "CN"
+  },
+  {
+   "fieldname": "titanium__wt_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Titanium, % wt (ASTM D5185)"
+  },
+  {
+   "fieldname": "viscosity__100c_astm_d7042",
+   "fieldtype": "Small Text",
+   "label": "Viscosity @ 100C (ASTM D7042)"
+  },
+  {
+   "fieldname": "viscosity__40c_astm_d7042",
+   "fieldtype": "Small Text",
+   "label": "Viscosity @ 40C (ASTM D7042)"
+  },
+  {
+   "fieldname": "ccs__10_astm_d5293_cp",
+   "fieldtype": "Small Text",
+   "label": "CCS @ -10 (ASTM D5293) (cP)"
+  },
+  {
+   "fieldname": "viscosity_mrv__yield_stress_40c_astm_d4684_cp",
+   "fieldtype": "Small Text",
+   "label": "Viscosity, MRV / Yield Stress -40C (ASTM D4684) (cP)"
+  },
+  {
+   "fieldname": "viscosity_mrv__yield_stress_10c_astm_d4684_cp",
+   "fieldtype": "Small Text",
+   "label": "Viscosity, MRV / Yield Stress -10C (ASTM D4684) (cP)"
+  },
+  {
+   "fieldname": "viscosity_mrv__yield_stress_15c_astm_d4684_cp",
+   "fieldtype": "Small Text",
+   "label": "Viscosity, MRV / Yield Stress -15C (ASTM D4684) (cP)"
+  },
+  {
+   "fieldname": "refractive_index__20c_astm_d1218",
+   "fieldtype": "Small Text",
+   "label": "Refractive Index @ 20\u00b0C (ASTM D1218)"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-06 18:35:28.132834",
+ "modified": "2025-11-13 19:00:57.772888",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Parameters",

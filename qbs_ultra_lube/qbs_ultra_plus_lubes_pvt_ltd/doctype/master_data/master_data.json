@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-10-13 09:45:34.222198",
+ "creation": "2025-11-07 18:56:54.191773",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -76,7 +76,7 @@
    "options": "Company"
   },
   {
-   "depends_on": "eval:doc.name_of_the_company==\"Ultra Plus Lubes Pvt. Ltd.\"",
+   "depends_on": "eval:doc.name_of_the_company==\"Ultra Plus Lubes Pvt. Ltd Unit IV\"",
    "fieldname": "marwel",
    "fieldtype": "Table",
    "label": "Unit IV",
@@ -118,7 +118,7 @@
    "options": "CRM-WCL List"
   },
   {
-   "depends_on": "eval:doc.name_of_the_company==\"Ultra Plus Lubes Pvt. Ltd.\"",
+   "depends_on": "eval:doc.name_of_the_company==\"Ultra Plus Lubes Pvt. Ltd Unit IV\"",
    "fieldname": "rm_marvel",
    "fieldtype": "Table",
    "label": "Rm Unit IV",
@@ -135,7 +135,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-04 09:11:11.978652",
+ "modified": "2025-11-12 12:49:27.187825",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Master Data",

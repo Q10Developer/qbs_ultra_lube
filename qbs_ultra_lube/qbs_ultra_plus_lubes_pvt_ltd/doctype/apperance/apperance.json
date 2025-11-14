@@ -1,7 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-08-26 18:16:32.410120",
+ "autoname": "field:name_of_apperance",
+ "creation": "2025-11-07 18:56:53.807162",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -11,13 +12,14 @@
   {
    "fieldname": "name_of_apperance",
    "fieldtype": "Data",
-   "label": "Name of Apperance"
+   "label": "Name of Apperance",
+   "unique": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-08-30 14:00:43.701830",
+ "modified": "2025-11-14 17:24:24.091311",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Apperance",
@@ -50,7 +52,9 @@
   }
  ],
  "row_format": "Dynamic",
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "name_of_apperance"
 }

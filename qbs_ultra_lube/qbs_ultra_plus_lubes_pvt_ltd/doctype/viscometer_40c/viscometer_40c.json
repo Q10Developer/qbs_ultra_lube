@@ -1,8 +1,9 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:viscometer_id",
- "creation": "2025-09-09 14:20:57.758080",
+ "creation": "2025-11-07 18:56:56.211972",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -25,7 +26,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-09 15:47:21.560945",
+ "modified": "2025-11-25 11:03:47.372868",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Viscometer 40C",

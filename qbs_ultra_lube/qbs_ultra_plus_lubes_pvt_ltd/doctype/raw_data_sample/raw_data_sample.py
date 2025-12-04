@@ -118,10 +118,11 @@ mapping_parameters = {
 	"Zinc": "zinc",
 	"Titanium": "ti_astm_d4951_",
     # "Nitrogen": "",
-    # "Silicon (ASTM D6130)": "",
-    # "Silicate (ASTM D6130)": "",
+    "Silicon (ASTM D6130)": "silicon_astm_d6130_ppm",
+    "Silicate (ASTM D6130)": "silicate_astm_d6130_ppm",
     "Calcium (ASTM D5185)": "calcium__wt_astm_d5185",
     "Phosphorus (ASTM D5185)": "phosphorous__wt_astm_d5185",
+    "Zinc (ASTM D5185)": "zinc__wt_astm_d5185",
     "Boron (ASTM D5185)": "boron__wt_astm_d5185",
     "Sulphur (ASTM D5185)": "sulphur__wt_astm_d5185",
     "Magnesium (ASTM D5185)": "magnessium__wt_astm_d5185",
@@ -132,7 +133,7 @@ mapping_parameters = {
 	"CCS @ -15 (ASTM D5293)": "ccs_1",
 	"CCS @ -20 (ASTM D5293)": "ccs",
 	"CCS @ -25 (ASTM D5293)": "ccs_2",
-	"CCS @ -30 (ASTM D5293": "ccs3",
+	"CCS @ -30 (ASTM D5293)": "ccs3",
 	"CCS @ -35 (ASTM D5293)": "ccs_9",
 	"Demulsibility (IP 19)": "demulsibility_astm_d1401",
 	" Water Content (ASTM D6304) (Nearest 1 ppm)": "water_content_astm_d6304",
@@ -146,11 +147,15 @@ mapping_parameters = {
 	"KRL after 48 Hrs (ASTM D445) (Four significant figure)": "kinematic_viscosity_after_100hrs_krl_astm_d445_mm²s",
 	"Viscosity, MRV / Yield Stress -10C (ASTM D4684)": "viscosity_mrv__yield_stress_10c_astm_d4684_cp",
 	"Viscosity, MRV / Yield Stress -15C (ASTM D4684)": "viscosity_mrv__yield_stress_15c_astm_d4684_cp",
-	"Viscosity, MRV / Yield Stress -20C (ASTM D4684)": "m",
-	"Viscosity, MRV / Yield Stress -25C (ASTM D4684)": "m2",
-	"Viscosity, MRV / Yield Stress -30C (ASTM D4684)": "mrv1",
-	"Viscosity, MRV / Yield Stress -35C (ASTM D4684)": "mrv",
+	"Viscosity, MRV / Yield Stress -20C (ASTM D4684)": "mrv_viscosity_astm_d4684",
+	"Viscosity, MRV / Yield Stress -25C (ASTM D4684)": "viscosity",
+	"Viscosity, MRV / Yield Stress -30C (ASTM D4684)": "viscosity4",
+	"Viscosity, MRV / Yield Stress -35C (ASTM D4684)": "viscosity9",
     "Viscosity, MRV / Yield Stress -40C (ASTM D4684)": "viscosity_mrv__yield_stress_40c_astm_d4684_cp",
+    "Yield Stress, MRV -35C (ASTM D4684)": "mrv",
+    "Yield Stress, MRV -30C (ASTM D4684)": "mrv1",
+    "Yield Stress, MRV -20C (ASTM D4684)": "m",
+    "Yield Stress, MRV -25C (ASTM D4684)": "m2",
 	"Filterability (Filterability factor)Stage 1 (Wet)": "filterability_factor_stage_1wet_iso_13357_1",
 	"Filterability (Filterability factor)Stage 1 (Dry)": "filterability_factor_stage_1dry_iso_13357_1",
 	"Filterability (Filterability factor)Stage 2 (Wet)": "filterability_factor_stage_2wet_iso_13357_1",
@@ -183,8 +188,9 @@ mapping_parameters = {
 	"FBP": "fbp",
 	"IBP": "ibp",
     "Cloud Point": "cloud_point_astm_d2500_c",
-    "Sulphur (ASTM D4294)": "sulphur_astm_d_4294",
+    "sulphurastm_d4294": "sulphur_astm_d_4294",
     "refractive_index__20c_astm_d1218": "refractive_index__20c_astm_d1218",
+    "saponification_value_astm_d94": "saponification_value_astm_d94"
 }
 
 only_last_row_tables =[
@@ -212,6 +218,50 @@ only_last_row_tables =[
 
 
 class RawDataSample(Document):
+    def on_submit(self):
+        """Push final sample status & completion date to the linked Sample Registration."""
+        if not self.sample_registration_no:
+            return
+
+        # frappe.db.set_value(
+        #     "Sample Registration",
+        #     self.sample_registration_no,
+        #     {
+        #         "sample_status": self.pass_or_fail,
+        #         "date_of_analysis_completed": self.date_of_analysis_completed,
+        #         "remark": self.remark_if_any
+        #     },
+        # )
+
+        # Fetch the linked Sample Registration doc
+        doc = frappe.get_doc("Sample Registration", self.sample_registration_no)
+
+        # Update fields
+        doc.sample_status = self.pass_or_fail
+        doc.date_of_analysis_completed = self.date_of_analysis_completed
+        doc.remark = self.remark_if_any
+
+        # Save and submit properly
+        # doc.save(ignore_permissions=True)  # ensures changes persist
+        if doc.docstatus == 0:             # only submit if still draft
+            doc.submit()
+            frappe.db.commit()
+
+    def on_cancel(self):
+        """Clear status/date on parent Sample Registration if this sample is cancelled."""
+        if not self.sample_registration_no:
+            return
+
+        frappe.db.set_value(
+            "Sample Registration",
+            self.sample_registration_no,
+            {
+                "sample_status": None,
+                "date_of_analysis_completed": None,
+            },
+        )
+        frappe.db.commit()
+
     @frappe.whitelist()
     def preload_all_tables(self, samplePara, showFieldMap):
         sampleParam=json.loads(samplePara)
@@ -230,6 +280,15 @@ class RawDataSample(Document):
             template = frappe.get_doc("Child Table Template", template_name)
             allowed_parameters = showField_map.get(customer_name, {}).get(sample_type, [])
             foamingList=[];
+
+            def is_replicate_valid(entry):
+                param_name = entry.parameter_name
+                param_field = mapping_parameters.get(param_name)
+                if not param_field:
+                    return False
+                param_data = sampleParam.get(param_field)
+                if param_data and str(param_data).strip().upper() != "NA" and param_name in allowed_parameters:
+                    return True
             
             def is_row_valid(entry):
                 param_name = entry.parameter_name
@@ -266,11 +325,15 @@ class RawDataSample(Document):
                 if(param_name == "Sequence I @ 24.0°C Tendency" or param_name == "Sequence I @ 24.0°C Stability" or param_name == "Sequence II @ 93.5°C Tendency" or param_name == "Sequence II @ 93.5°C Stability" or param_name == "Sequence III @ 24.0°C Tendency" or param_name == "Sequence III @ 24.0°C Stability" or param_name == "Sequence IV @ 150 °C Tendency" or param_name == "Sequence IV @ 150 °C Stability"):
                     if(param_data !=None and str(param_data).strip().upper() != "NA" and param_name in allowed_parameters):
                         foamingList.append(param_name)
+                
                 return (
                     param_data is not None and
                     str(param_data).strip().upper() != "NA" and
                     param_name in allowed_parameters
                 )
+            
+            # frappe.msgprint(foamingList);
+            # print(foamingList)
 
             # only_last_row = child_table_name in only_last_row_tables
             filtered_rows = []
@@ -286,6 +349,13 @@ class RawDataSample(Document):
                         filtered_rows = []
                 else:
                     filtered_rows = []
+            elif child_table_name is "foaming_table":
+                 for entry in template.table_tkbh:
+                    if(entry.parameter_name == "Average @ 88.0 °C Tendency (T)"): 
+                        if is_replicate_valid(entry):
+                            filtered_rows = template.table_tkbh
+                        else:
+                           filtered_rows = []
             else:
                 # Check all rows and return only valid ones
                 filtered_rows = [entry for entry in template.table_tkbh if is_row_valid(entry)]
@@ -294,13 +364,24 @@ class RawDataSample(Document):
                 # result[child_table_name] = [row.as_dict() for row in filtered_rows]
 
             if filtered_rows:
-                # ✅ Inject rows directly into the current document
+                existing_parameters = {
+                    row.parameter_name
+                    for row in (self.get(child_table_name) or [])
+                    if row.parameter_name
+                }
+
+                # ✅ Inject rows directly into the current document when missing
                 for entry in filtered_rows:
+                    if entry.parameter_name in existing_parameters:
+                        continue
+
                     self.append(child_table_name, {
                         "parameter_name": entry.parameter_name,
                         "unit": entry.unit,
                         "value": ""
                     })
+                    existing_parameters.add(entry.parameter_name)
+                    
 
                 # ✅ Track which tables were populated
                 result[child_table_name] = True
@@ -347,15 +428,26 @@ class RawDataSample(Document):
                 # result[child_table_name] = [row.as_dict() for row in filtered_rows]
 
             if filtered_rows:
-                # ✅ Inject rows directly into the current document
+                existing_parameters = {
+                    row.parameter_name
+                    for row in (self.get(child_table_name) or [])
+                    if row.parameter_name
+                }
+
+                # ✅ Inject rows directly into the current document when missing
                 for entry in filtered_rows:
+                    if entry.parameter_name in existing_parameters:
+                        continue
+
                     self.append(child_table_name, {
                         "parameter_name": entry.parameter_name,
                         "unit": entry.unit,
                         "value": ""
                     })
+                    existing_parameters.add(entry.parameter_name)
 
                 # ✅ Track which tables were populated
                 result[child_table_name] = True
 
         return result
+

@@ -1,9 +1,8 @@
 {
  "actions": [],
- "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:viscometer_id",
- "creation": "2025-11-07 18:56:54.616146",
+ "creation": "2025-12-03 11:43:12.225928",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -15,21 +14,23 @@
    "fieldname": "viscometer_id",
    "fieldtype": "Data",
    "label": "Viscometer ID",
+   "length": 30,
    "unique": 1
   },
   {
    "fieldname": "viscometer_constant",
    "fieldtype": "Data",
-   "label": "Viscometer Constant"
+   "label": "Viscometer Constant",
+   "length": 10
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-25 11:03:35.276147",
+ "modified": "2025-12-03 11:44:45.302378",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
- "name": "Viscometer 100C",
+ "name": "Viscometer 37C",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

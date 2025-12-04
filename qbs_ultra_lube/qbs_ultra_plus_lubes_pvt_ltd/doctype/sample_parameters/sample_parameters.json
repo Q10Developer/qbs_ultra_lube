@@ -7,6 +7,7 @@
  "field_order": [
   "item_code",
   "sample_types",
+  "customer",
   "crackle",
   "average_kv_100c_four_significant_figure",
   "average_total_base_number",
@@ -37,10 +38,8 @@
   "total_acid_number_astm_d974_mg_of_kog",
   "mrv",
   "m",
-  "demulsibibility_astm_d1401",
   "phenolic_inhibitor_ams_872_wt",
   "filterability_1_st_100_ml_08_\u00b5mams_1082_sec",
-  "copper_strip_corrosion_astm_d130",
   "sulphated_ash__wt_astm_d874",
   "rust_preventive_astm_d665b",
   "ash_astm_d482",
@@ -82,6 +81,10 @@
   "ccs__10_astm_d5293_cp",
   "viscosity_mrv__yield_stress_40c_astm_d4684_cp",
   "refractive_index__20c_astm_d1218",
+  "silicate_astm_d6130_ppm",
+  "density_295c_astm_d1298_gml",
+  "density_1560c_astm_d1298_gml",
+  "nas_1638",
   "column_break_xjhu",
   "item_name",
   "appearance_visual",
@@ -119,7 +122,6 @@
   "nitrogen__wt_ams_1208",
   "brookfield",
   "density_1560c_astm_d4052_gml",
-  "sulphur_astm_d4294",
   "silicon",
   "lubad_1128",
   "demulsibility_ip_19_sec",
@@ -143,7 +145,6 @@
   "ph_25c_30__dil__astm_d1287",
   "ph_25c_50__dil__astm_d1287",
   "reserve_alkalnity_10_ml_astm_d1121",
-  "boiling_point_astm_d1120_c",
   "freezing_point_point_astm_d3321astm_d1177_c",
   "foaming_replicate_880_c_astm_d1881_tendency",
   "foaming_replicate_880_c_astm_d1881_stability",
@@ -157,12 +158,18 @@
   "titanium__wt_astm_d5185",
   "viscosity__40c_astm_d7042",
   "viscosity_mrv__yield_stress_10c_astm_d4684_cp",
-  "viscosity_mrv__yield_stress_15c_astm_d4684_cp"
+  "viscosity_mrv__yield_stress_15c_astm_d4684_cp",
+  "nitrogen_mass_astm_d5185",
+  "density__15c_astm_d1298_gml",
+  "density_200c_astm_d1298_gml",
+  "density_1550c_astm_d1298_gml"
  ],
  "fields": [
   {
    "fieldname": "item_code",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Item Code",
    "options": "Item"
   },
@@ -174,6 +181,8 @@
    "fetch_from": "item_code.item_name",
    "fieldname": "item_name",
    "fieldtype": "Small Text",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Item Name"
   },
   {
@@ -414,7 +423,10 @@
   {
    "fieldname": "sample_types",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_standard_filter": 1,
    "label": "Sample Types",
+   "link_filters": "[[\"Sample Types\",\"is_parent\",\"=\",0]]",
    "options": "Sample Types"
   },
   {
@@ -488,11 +500,6 @@
    "label": "MRV  Yield Stress -25C (ASTM D4684) (Pa)"
   },
   {
-   "fieldname": "demulsibibility_astm_d1401",
-   "fieldtype": "Small Text",
-   "label": "Demulsibibility (ASTM D1401)"
-  },
-  {
    "fieldname": "air_release_astm_d3427_min",
    "fieldtype": "Small Text",
    "label": "Air Release (ASTM D3427) (Min)"
@@ -506,11 +513,6 @@
    "fieldname": "filterability_1_st_100_ml_08_\u00b5mams_1082_sec",
    "fieldtype": "Small Text",
    "label": "Filterability, 1 st 100 ml, 0.8 \u00b5m(AMS 1082) (Sec)"
-  },
-  {
-   "fieldname": "copper_strip_corrosion_astm_d130",
-   "fieldtype": "Small Text",
-   "label": "Copper Strip Corrosion (ASTM D130)"
   },
   {
    "fieldname": "nitrogen__wt_ams_1208",
@@ -538,11 +540,6 @@
    "label": "Density @15.60C (ASTM D4052) (g/ml)"
   },
   {
-   "fieldname": "sulphur_astm_d4294",
-   "fieldtype": "Small Text",
-   "label": "Sulphur (ASTM D4294) (%wt)"
-  },
-  {
    "fieldname": "ash_astm_d482",
    "fieldtype": "Small Text",
    "label": "Ash (ASTM D482)"
@@ -560,7 +557,7 @@
   {
    "fieldname": "lubad_1128",
    "fieldtype": "Small Text",
-   "label": "Lubad 1128 (%)"
+   "label": "Lubad 1128 (LQS025)"
   },
   {
    "fieldname": "rpvot_astm_d2272_min",
@@ -773,11 +770,6 @@
    "label": "Reserve Alkalnity 10gm (ASTM D1121)"
   },
   {
-   "fieldname": "boiling_point_astm_d1120_c",
-   "fieldtype": "Small Text",
-   "label": "Boiling Point (ASTM D1120) (\u00b0C)"
-  },
-  {
    "fieldname": "boiling_point_50_dil_astm_d1120",
    "fieldtype": "Small Text",
    "label": "Boiling Point 50% Dil. (ASTM D1120) "
@@ -934,12 +926,59 @@
    "fieldname": "refractive_index__20c_astm_d1218",
    "fieldtype": "Small Text",
    "label": "Refractive Index @ 20\u00b0C (ASTM D1218)"
+  },
+  {
+   "fieldname": "silicate_astm_d6130_ppm",
+   "fieldtype": "Small Text",
+   "label": "Silicate (ASTM D6130) (ppm)"
+  },
+  {
+   "fieldname": "nitrogen_mass_astm_d5185",
+   "fieldtype": "Small Text",
+   "label": "Nitrogen, %mass (ASTM D5185)"
+  },
+  {
+   "fieldname": "density__15c_astm_d1298_gml",
+   "fieldtype": "Small Text",
+   "label": "Density @ 15C (ASTM D1298) (g/ml)"
+  },
+  {
+   "fieldname": "density_295c_astm_d1298_gml",
+   "fieldtype": "Small Text",
+   "label": "Density @29.5\u00b0C (ASTM D1298) (g/ml)"
+  },
+  {
+   "fieldname": "density_200c_astm_d1298_gml",
+   "fieldtype": "Small Text",
+   "label": "Density @20.0\u00b0C (ASTM D1298) (g/ml)"
+  },
+  {
+   "fieldname": "density_1560c_astm_d1298_gml",
+   "fieldtype": "Small Text",
+   "label": "Density @15.60C (ASTM D1298) (g/ml)"
+  },
+  {
+   "fieldname": "density_1550c_astm_d1298_gml",
+   "fieldtype": "Small Text",
+   "label": "Density @15.50\u00b0C (ASTM D1298) (g/ml)"
+  },
+  {
+   "fieldname": "nas_1638",
+   "fieldtype": "Small Text",
+   "label": "NAS 1638"
+  },
+  {
+   "fetch_from": "item_code.customer",
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "Customer",
+   "options": "Customer"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-13 19:00:57.772888",
+ "modified": "2025-12-03 15:06:43.973925",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Parameters",

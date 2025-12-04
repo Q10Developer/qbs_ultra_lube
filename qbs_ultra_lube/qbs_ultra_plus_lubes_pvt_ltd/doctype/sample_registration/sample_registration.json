@@ -99,12 +99,14 @@
   {
    "fieldname": "batch_no",
    "fieldtype": "Data",
-   "label": "Batch No."
+   "label": "Batch No.",
+   "reqd": 1
   },
   {
    "fieldname": "tanker_no_vehicle_nobk_no__tank_nofilling_line_no",
    "fieldtype": "Data",
-   "label": "Tanker No./ Vehicle No./BK No. / Tank No./Filling Line No."
+   "label": "Tanker No./ Vehicle No./BK No. / Tank No./Filling Line No.",
+   "reqd": 1
   },
   {
    "fieldname": "sample_received_by",
@@ -172,7 +174,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-12 14:10:54.786150",
+ "modified": "2025-11-25 11:55:11.060915",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Registration",

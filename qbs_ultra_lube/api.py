@@ -1,12 +1,26 @@
 import frappe
 
-# Customer to Prefix Mapping
-CUSTOMER_PREFIX_MAPPING = {
-    "Valvoline Cummins (I) Pvt. Ltd. (Lube oil)": "VCPLLO",
-    "Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)": "VCPLLO",  # Handle double space
+# ======================================================
+# Prefix Mapping (Company + Customer)
+# ======================================================
+
+PREFIX_MAP = {
+    # --------------------- COMPANY PREFIXES ---------------------
+    "West Coast Lubricants & Asphalts Pvt. Ltd.": "WCL",
+    "Ultra Plus Lubes Pvt. Ltd": "UPL1",
+    "Ultra Plus Lubes Pvt. Ltd Unit IV": "UPL4",
+
+    # --------------------- CUSTOMER PREFIXES ---------------------
+    "Ultra Plus Lubes Pvt. Ltd.- Unit 1": "UPL1",
+    "Ultra Plus Lubes Pvt. Ltd.- Unit 4": "UPL4",
+    "West Coast Lubricants & Asphalts Pvt. Ltd.": "WCL",
+
+    # --------------------- OTHER CUSTOMERS ----------------------
+    "Valvoline Cummins (I) Pvt. Ltd. (Lube oil)": "VCPLL",
+    "Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)": "VCPLL",
     "Petronas": "PLI",
     "Valvoline Cummins (I) Pvt. Ltd. (coolant)": "VCPLC",
-    "Valvoline Cummins (I) Pvt. Ltd.  (coolant)": "VCPLC",  # Handle double space
+    "Valvoline Cummins (I) Pvt. Ltd.  (coolant)": "VCPLC",
     "BASF (Coolant)": "BASFC",
     "G S Caltex": "GSC",
     "G S Caltex (Base Oil Trading)": "GSCT",
@@ -18,141 +32,134 @@ CUSTOMER_PREFIX_MAPPING = {
     "Shell India Marketing Pvt. Ltd.": "SIMPL",
     "Castrol (I) Pvt. Ltd.": "CIL",
     "ENSOOILS": "EO",
-    "Exxon Mobil": "EM"
+    "Exxon Mobil": "EM",
 }
 
-def generate_sample_code(customer_name):
-    """
-    Generate a unique sample code based on customer name.
-    Format: {PREFIX}/{4-digit running number}
-    Maintains independent counters for each customer.
-    
-    Args:
-        customer_name: Name of the customer
-        
-    Returns:
-        str: Generated sample code (e.g., "VCPLLO/0001")
-    """
+# List of dual-prefix customers
+DUAL_PREFIX_CUSTOMERS = {
+    "Ultra Plus Lubes Pvt. Ltd.- Unit 1",
+    "Ultra Plus Lubes Pvt. Ltd.- Unit 4",
+    "West Coast Lubricants & Asphalts Pvt. Ltd.",
+}
+
+# List of dual-prefix companies
+DUAL_PREFIX_COMPANIES = {
+    "Ultra Plus Lubes Pvt. Ltd",
+    "Ultra Plus Lubes Pvt. Ltd Unit IV",
+    "West Coast Lubricants & Asphalts Pvt. Ltd."
+}
+
+# ======================================================
+# Generate Sample Code
+# ======================================================
+def generate_sample_code(customer_name, company_name):
+
     customer_name = (customer_name or "").strip()
-    
-    # Get the prefix for the customer
-    prefix = CUSTOMER_PREFIX_MAPPING.get(customer_name)
-    
-    if not prefix:
-        frappe.throw(f"No prefix mapping found for customer: {customer_name}")
-    
-    # Get or create counter for this prefix
-    counter_name = f"sample_counter_{prefix}"
-    
-    # Try to get existing counter from Singles table or use custom approach
-    try:
-        # Check if Series exists
-        series_exists = frappe.db.exists("Series", counter_name)
-        
-        # Get the last used number for this prefix
-        last_number = frappe.db.get_value(
-            "Series",
-            {"name": counter_name},
-            "current"
+    company_name = (company_name or "").strip()
+
+    customer_prefix = PREFIX_MAP.get(customer_name)
+    company_prefix = PREFIX_MAP.get(company_name)
+
+    if not customer_prefix:
+        frappe.throw(f"Missing prefix mapping for Customer: {customer_name}")
+    if not company_prefix:
+        frappe.throw(f"Missing prefix mapping for Company: {company_name}")
+
+    # ======================================================
+    # CASE 1: Dual-prefix format
+    # ======================================================
+    if customer_name in DUAL_PREFIX_CUSTOMERS and company_name in DUAL_PREFIX_COMPANIES:
+
+        dual_prefix = f"{company_prefix}/{customer_prefix}"
+
+        series_key = f"{company_prefix}_{customer_prefix}"
+        counter_name = f"sample_counter_{series_key}"
+
+        # Safe SQL lookup (no ORDER BY)
+        res = frappe.db.sql(
+            "SELECT current FROM `tabSeries` WHERE name=%s LIMIT 1",
+            (counter_name,)
         )
-        
-        # If series exists and has a valid counter (> 0), use it
-        if series_exists and last_number and int(last_number) > 0:
+        last_number = res[0][0] if res else None
+
+        if last_number:
             next_number = int(last_number) + 1
         else:
-            # Series doesn't exist OR current is 0, check for existing records with this prefix
-            # Get all records with this prefix and find the maximum number
-            all_codes = frappe.db.sql("""
-                SELECT name 
-                FROM `tabSample Registration` 
-                WHERE name LIKE %s 
-            """, (f"{prefix}/%",), as_dict=True)
-            
-            if all_codes:
-                # Extract all numbers and find the maximum
-                max_number = 0
-                for code in all_codes:
-                    try:
-                        num_str = code.name.split('/')[-1]
-                        num = int(num_str)
-                        if num > max_number:
-                            max_number = num
-                    except (ValueError, IndexError):
-                        continue
-                
-                current_number = max_number
-                next_number = max_number + 1
-            else:
-                current_number = 0
-                next_number = 1
-            
-            # Create or update series entry with the correct current value
-            if series_exists:
-                # Update existing series
-                frappe.db.set_value("Series", counter_name, "current", current_number)
-            else:
-                # Create new series entry
-                frappe.get_doc({
-                    "doctype": "Series",
-                    "name": counter_name,
-                    "current": current_number
-                }).insert(ignore_permissions=True)
-        
-        # Update the counter with next number
-        frappe.db.set_value("Series", counter_name, "current", next_number)
-        
-    except Exception as e:
-        # Fallback: Use a simpler counter mechanism with a custom table approach
-        # Get all records with this prefix and find the maximum number
-        all_codes = frappe.db.sql("""
-            SELECT name 
-            FROM `tabSample Registration` 
-            WHERE name LIKE %s 
-        """, (f"{prefix}/%",), as_dict=True)
-        
-        if all_codes:
-            # Extract all numbers and find the maximum
-            max_number = 0
-            for code in all_codes:
+            existing = frappe.db.sql("""
+                SELECT name FROM `tabSample Registration`
+                WHERE name LIKE %s
+            """, (dual_prefix + "/%",), as_dict=True)
+
+            max_num = 0
+            for row in existing:
                 try:
-                    num_str = code.name.split('/')[-1]
-                    num = int(num_str)
-                    if num > max_number:
-                        max_number = num
-                except (ValueError, IndexError):
-                    continue
-            next_number = max_number + 1
-        else:
-            next_number = 1
-    
-    # Format the code with 4-digit zero-padded number
-    sample_code = f"{prefix}/{next_number:04d}"
-    
-    return sample_code
+                    num = int(row.name.split("/")[-1])
+                    max_num = max(max_num, num)
+                except:
+                    pass
 
+            next_number = max_num + 1
+
+            if frappe.db.exists("Series", counter_name):
+                frappe.db.sql("UPDATE `tabSeries` SET current=%s WHERE name=%s",
+                              (max_num, counter_name))
+            else:
+                frappe.db.sql(
+                    "INSERT INTO `tabSeries` (name, current) VALUES (%s, %s)",
+                    (counter_name, max_num)
+                )
+
+        frappe.db.sql(
+            "UPDATE `tabSeries` SET current=%s WHERE name=%s",
+            (next_number, counter_name)
+        )
+
+        return f"{dual_prefix}/{next_number:04d}"
+
+    # ======================================================
+    # CASE 2: Normal Prefix (all others)
+    # ======================================================
+    prefix = customer_prefix
+
+    records = frappe.db.sql("""
+        SELECT name FROM `tabSample Registration`
+        WHERE name LIKE %s
+    """, (prefix + "/%",))
+
+    max_num = 0
+    for row in records:
+        try:
+            num = int(row[0].split('/')[-1])
+            max_num = max(max_num, num)
+        except:
+            pass
+
+    next_number = max_num + 1
+
+    return f"{prefix}/{next_number:04d}"
+
+
+# ======================================================
+# Hook: Before Insert
+# ======================================================
 def set_sample_code(doc, method=None):
-    """
-    Hook function to be called before inserting a Sample Registration document.
-    Automatically generates and sets the sample code based on customer.
-    
-    Args:
-        doc: Sample Registration document instance
-        method: Hook method name (optional)
-    """
     if not doc.name or doc.name.startswith("new-sample"):
-        # Generate the sample code based on customer
-        customer_name = doc.get("name_of_customer")
-        
-        if customer_name:
-            sample_code = generate_sample_code(customer_name)
-            doc.name = sample_code
 
+        company_name = doc.get("company")
+        customer_name = doc.get("name_of_customer")
+
+        if company_name and customer_name:
+            doc.name = generate_sample_code(customer_name, company_name)
+
+
+# ======================================================
+# Item filter API
+# ======================================================
 @frappe.whitelist()
 def get_filtered_items(doctype, txt, searchfield, start, page_len, filters):
     type_of_sample = filters.get("type_of_sample")
     customer_name = filters.get("customer_name")
 
-    # Build dynamic conditions
     conditions = []
     values = []
 
@@ -161,22 +168,27 @@ def get_filtered_items(doctype, txt, searchfield, start, page_len, filters):
         values.append(type_of_sample)
 
     if customer_name:
-        conditions.append("i.custom_customer_name = %s")
+        conditions.append("mc.customer_name = %s")
         values.append(customer_name)
 
     values.extend([f"%{txt}%", f"%{txt}%", start, page_len])
-
-    where_clause = " AND ".join(conditions)
+    where_clause = " AND ".join(conditions) or "1=1"
 
     return frappe.db.sql(f"""
         SELECT 
-            i.name AS value,               
-            i.item_name AS label,         
-            CONCAT(i.name, ', ', i.item_name, ', ', GROUP_CONCAT(mts.type_of_sample SEPARATOR ' , ')) AS description
-        FROM `tabMulti Type of Sample` mts
-        INNER JOIN `tabItem` i ON i.name = mts.parent
+            i.name AS value,
+            i.item_name AS label,
+            CONCAT(
+                i.name, ', ', 
+                i.item_name, ', ',
+                GROUP_CONCAT(DISTINCT mts.type_of_sample SEPARATOR ' , ')
+            ) AS description
+        FROM `tabItem` i
+        LEFT JOIN `tabMulti Type of Sample` mts 
+            ON mts.parent = i.name 
+        LEFT JOIN `tabMulti Customer` mc 
+            ON mc.parent = i.name
         WHERE {where_clause}
-        AND mts.parenttype = 'Item'
         AND (i.item_name LIKE %s OR i.name LIKE %s)
         GROUP BY i.name, i.item_name
         LIMIT %s, %s

@@ -1,25 +1,41 @@
 import frappe
 from frappe.model.document import Document
 from frappe.model.mapper import get_mapped_doc
-import re
 
 
 class SampleRegistration(Document):
+
     def autoname(self):
-        # Allow manual override
+
+        # Allow manual override for duplicate functionality
         if getattr(self, 'custom_generated_name', None):
             self.name = self.custom_generated_name
             return
 
         customer = (self.name_of_customer or "").strip()
+        company = (self.company or "").strip()
 
-        # === Step 1: Define Prefix Rules ===
+        # ======================================================
+        # PREFIX MAP (COMPANY + CUSTOMER)
+        # ======================================================
         prefix_map = {
-            "Valvoline Cummins (I) Pvt. Ltd. (Lube oil)": "VCPLLO",
-            "Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)": "VCPLLO",  # Handle double space
+
+            # ---------- COMPANY PREFIXES ----------
+            "West Coast Lubricants & Asphalts Pvt. Ltd.": "WCL",
+            "Ultra Plus Lubes Pvt. Ltd": "UPL1",
+            "Ultra Plus Lubes Pvt. Ltd Unit IV": "UPL4",
+
+            # ---------- CUSTOMER PREFIXES ----------
+            "Ultra Plus Lubes Pvt. Ltd.- Unit 1": "UPL1",
+            "Ultra Plus Lubes Pvt. Ltd.- Unit 4": "UPL4",
+            "West Coast Lubricants & Asphalts Pvt. Ltd.": "WCL",
+
+            # ---------- OTHER CUSTOMERS ----------
+            "Valvoline Cummins (I) Pvt. Ltd. (Lube oil)": "VCPLL",
+            "Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)": "VCPLL",
             "Petronas": "PLI",
             "Valvoline Cummins (I) Pvt. Ltd. (coolant)": "VCPLC",
-            "Valvoline Cummins (I) Pvt. Ltd.  (coolant)": "VCPLC",  # Handle double space
+            "Valvoline Cummins (I) Pvt. Ltd.  (coolant)": "VCPLC",
             "BASF (Coolant)": "BASFC",
             "G S Caltex": "GSC",
             "G S Caltex (Base Oil Trading)": "GSCT",
@@ -31,43 +47,87 @@ class SampleRegistration(Document):
             "Shell India Marketing Pvt. Ltd.": "SIMPL",
             "Castrol (I) Pvt. Ltd.": "CIL",
             "ENSOOILS": "EO",
-            "Exxon Mobil": "EM"
+            "Exxon Mobil": "EM",
         }
 
-        # === Step 2: Check direct match first (avoids regex issues with parentheses) ===
-        prefix = prefix_map.get(customer)
-        
-        # === Step 3: Fallback if no direct match found ===
-        if not prefix:
-            # Generate prefix from initials
-            prefix = "".join([word[0].upper() for word in customer.split() if word and word[0].isalpha()])
+        # ======================================================
+        # DUAL PREFIX COMPANY + CUSTOMER SET
+        # ======================================================
+        dual_prefix_companies = {
+            "West Coast Lubricants & Asphalts Pvt. Ltd.",
+            "Ultra Plus Lubes Pvt. Ltd",
+            "Ultra Plus Lubes Pvt. Ltd Unit IV"
+        }
 
-        # === Step 4: Get last used number for this prefix ===
-        # Get ALL records with this prefix and find the maximum number
-        all_records = frappe.db.sql(
-            """SELECT name FROM `tabSample Registration`
-               WHERE name LIKE %s""",
-            (prefix + "/%",)
-        )
+        dual_prefix_customers = {
+            "Ultra Plus Lubes Pvt. Ltd.- Unit 1",
+            "Ultra Plus Lubes Pvt. Ltd.- Unit 4",
+            "West Coast Lubricants & Asphalts Pvt. Ltd."
+        }
+
+        # ======================================================
+        # DUAL-PREFIX LOGIC
+        # ======================================================
+        if company in dual_prefix_companies and customer in dual_prefix_customers:
+
+            company_prefix = prefix_map.get(company)
+            customer_prefix = prefix_map.get(customer)
+
+            # Validate that both prefixes were found
+            if not company_prefix:
+                frappe.throw(f"Missing prefix mapping for Company: {company}")
+            if not customer_prefix:
+                frappe.throw(f"Missing prefix mapping for Customer: {customer}")
+
+            dual_prefix = f"{company_prefix}/{customer_prefix}"
+
+            # Find last used running number
+            existing = frappe.db.sql("""
+                SELECT name FROM `tabSample Registration`
+                WHERE name LIKE %s
+            """, (dual_prefix + "/%",), as_dict=True)
+
+            max_num = 0
+            for row in existing:
+                try:
+                    num = int(row.name.split("/")[-1])
+                    max_num = max(max_num, num)
+                except:
+                    pass
+
+            new_num = str(max_num + 1).zfill(4)
+            self.name = f"{dual_prefix}/{new_num}"
+            return
+
+        # ======================================================
+        # NORMAL AUTONAME (all other customers)
+        # ======================================================
+        prefix = prefix_map.get(customer)
+
+        if not prefix:
+            prefix = "".join([w[0].upper() for w in customer.split() if w])
+
+        # find last number
+        all_records = frappe.db.sql("""
+            SELECT name FROM `tabSample Registration`
+            WHERE name LIKE %s
+        """, (prefix + "/%",))
 
         max_number = 0
-        if all_records:
-            # Extract all numbers and find the maximum
-            for record in all_records:
-                try:
-                    num_str = record[0].split("/")[-1]
-                    # Extract only numeric part (handles cases like "0016-01")
-                    num = int(num_str.split("-")[0])
-                    if num > max_number:
-                        max_number = num
-                except (ValueError, IndexError):
-                    continue
-        
+        for record in all_records:
+            try:
+                num = int(record[0].split("/")[-1].split("-")[0])
+                max_number = max(max_number, num)
+            except:
+                pass
+
         new_number = str(max_number + 1).zfill(4)
         self.name = f"{prefix}/{new_number}"
 
 
-
+# =================================================================
+# DUPLICATE CREATION
+# =================================================================
 @frappe.whitelist()
 def create_duplicate(docname):
     original_doc = frappe.get_doc("Sample Registration", docname)
@@ -76,22 +136,18 @@ def create_duplicate(docname):
     existing_duplicates = frappe.db.sql(
         """SELECT name FROM `tabSample Registration`
            WHERE name LIKE %s""",
-        (base_name + "-%")
+        (base_name + "-%",)
     )
 
     max_suffix = 0
-    if existing_duplicates:
-        for d in existing_duplicates:
-            try:
-                suffix_num = int(d[0].split('-')[-1])
-                if suffix_num > max_suffix:
-                    max_suffix = suffix_num
-            except (IndexError, ValueError):
-                pass
+    for d in existing_duplicates:
+        try:
+            suffix_num = int(d[0].split('-')[-1])
+            max_suffix = max(max_suffix, suffix_num)
+        except:
+            pass
 
-    next_suffix_num = max_suffix + 1
-    new_suffix = str(next_suffix_num).zfill(2)
-
+    new_suffix = str(max_suffix + 1).zfill(2)
     final_new_name = f"{base_name}-{new_suffix}"
 
     new_doc = frappe.copy_doc(original_doc)

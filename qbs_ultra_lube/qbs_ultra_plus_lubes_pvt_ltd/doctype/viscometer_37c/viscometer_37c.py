@@ -5,17 +5,16 @@ import frappe
 from frappe.model.document import Document
 
 
-class Viscometer40C(Document):
+class Viscometer37C(Document):
 	pass
 
-
 @frappe.whitelist()
-def get_viscometer40_filtered(doctype, txt, searchfield, start, page_len, filters):
+def get_viscometer37_filtered(doctype, txt, searchfield, start, page_len, filters):
     company = filters.get("company")
 
     result = frappe.db.sql("""
         SELECT DISTINCT v.name
-        FROM `tabViscometer 40C` v
+        FROM `tabViscometer 37C` v
         JOIN `tabMulti Company` mc ON mc.parent = v.name
         WHERE mc.company_name = %s
         AND v.name LIKE %s

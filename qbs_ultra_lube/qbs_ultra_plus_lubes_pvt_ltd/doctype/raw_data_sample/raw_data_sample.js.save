@@ -1,7 +1,7 @@
-// Copyright (c) 2025, Swarada and contributors
+	// Copyright (c) 2025, Swarada and contributors
 // For license information, please see license.txt
 
-//showFieldMap
+//showFiMap
 const showFieldMap = {
     "Castrol (I) Pvt. Ltd.": {
         "Tanker Flushing": [
@@ -1312,7 +1312,6 @@ const showFieldMap = {
             "Dewatering Property with DM Water",
             "Dewatering Property with 3% Nacl Solution",
             "KV@ 40°C",
-            "Copper Corrosion (ASTM D130) @ 100°C for 3hrs",
         ],
         "Blending": [
             "Average Density 29.5C (Four Significant Figure)",
@@ -1323,7 +1322,6 @@ const showFieldMap = {
             "KV@ 40°C",
             "Refractive Index 20C",
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            "Copper Corrosion (ASTM D130) @ 100°C for 3hrs",
         ],
         "First Filled sample": [
             "Average Density 29.5C (Four Significant Figure)",
@@ -1343,15 +1341,7 @@ const showFieldMap = {
             "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
             "Freezing Point",
             "Average Moisture Content",
-            "Average @ 88.0 °C Tendency (T)",
-            "Average @ 88.0 °C Stability (S)",
-            "Replicate 1 @ 88.0 °C Tendency (T)",
-            "Replicate 1 @ 88.0 °C Stability (S)",
-            "Replicate 2 @ 88.0 °C Tendency (T)",
-            "Replicate 2 @ 88.0 °C Stability (S)",
-            "Replicate 3 @ 88.0 °C Tendency (T)",
-            "Replicate 3 @ 88.0 °C Stability (S)",
-            "Average @ 88.0 °C Results (T/S)",
+            "Average @ 88.0           88.0 °C Results (T/S)",
             "Chloride Content   = (BRS-BRBXNormalityX7100)",
             "Silicate (ASTM D6130)",
         ],
@@ -1491,85 +1481,6 @@ const showFieldMap = {
             "Phosphorus",
             "Sulphur",
             "FTIR",
-        ],
-    },
-    "Nynas": {
-        "Receipt - Base oil": [
-            "Average Density 29.5C (Four Significant Figure)",
-            "Average KV@ 40°C (four significant figure)",
-            "Average KV@ 100°C (four significant figure)",
-        ],
-        "Bulk Filling Tanker OUT - Base oil": [
-            "Average Density 29.5C (Four Significant Figure)",
-            "Average KV@ 40°C (four significant figure)",
-            "Average KV@ 100°C (four significant figure)",
-        ],
-        "Blending": [
-            "Average Density 29.5C (Four Significant Figure)",
-            "Average Density 15.0C (Four Significant Figure)",
-            "Average KV@ 40°C (four significant figure)",
-            "Average KV@ 100°C (four significant figure)",
-            "Reported Flash point {C+0.033(760-P)} (Nearest 0.5°C)",
-            "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            "Copper Corrosion (ASTM D130) @ 100°C for 3hrs",
-            "Aniline Point",
-            "Average Total Acid Number",
-            "CA",
-            "CN",
-            "CP",
-            "Refractive Index 20C",
-        ],
-        "First Filled sample": [
-            "Average Density 29.5C (Four Significant Figure)",
-            "Average KV@ 40°C (four significant figure)",
-            "Average KV@ 100°C (four significant figure)",
-        ]
-    },
-    "ENSOOILS": {
-        "Blending": [
-            "Average Density 29.5C (Four Significant Figure)",
-            "Average KV@ 40°C (four significant figure)",
-            "Average KV@ 100°C (four significant figure)",
-            "Viscosity Index",
-            "Reported Flash point {C+0.033(760-P)} (Nearest 1°C)",
-            "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            "Average Total Base Number",
-            "Average Total Acid Number",
-            "Result",
-            "Average Air Release",
-            "Sequence I @ 24.0°C Tendency",
-            "Sequence I @ 24.0°C Stability",
-            "Sequence I @ 24.0°C Result",
-            "Sequence II @ 93.5°C Tendency",
-            "Sequence II @ 93.5°C Stability",
-            "Sequence II @ 93.5°C Result",
-            "Sequence III @ 24.0°C Tendency",
-            "Sequence III @ 24.0°C Stability",
-            "Sequence III @ 24.0°C Result",
-            "CCS @ -20 (ASTM D5293)",
-            "Calcium",
-            "Magnesium",
-            "Molybdenum",
-            "Phosphorus",
-            "Zinc",
-            "Boron",
-            "sulphated_ash__wt_astm_d874",
-            "Sulphated Ash",
-            "Yield Stress, MRV -25C (ASTM D4684)",
-            "Viscosity, MRV / Yield Stress -25C (ASTM D4684)",
-            "ISO 4406(4 µm/6 µm/14 µm)",
-            "NAS (Class)",
-        ],
-        "First Filled sample": [
-            "Average Density 29.5C (Four Significant Figure)",
-            "Average KV@ 40°C (four significant figure)",
-            "Average KV@ 100°C (four significant figure)",
-            "Average Total Base Number",
-            "Average Total Acid Number",
-        ],
-        "Blending- Premix": [
-            "Average KV@ 40°C (four significant figure)",
-            "Average KV@ 100°C (four significant figure)",
         ],
     }
 };
@@ -1777,124 +1688,4 @@ async function getAllTables(frm) {
             // ✅ Unhide its parent section
             if (sectionFieldname) {
                 // console.log(`✅ Showing section before ${fieldname}: ${sectionFieldname}`);
-                frm.set_df_property(sectionFieldname, "hidden", 0);
-                frm.set_df_property("other_1_section", "hidden", 0);
-                frm.set_df_property("other_2_section", "hidden", 0);
-                frm.set_df_property("section_break_zifa", "hidden", 0);
-            }
-        });
-
-        //loop through all detaField list
-        Object.keys(dataFields).forEach(field => {
-            if (allowedParameters.includes(field)) {
-                //check if the field value is NA or blank then hide the field
-                // let sampleField = dataFields[field];
-                // let sampleVal = frm.sample_para[sampleField];
-
-                let fieldTab = dataFields[field];
-                // const hide = !sampleVal || sampleVal.toLowerCase() === "na";
-
-                frm.set_df_property(fieldTab, "hidden", 0);
-            }
-        })
-    }
-    // console.log(sampleName);
-
-    let sampleName = "";
-    if (name_of_sample) {
-        const res = await frappe.db.get_value("Item", name_of_sample, "item_name");
-        if (res.message) {
-            sampleName = res.message.item_name;
-        }
-    }
-
-    const sampleParamList = await frappe.db.get_list('Sample Parameters', {
-        filters: {
-            item_name: sampleName,
-            sample_types: sampleType
-        },
-        limit: 1
-    });
-    if (!sampleParamList.length) {
-        frappe.msgprint(`Sample Parameters not found for ${sampleName} (${sampleType})`);
-        return;
-    }
-    const samplePara = await frappe.db.get_doc('Sample Parameters', sampleParamList[0].name);
-
-    if (!samplePara) {
-        frappe.error(`There is no record of "${sampleName}" in Sample Parameters`);
-    } else {
-        frm.sample_para = samplePara;
-        console.log(samplePara);
-    }
-    const response = await frm.call("preload_all_tables", {
-        samplePara: JSON.stringify(frm.sample_para),
-        showFieldMap: JSON.stringify(showFieldMap)
-    });
-
-    const customerFieldMap = showFieldMap[frm.doc.name_of_customer];
-    if (!customerFieldMap) {
-        frappe.msgprint(`No field map configured for ${frm.doc.name_of_customer}`);
-        return;
-    }
-
-    if (!customerFieldMap[frm.doc.type_of_sample]) {
-        frappe.msgprint(`No field map configured for sample type ${frm.doc.type_of_sample}`);
-        return;
-    }
-
-    allowedParameters = customerFieldMap[frm.doc.type_of_sample];
-
-    const tableMap = response.message;
-
-    // console.log(tableMap);
-
-    // Step 4: Populate and show only relevant tables
-    Object.entries(tableMap).forEach(([fieldname, wasPopulated]) => {
-        const field = frm.fields_dict[fieldname];
-        if (!field) return;
-
-        // ✅ Find section by scanning backwards
-        const fields = frm.meta.fields;
-        let sectionFieldname = null;
-
-        const currentIndex = fields.findIndex(f => f.fieldname === fieldname);
-        if (currentIndex !== -1) {
-            for (let i = currentIndex - 1; i >= 0; i--) {
-                const prevField = fields[i];
-                if (prevField.fieldtype === "Section Break") {
-                    sectionFieldname = prevField.fieldname;
-                    break;
-                }
-            }
-        }
-
-        // ✅ Unhide the table field
-        frm.set_df_property(fieldname, "hidden", 0);
-
-        // ✅ Unhide its parent section
-        if (sectionFieldname) {
-            // console.log(`✅ Showing section before ${fieldname}: ${sectionFieldname}`);
-            frm.set_df_property(sectionFieldname, "hidden", 0);
-            frm.set_df_property("other_1_section", "hidden", 0);
-            frm.set_df_property("other_2_section", "hidden", 0);
-            frm.set_df_property("section_break_zifa", "hidden", 0);
-        }
-    });
-
-    //loop through all detaField list
-    Object.keys(dataFields).forEach(field => {
-        if (allowedParameters.includes(field)) {
-            //check if the field value is NA or blank then hide the field
-            let sampleField = dataMapping[field];
-            let sampleVal = frm.sample_para[sampleField];
-
-            let fieldTab = dataFields[field];
-            const hide = !sampleVal || sampleVal.toLowerCase() === "na";
-
-            frm.set_df_property(fieldTab, "hidden", hide ? 1 : 0);
-        }
-    })
-
-
-};
+           

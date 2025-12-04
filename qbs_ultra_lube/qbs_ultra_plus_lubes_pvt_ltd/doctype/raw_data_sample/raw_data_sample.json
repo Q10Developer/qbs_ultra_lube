@@ -30,6 +30,7 @@
   "name_of_customer",
   "type_of_sample",
   "frequency",
+  "company",
   "section_break_nqnd",
   "solubility_in_water_inhouse",
   "solubility_html",
@@ -41,12 +42,15 @@
   "remark_if_any",
   "date_of_filling",
   "date_of_mfg",
+  "coa_date",
   "column_break_sdim",
   "date_of_analysis_completed",
+  "is_verified",
   "verified_by",
   "sku_code",
   "filled_date",
   "date_of_expiry",
+  "coa_batch_no",
   "iso_tab",
   "iso_4406__nas_1638_section",
   "iso_template_name",
@@ -92,6 +96,7 @@
   "kv_378_template",
   "viscometer_id_kv_378c",
   "thermometer_id_kv_378c",
+  "viscometer_constant_378c",
   "kinematic_viscosity_378c",
   "kv_378_html",
   "viscosity_100_deg_c_astm_d6278_section",
@@ -219,6 +224,8 @@
   "ash_section",
   "ash_astm_d482",
   "ash_html",
+  "saponification_value_astm_d94_section",
+  "saponification_value_astm_d94",
   "rpvot_tab",
   "rpvot_astm_d2272_section",
   "start_time",
@@ -326,7 +333,8 @@
   "other_1_section",
   "other_test_1",
   "other_2_section",
-  "other_test_2"
+  "other_test_2",
+  "amended_from"
  ],
  "fields": [
   {
@@ -334,7 +342,7 @@
    "fieldname": "sample_name",
    "fieldtype": "Link",
    "label": "Sample Name",
-   "length": 30,
+   "length": 80,
    "options": "Item"
   },
   {
@@ -346,11 +354,13 @@
   {
    "fieldname": "batch_sizepack_size",
    "fieldtype": "Data",
-   "label": "Batch size/Pack Size",
-   "length": 10
+   "in_list_view": 1,
+   "label": "Pack Size",
+   "length": 10,
+   "reqd": 1
   },
   {
-   "depends_on": "eval: !(\r\n    (doc.customer_name == \"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\") ||\r\n    (doc.customer_name == \"Exxon Mobil\" && [\"Receipt \u2013 Additive\", \"Blending- Premix\"].includes(doc.type_of_sample)) ||\r\n    (doc.customer_name == \"G S Caltex\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.customer_name == \"Shell India Marketing Pvt. Ltd.\" && doc.type_of_sample == \"Receipt \u2013 Additive\")\r\n)",
+   "depends_on": "eval: !(\r\n    (doc.customer_name == \"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\") ||\r\n    (doc.customer_name == \"Exxon Mobil\" && [\"Receipt \u2013 Additive\", \"Blending- Premix\"].includes(doc.type_of_sample)) ||\r\n    (doc.customer_name == \"G S Caltex\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.customer_name == \"Shell India Marketing Pvt. Ltd.\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.customer_name == \"BASF (Coolant)\")\r\n)",
    "fieldname": "colour_astm_d1500",
    "fieldtype": "Select",
    "label": "Color (ASTM D1500)",
@@ -361,7 +371,7 @@
    "fieldname": "colour_visual",
    "fieldtype": "Data",
    "label": "Colour (Visual)",
-   "length": 10
+   "length": 55
   },
   {
    "fieldname": "column_break_qxkv",
@@ -372,7 +382,8 @@
    "fieldtype": "Link",
    "label": "Sample Registration No.",
    "length": 40,
-   "options": "Sample Registration"
+   "options": "Sample Registration",
+   "unique": 1
   },
   {
    "fetch_from": "sample_registration_no.tanker_no_vehicle_nobk_no__tank_nofilling_line_no",
@@ -385,7 +396,7 @@
    "fieldname": "batch_no",
    "fieldtype": "Data",
    "label": "Batch No.",
-   "length": 10
+   "length": 50
   },
   {
    "fieldname": "tested_by",
@@ -470,7 +481,7 @@
    "options": "Raw Data Sample Table"
   },
   {
-   "depends_on": "eval: (doc.customer_name == \"Castrol (I) Pvt. Ltd.\" && [\"Bulk Filling Tanker OUT- Blending\", \"Storage Tank flushing\", \"First Filled Sample\", \"Filling Line Lunch Break Sample\", \"Filling Line Tea Break Sample\", \"Filling Line End Sample\", \"Filling Line Break Sample\", \"Tanker Flushing\", \"Other\"].includes(doc.type_of_sample))",
+   "depends_on": "eval: (doc.customer_name == \"Castrol (I) Pvt. Ltd.\" && [\"Bulk Filling Tanker OUT- Blending\", \"Storage Tank flushing\", \"First Filled Sample\", \"Filling Line Lunch Break Sample\", \"Filling Line Tea Break Sample\", \"Filling Line End Sample\", \"Filling Line Break Sample\", \"Tanker Flushing\", \"First Filled sample\",\"Other\"].includes(doc.type_of_sample) ||\r\n    ([\"West Coast Lubricants & Asphalts Pvt. Ltd.\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 1\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 4\"].includes(doc.customer_name))\r\n)",
    "fieldname": "container_sr_no",
    "fieldtype": "Data",
    "label": "Container Sr. No.",
@@ -482,9 +493,10 @@
   },
   {
    "fieldname": "pass_or_fail",
-   "fieldtype": "Data",
-   "label": "Pass or Fail",
-   "length": 10
+   "fieldtype": "Select",
+   "label": "Sample Status",
+   "length": 10,
+   "options": "\nApproved\nReject"
   },
   {
    "fieldname": "remark_if_any",
@@ -492,6 +504,7 @@
    "label": "Remark if any"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "date_of_filling",
    "fieldtype": "Data",
    "hidden": 1,
@@ -499,6 +512,7 @@
    "length": 10
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "date_of_mfg",
    "fieldtype": "Data",
    "hidden": 1,
@@ -515,12 +529,15 @@
    "label": "Date of Analysis Completed"
   },
   {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.docstatus==1",
    "fieldname": "verified_by",
    "fieldtype": "Data",
    "label": "Verified By",
-   "length": 10
+   "length": 40
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "sku_code",
    "fieldtype": "Data",
    "hidden": 1,
@@ -528,6 +545,7 @@
    "length": 10
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "filled_date",
    "fieldtype": "Data",
    "hidden": 1,
@@ -535,6 +553,7 @@
    "length": 10
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "date_of_expiry",
    "fieldtype": "Data",
    "hidden": 1,
@@ -619,13 +638,13 @@
   {
    "fieldname": "viscosity_100_deg_c_astm_d6278_section",
    "fieldtype": "Section Break",
-   "label": "Viscosity @ 100 \u00b0C (After 120 shear cycles)"
+   "label": "Viscosity @ 100\u00b0C (After 120 shear cycles) (ASTM D6278)"
   },
   {
    "description": "mm2/s",
    "fieldname": "viscosity_100_deg_c_astm_d6278",
    "fieldtype": "Data",
-   "label": "Viscosity @ 100 \u00b0C (After 120 shear cycles)",
+   "label": "Viscosity @ 100\u00b0C (After 120 shear cycles)",
    "length": 10
   },
   {
@@ -911,7 +930,7 @@
    "fieldtype": "Select",
    "label": "Test Temp",
    "length": 10,
-   "options": "\n54\u00b0C\n82\u00b0C"
+   "options": "\n50\u00b0C\n75\u00b0C"
   },
   {
    "fieldname": "thermometer_id_ar",
@@ -1143,12 +1162,12 @@
    "options": "Template Fields"
   },
   {
-   "depends_on": "eval: (\r\n    (doc.customer_name == \"Exxon Mobil\" && [\"Receipt - Base oil\", \"Bulk Filling Tanker OUT- Blending\", \"First Filled sample\"].includes(doc.type_of_sample)) ||\r\n    (doc.customer_name == \"Castrol (I) Pvt. Ltd.\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.type_of_sample ==\"Other\")\r\n)\r\n&& !(\r\n    [\"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\", \"Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)\", \"G S Caltex\", \"Shell India Marketing Pvt. Ltd.\"].includes(doc.customer_name)\r\n)",
+   "depends_on": "eval: (\r\n    (doc.customer_name == \"Exxon Mobil\" && [\"Receipt - Base oil\", \"Blending\", \"Bulk Filling Tanker OUT- Blending\", \"First Filled sample\"].includes(doc.type_of_sample)) ||\r\n    (doc.customer_name == \"Castrol (I) Pvt. Ltd.\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.type_of_sample ==\"Other\") ||\r\n    (doc.customer_name == \"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\" && doc.type_of_sample == \"Receipt - MEG\") ||\r\n    (doc.customer_name == \"Raj Petro (Blending)\" && [\"Blending- Premix\", \"Blending\", \"Bulk Filling Tanker OUT- Blending\", \"First Filled sample\"].includes(doc.type_of_sample)) ||\r\n    ([\"West Coast Lubricants & Asphalts Pvt. Ltd.\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 1\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 4\"].includes(doc.customer_name))\r\n)\r\n&& !(\r\n    [\"Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)\", \"G S Caltex\", \"Shell India Marketing Pvt. Ltd.\"].includes(doc.customer_name)\r\n)",
    "fieldname": "odour",
    "fieldtype": "Select",
    "label": "Odour",
    "length": 25,
-   "options": "\nPass\nFail\nObjectionable\nNot Objectionable\nSatisfactory\nUnsatisfactory"
+   "options": "\nPass\nFail\nObjectionable\nNot Objectionable\nSatisfactory\nUnsatisfactory\nNo Characteristic Odour"
   },
   {
    "fieldname": "aniline_point_carbon_content_distillation_tab",
@@ -1228,7 +1247,7 @@
    "fieldname": "viscometer_id_kv_378c",
    "fieldtype": "Link",
    "label": "Viscometer ID (KV 37.8\u00b0C)",
-   "options": "Viscometer 100C"
+   "options": "Viscometer 37C"
   },
   {
    "fieldname": "viscosity_index_astm_d2270_section",
@@ -1809,11 +1828,11 @@
   },
   {
    "fieldname": "appearance_visual",
-   "fieldtype": "Link",
-   "label": "Appearance",
-   "options": "Apperance"
+   "fieldtype": "Data",
+   "label": "Appearance"
   },
   {
+   "depends_on": "eval: !(\r\n    [\"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\", \"BASF (Coolant)\"].includes(doc.customer_name)\r\n)",
    "fieldname": "crackle",
    "fieldtype": "Select",
    "label": "Crackle Test",
@@ -2225,12 +2244,70 @@
    "fieldname": "sulphur_html",
    "fieldtype": "HTML",
    "label": "Sulphur HTML"
+  },
+  {
+   "fieldname": "saponification_value_astm_d94_section",
+   "fieldtype": "Section Break",
+   "label": "Saponification Value (ASTM D94)"
+  },
+  {
+   "description": "mg of KOH/g",
+   "fieldname": "saponification_value_astm_d94",
+   "fieldtype": "Data",
+   "label": "Saponification Value (ASTM D94)",
+   "length": 15
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Raw Data Sample",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "coa_batch_no",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "COA Batch No.",
+   "length": 15
+  },
+  {
+   "fetch_from": "sample_registration_no.company",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company"
+  },
+  {
+   "fetch_from": "viscometer_id_kv_378c.viscometer_constant",
+   "fieldname": "viscometer_constant_378c",
+   "fieldtype": "Data",
+   "label": "Viscometer Constant 37.8\u00b0C",
+   "length": 15
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "coa_date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "COA Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "is_verified",
+   "fieldtype": "Check",
+   "label": "Is Verified"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-11-14 17:36:26.104063",
+ "modified": "2025-12-03 18:37:25.438858",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Raw Data Sample",

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2025-08-26 12:24:58.988031",
+ "creation": "2025-12-12 15:55:51.342320",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -13,6 +13,7 @@
    "fieldname": "type_of_sample",
    "fieldtype": "Link",
    "label": "Type Of Sample",
+   "link_filters": "[]",
    "options": "Sample Types"
   }
  ],
@@ -20,7 +21,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-08-26 12:36:11.131890",
+ "modified": "2025-12-12 15:55:51.342320",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Multi Type of Sample",

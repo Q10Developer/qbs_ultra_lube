@@ -28,7 +28,8 @@
   "appearance",
   "sample_disposed_by",
   "amended_from",
-  "frequency"
+  "frequency",
+  "is_reanalysis"
  ],
  "fields": [
   {
@@ -40,7 +41,8 @@
    "default": "Today",
    "fieldname": "date_of_sample__receipt",
    "fieldtype": "Datetime",
-   "label": "Date and Time of Sample  Receipt"
+   "label": "Date and Time of Sample  Receipt",
+   "reqd": 1
   },
   {
    "fieldname": "sample_registration_no",
@@ -50,6 +52,8 @@
   {
    "fieldname": "name_of_sample",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Name of Sample ",
    "options": "Item",
@@ -58,6 +62,8 @@
   {
    "fieldname": "type_of_sample",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_global_search": 1,
    "label": "Type of Sample",
    "link_filters": "[[\"Sample Types\",\"is_parent\",\"=\",0]]",
    "options": "Sample Types",
@@ -67,12 +73,14 @@
    "fieldname": "name_of_supplier",
    "fieldtype": "Link",
    "label": "Name of Supplier",
-   "options": "Supplier"
+   "options": "Supplier",
+   "reqd": 1
   },
   {
    "fieldname": "date_of_analysis_started",
    "fieldtype": "Datetime",
-   "label": "Date of Analysis Started"
+   "label": "Date of Analysis Started",
+   "reqd": 1
   },
   {
    "fieldname": "remark",
@@ -80,6 +88,7 @@
    "label": "Remark"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "date_of_disposal",
    "fieldtype": "Datetime",
    "label": "Date of Disposal"
@@ -91,6 +100,8 @@
   {
    "fieldname": "name_of_customer",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_global_search": 1,
    "in_list_view": 1,
    "label": "Name of Customer",
    "options": "Customer",
@@ -122,6 +133,8 @@
   {
    "fieldname": "sample_status",
    "fieldtype": "Select",
+   "in_filter": 1,
+   "in_global_search": 1,
    "label": "Sample Status",
    "options": "\nApproved\nReject"
   },
@@ -132,12 +145,14 @@
    "options": "\n1 MONTH\n3 MONTHS\n6 MONTHS\n1 YEAR\n1.5 YEAR\n1.8 YEAR\n2 YEAR\nNA"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "appearance",
    "fieldtype": "Link",
    "label": "Appearance",
    "options": "Apperance"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "sample_disposed_by",
    "fieldtype": "Data",
    "label": "Sample disposed by",
@@ -168,13 +183,20 @@
    "fieldtype": "Select",
    "label": "Frequency",
    "options": "\nEACH BATCH\nANNUAL FIRST PROD\nFIRST PROD\nNA"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_reanalysis",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Is Reanalysis"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-25 11:55:11.060915",
+ "modified": "2025-12-17 17:38:35.146791",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Registration",

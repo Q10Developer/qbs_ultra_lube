@@ -5,13 +5,15 @@
 const showFieldMap = {
     "Castrol (I) Pvt. Ltd.": {
         "Tanker Flushing": [
-            "KV@ 100°C"
+            "KV@ 100°C",
+            "KV@ 40°C",
         ],
         "Blending": [
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
+            "Average Total Base Number",
             "Sequence I @ 24.0°C Tendency",
             "Sequence I @ 24.0°C Stability",
             "Sequence I @ 24.0°C Result",
@@ -32,6 +34,7 @@ const showFieldMap = {
             "CCS @ -15 (ASTM D5293)",
             "CCS @ -20 (ASTM D5293)",
             "CCS @ -25 (ASTM D5293)",
+            "CCS @ -35 (ASTM D5293)",
             "HTHS @150°C (ASTM D4683)",
             "Viscosity, MRV / Yield Stress -20C (ASTM D4684)",
             "Viscosity, MRV / Yield Stress -25C (ASTM D4684)",
@@ -42,214 +45,65 @@ const showFieldMap = {
         ],
         "Bulk Filling Tanker OUT- Blending": [
             "Average KV@ 100°C (four significant figure)",
-            // "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
-            // "Average Total Base Number",
-            // "Average Density 15.0C (Four Significant Figure)",
-            // "Average Density 20.0C (Four Significant Figure)",
-            // "Average Moisture Content",
-            // "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
-            // "Sequence I @ 24.0°C Tendency",
-            // "Sequence I @ 24.0°C Stability",
-            // "Sequence I @ 24.0°C Result",
-            // "Sequence II @ 93.5°C Tendency",
-            // "Sequence II @ 93.5°C Stability",
-            // "Sequence II @ 93.5°C Result",
-            // "Sequence III @ 24.0°C Tendency",
-            // "Sequence III @ 24.0°C Stability",
-            // "Sequence III @ 24.0°C Result",
-            // "Sequence IV @ 150 °C Tendency",
-            // "Sequence IV @ 150 °C Stability",
-            // "Sequence IV @ 150 °C Result",
-            // "Calcium",
-            // "Magnesium",
-            // "Boron",
-            // "Molybdenum",
-            // "Phosphorus",
-            // "Zinc",
-            // "CCS @ -15 (ASTM D5293)",
-            // "CCS @ -20 (ASTM D5293)",
-            // "CCS @ -25 (ASTM D5293)",
-            // "CCS @ -30 (ASTM D5293)",
-            // "CCS @ -35 (ASTM D5293)",
-            // "pH - (ASTM D1287)",
-            // "HTHS @150°C (ASTM D4683)",
-            // "Viscosity, MRV / Yield Stress -20C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -25C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -30C (ASTM D4684)",
-            // "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            // "Reported Flash point {C+0.033(760-P)} (Nearest 0.5°C)",
-            // "Average Viscosity Blend @ 100°C (four significant figure)",
         ],
         "Filling Line Tea Break Sample": [
-            // "TAN (ASTM D664)",
             "KV@-40°C in Cst  (ISO 3104)",
-            // "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
-            // "Average Total Base Number",
-            // "Average Density 15.0C (Four Significant Figure)",
             "Average Density 20.0C (Four Significant Figure)",
             "Average Moisture Content",
             "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
-            // "Sequence I @ 24.0°C Tendency",
-            // "Sequence I @ 24.0°C Stability",
-            // "Sequence I @ 24.0°C Result",
-            // "Sequence II @ 93.5°C Tendency",
-            // "Sequence II @ 93.5°C Stability",
-            // "Sequence II @ 93.5°C Result",
-            // "Sequence III @ 24.0°C Tendency",
-            // "Sequence III @ 24.0°C Stability",
-            // "Sequence III @ 24.0°C Result",
-            // "Sequence IV @ 150 °C Tendency",
-            // "Sequence IV @ 150 °C Stability",
-            // "Sequence IV @ 150 °C Result",
-            // "Calcium",
-            // "Magnesium",
-            // "Molybdenum",
-            // "Phosphorus",
-            // "Zinc",
-            // "Boron",
-            // "CCS @ -15 (ASTM D5293)",
-            // "CCS @ -20 (ASTM D5293)",
-            // "CCS @ -25 (ASTM D5293)",
             "pH - (ASTM D1287)",
-            // "HTHS @150°C (ASTM D4683)",
-            // "Viscosity, MRV / Yield Stress -20C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -25C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -30C (ASTM D4684)",
-            // "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            // "Reported Flash point {C+0.033(760-P)} (Nearest 0.5°C)",
             "Average Viscosity Blend @ 100°C (four significant figure)",
             "Refractive Index",
         ],
         "Filling Line Lunch Break Sample": [
-             // "TAN (ASTM D664)",
             "KV@-40°C in Cst  (ISO 3104)",
-            // "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
-            // "Average Total Base Number",
-            // "Average Density 15.0C (Four Significant Figure)",
             "Average Density 20.0C (Four Significant Figure)",
             "Average Moisture Content",
             "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
-            // "Sequence I @ 24.0°C Tendency",
-            // "Sequence I @ 24.0°C Stability",
-            // "Sequence I @ 24.0°C Result",
-            // "Sequence II @ 93.5°C Tendency",
-            // "Sequence II @ 93.5°C Stability",
-            // "Sequence II @ 93.5°C Result",
-            // "Sequence III @ 24.0°C Tendency",
-            // "Sequence III @ 24.0°C Stability",
-            // "Sequence III @ 24.0°C Result",
-            // "Sequence IV @ 150 °C Tendency",
-            // "Sequence IV @ 150 °C Stability",
-            // "Sequence IV @ 150 °C Result",
-            // "Calcium",
-            // "Magnesium",
-            // "Molybdenum",
-            // "Phosphorus",
-            // "Zinc",
-            // "Boron",
-            // "CCS @ -15 (ASTM D5293)",
-            // "CCS @ -20 (ASTM D5293)",
-            // "CCS @ -25 (ASTM D5293)",
             "pH - (ASTM D1287)",
-            // "HTHS @150°C (ASTM D4683)",
-            // "Viscosity, MRV / Yield Stress -20C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -25C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -30C (ASTM D4684)",
-            // "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            // "Reported Flash point {C+0.033(760-P)} (Nearest 0.5°C)",
             "Average Viscosity Blend @ 100°C (four significant figure)",
             "Refractive Index",
         ],
         "Filling Line End Sample": [
-             // "TAN (ASTM D664)",
             "KV@-40°C in Cst  (ISO 3104)",
-            // "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
-            // "Average Total Base Number",
-            // "Average Density 15.0C (Four Significant Figure)",
             "Average Density 20.0C (Four Significant Figure)",
             "Average Moisture Content",
             "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
-            // "Sequence I @ 24.0°C Tendency",
-            // "Sequence I @ 24.0°C Stability",
-            // "Sequence I @ 24.0°C Result",
-            // "Sequence II @ 93.5°C Tendency",
-            // "Sequence II @ 93.5°C Stability",
-            // "Sequence II @ 93.5°C Result",
-            // "Sequence III @ 24.0°C Tendency",
-            // "Sequence III @ 24.0°C Stability",
-            // "Sequence III @ 24.0°C Result",
-            // "Sequence IV @ 150 °C Tendency",
-            // "Sequence IV @ 150 °C Stability",
-            // "Sequence IV @ 150 °C Result",
-            // "Calcium",
-            // "Magnesium",
-            // "Molybdenum",
-            // "Phosphorus",
-            // "Zinc",
-            // "Boron",
-            // "CCS @ -15 (ASTM D5293)",
-            // "CCS @ -20 (ASTM D5293)",
-            // "CCS @ -25 (ASTM D5293)",
             "pH - (ASTM D1287)",
-            // "HTHS @150°C (ASTM D4683)",
-            // "Viscosity, MRV / Yield Stress -20C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -25C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -30C (ASTM D4684)",
-            // "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            // "Reported Flash point {C+0.033(760-P)} (Nearest 0.5°C)",
             "Average Viscosity Blend @ 100°C (four significant figure)",
             "Refractive Index",
         ],
         "Filling Line Break Sample": [
-             // "TAN (ASTM D664)",
             "KV@-40°C in Cst  (ISO 3104)",
-            // "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
-            // "Average Total Base Number",
-            // "Average Density 15.0C (Four Significant Figure)",
             "Average Density 20.0C (Four Significant Figure)",
             "Average Moisture Content",
             "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
-            // "Sequence I @ 24.0°C Tendency",
-            // "Sequence I @ 24.0°C Stability",
-            // "Sequence I @ 24.0°C Result",
-            // "Sequence II @ 93.5°C Tendency",
-            // "Sequence II @ 93.5°C Stability",
-            // "Sequence II @ 93.5°C Result",
-            // "Sequence III @ 24.0°C Tendency",
-            // "Sequence III @ 24.0°C Stability",
-            // "Sequence III @ 24.0°C Result",
-            // "Sequence IV @ 150 °C Tendency",
-            // "Sequence IV @ 150 °C Stability",
-            // "Sequence IV @ 150 °C Result",
-            // "Calcium",
-            // "Magnesium",
-            // "Molybdenum",
-            // "Phosphorus",
-            // "Zinc",
-            // "Boron",
-            // "CCS @ -15 (ASTM D5293)",
-            // "CCS @ -20 (ASTM D5293)",
-            // "CCS @ -25 (ASTM D5293)",
             "pH - (ASTM D1287)",
-            // "HTHS @150°C (ASTM D4683)",
-            // "Viscosity, MRV / Yield Stress -20C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -25C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -30C (ASTM D4684)",
-            // "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            // "Reported Flash point {C+0.033(760-P)} (Nearest 0.5°C)",
+            "Average Viscosity Blend @ 100°C (four significant figure)",
+            "Refractive Index",
+        ],
+        "Filling Line Dinner Break Sample": [
+            "KV@-40°C in Cst  (ISO 3104)",
+            "Average KV@ 100°C (four significant figure)",
+            "Average KV@ 40°C (four significant figure)",
+            "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 20.0C (Four Significant Figure)",
+            "Average Moisture Content",
+            "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
+            "pH - (ASTM D1287)",
             "Average Viscosity Blend @ 100°C (four significant figure)",
             "Refractive Index",
         ],
@@ -259,7 +113,6 @@ const showFieldMap = {
             "Viscosity Index",
             "Sequence II @ 93.5°C Tendency",
             "Sequence II @ 93.5°C Stability",
-            //sequence II result
             "Boron",
             "Calcium",
             "Magnesium",
@@ -289,74 +142,30 @@ const showFieldMap = {
             "TAN (ASTM D664)",
             "KV@-40°C in Cst  (ISO 3104)",
             "Viscosity Index",
-            // "Sequence II @ 93.5°C Tendency",
-            // "Sequence II @ 93.5°C Stability",
-            // "Boron",
-            // "Calcium",
-            // "Magnesium",
-            // "Molybdenum",
-            // "Phosphorus",
-            // "Zinc",
-            // "CCS @ -15 (ASTM D5293)",
-            // "CCS @ -20 (ASTM D5293)",
-            // "CCS @ -25 (ASTM D5293)",
             "CCS @ -30 (ASTM D5293)",
             "CCS @ -35 (ASTM D5293)",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
             "Average Total Base Number",
-            // "Average Density 15.0C (Four Significant Figure)",
             "Average Density 20.0C (Four Significant Figure)",
             "Average Moisture Content",
             "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
             "pH - (ASTM D1287)",
             "Refractive Index",
-            // "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            // "Reported Flash point {C+0.033(760-P)} (Nearest 0.5°C)",
         ],
         "Storage Tank flushing": [
-             // "TAN (ASTM D664)",
             "KV@-40°C in Cst  (ISO 3104)",
-            // "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
-            // "Average Total Base Number",
-            // "Average Density 15.0C (Four Significant Figure)",
             "Average Density 20.0C (Four Significant Figure)",
             "Average Moisture Content",
             "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
-            // "Sequence I @ 24.0°C Tendency",
-            // "Sequence I @ 24.0°C Stability",
-            // "Sequence I @ 24.0°C Result",
-            // "Sequence II @ 93.5°C Tendency",
-            // "Sequence II @ 93.5°C Stability",
-            // "Sequence II @ 93.5°C Result",
-            // "Sequence III @ 24.0°C Tendency",
-            // "Sequence III @ 24.0°C Stability",
-            // "Sequence III @ 24.0°C Result",
-            // "Sequence IV @ 150 °C Tendency",
-            // "Sequence IV @ 150 °C Stability",
-            // "Sequence IV @ 150 °C Result",
-            // "Calcium",
-            // "Magnesium",
-            // "Molybdenum",
-            // "Phosphorus",
-            // "Zinc",
-            // "Boron",
-            // "CCS @ -15 (ASTM D5293)",
-            // "CCS @ -20 (ASTM D5293)",
-            // "CCS @ -25 (ASTM D5293)",
             "pH - (ASTM D1287)",
-            // "HTHS @150°C (ASTM D4683)",
-            // "Viscosity, MRV / Yield Stress -20C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -25C (ASTM D4684)",
-            // "Viscosity, MRV / Yield Stress -30C (ASTM D4684)",
-            // "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            // "Reported Flash point {C+0.033(760-P)} (Nearest 0.5°C)",
             "Average Viscosity Blend @ 100°C (four significant figure)",
             "Refractive Index",
+            "KV@ 40°C",
         ],
         "Receipt - Base oil": [
             "TAN (ASTM D664)",
@@ -364,6 +173,7 @@ const showFieldMap = {
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (ASTM D1298)",
             "Reported Flash point {C+0.033(760-P)} (Nearest 1°C)",
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
             "CCS @ -30 (ASTM D5293))",
@@ -372,12 +182,13 @@ const showFieldMap = {
             "Noack Volatality (ASTM D5800)",
             "Copper Corrosion (ASTM D130) @ 100°C for 3hrs"
         ],
-        "Bulk Filling Tanker OUT- Base oil": [
+        "Bulk Filling Tanker OUT - Base oil": [
             "TAN (ASTM D664)",
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (ASTM D1298)",
             "Reported Flash point {C+0.033(760-P)} (Nearest 1°C)",
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
             "CCS @ -30 (ASTM D5293)",
@@ -387,17 +198,8 @@ const showFieldMap = {
             "Copper Corrosion (ASTM D130) @ 100°C for 3hrs"
         ],
         "Blending Kettle Flushing": [
-            // "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
-            // "Average Density 29.5C (Four Significant Figure)",
-            // "Reported Flash point {C+0.033(760-P)} (Nearest 1°C)",
-            // "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
-            // "CCS @ -30 (ASTM D5293)",
-            // "CCS @ -15 (ASTM D5293)",
-            // " Water Content (ASTM D6304) (Nearest 1 ppm)",
-            // "Noack Volatality (ASTM D5800)",
-            // "Copper Corrosion (ASTM D130) @ 100°C for 3hrs"
         ],
         "Receipt – Additive": [
             "FTIR",
@@ -410,19 +212,22 @@ const showFieldMap = {
     },
     "Exxon Mobil": {
         "Tanker Flushing": [
-            "KV@ 100°C"
+            "KV@ 100°C",
+            "KV@ 40°C",
         ],
         "Receipt - Base oil": [
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
-            "Average Density 29.5C (Four Significant Figure)"
+            "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (ASTM D1298)",
         ],
-        "Bulk Filling Tanker OUT- Base oil": [
+        "Bulk Filling Tanker OUT - Base oil": [
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
-            "Average Density 29.5C (Four Significant Figure)"
+            "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (ASTM D1298)",
         ],
         "Blending Kettle Flushing": [
             // "Viscosity Index",
@@ -506,25 +311,28 @@ const showFieldMap = {
     },
     "G S Caltex": {
         "Tanker Flushing": [
-            "KV@ 100°C"
+            "KV@ 100°C",
+            "KV@ 40°C",
         ],
         "Receipt - Base oil": [
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (ASTM D1298)",
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
             "Reported Flash point {C+0.033(760-P)} (Nearest 1°C)",
-            "Average Total Acid Number",
+            // "Average Total Acid Number",
         ],
-        "Bulk Filling Tanker OUT- Base oil": [
+        "Bulk Filling Tanker OUT - Base oil": [
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (ASTM D1298)",
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
             "Reported Flash point {C+0.033(760-P)} (Nearest 1°C)",
-            "Average Total Acid Number",
+            // "Average Total Acid Number",
         ],
         "Blending Kettle Flushing": [
             // "Viscosity Index",
@@ -642,7 +450,8 @@ const showFieldMap = {
     },
     "Shell India Marketing Pvt. Ltd.": {
         "Tanker Flushing": [
-            "KV@ 100°C"
+            "KV@ 100°C",
+            "KV@ 40°C",
         ],
         "Receipt - Base oil": [
             "Viscosity Index",
@@ -651,6 +460,9 @@ const showFieldMap = {
             "Average Density 15.0C (Four Significant Figure)",
             "Average Density 15.60C (Four Significant Figure)",
             "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 15.0C (ASTM D1298)",
+            // "Average Density 15.60C (ASTM D1298)",
+            // "Average Density 29.5C (ASTM D1298)",
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
             "Reported Flash point {C+0.033(760-P)} (Nearest 1°C)",
             "Result",
@@ -661,13 +473,16 @@ const showFieldMap = {
             "Sulphur (ASTM D4294)",
             "Average Air Release",
         ],
-        "Bulk Filling Tanker OUT- Base oil": [
+        "Bulk Filling Tanker OUT - Base oil": [
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
             "Average Density 15.0C (Four Significant Figure)",
             "Average Density 15.60C (Four Significant Figure)",
             "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 15.0C (ASTM D1298)",
+            // "Average Density 15.60C (ASTM D1298)",
+            // "Average Density 29.5C (ASTM D1298)",
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
             "Reported Flash point {C+0.033(760-P)} (Nearest 1°C)",
             "Result",
@@ -791,7 +606,8 @@ const showFieldMap = {
     },
     "Valvoline Cummins (I) Pvt. Ltd.  (coolant)": {
         "Tanker Flushing": [
-            "KV@ 100°C"
+            "KV@ 100°C",
+            "KV@ 40°C",
         ],
         "Receipt - MEG": [
             "Suspended Matter (Visual)",
@@ -890,7 +706,8 @@ const showFieldMap = {
     },
     "Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)": {
         "Tanker Flushing": [
-            "KV@ 100°C"
+            "KV@ 100°C",
+            "KV@ 40°C",
         ],
         "Receipt - Base oil": [
             "Viscosity Index",
@@ -901,7 +718,7 @@ const showFieldMap = {
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
             "Reported Flash point {C+0.033(760-P)} (Nearest 1°C)"
         ],
-        "Bulk Filling Tanker OUT- Base oil": [
+        "Bulk Filling Tanker OUT - Base oil": [
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
@@ -924,9 +741,12 @@ const showFieldMap = {
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
-            "Average Density 29.5C (Four Significant Figure)",
-            "Average Density 15.0C (Four Significant Figure)",
-            "Average Density 15.60C (Four Significant Figure)",
+            // "Average Density 15.0C (Four Significant Figure)",
+            // "Average Density 15.60C (Four Significant Figure)",
+            // "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 15.0C (ASTM D1298)",
+            "Average Density 15.60C (ASTM D1298)",
+            "Average Density 29.5C (ASTM D1298)",
             // "Average Density 15.50C (Four Significant Figure)",
             "Average Total Base Number",
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
@@ -973,7 +793,8 @@ const showFieldMap = {
             "Sequence II @ 93.5°C Tendency",
             "Sequence II @ 93.5°C Stability",
             "Sequence II @ 93.5°C Result",
-            "CCS @ -20 (ASTM D5293)"
+            "CCS @ -20 (ASTM D5293)",
+            "CCS @ -25 (ASTM D5293)",
         ],
         "Blending": [
             "Aniline Point",
@@ -1057,7 +878,12 @@ const showFieldMap = {
             "Average Density 15.0C (Four Significant Figure)",
             "Average Density 20.0C (Four Significant Figure)",
             "Average Density 15.60C (Four Significant Figure)",
-            "Average Density 15.50C (Four Significant Figure)", ,
+            "Average Density 15.50C (Four Significant Figure)",
+            "Average Density 29.5C (ASTM D1298)",
+            "Average Density 20.0C (ASTM D1298)",
+            "Average Density 15.50C (ASTM D1298)",
+            "Average Density 15.60C (ASTM D1298)",
+            "Average Density 15.0C (ASTM D1298)",
             "Average Total Base Number",
             "Average Total Acid Number",
             "TAN (ASTM D664)",
@@ -1192,6 +1018,10 @@ const showFieldMap = {
         ],
     },
     "Raj Petro (Solvent)": {
+        "Tanker Flushing": [
+            "KV@ 100°C",
+            "KV@ 40°C",
+        ],
         "Bulk Filling Tanker OUT - Base oil": [
             "Average KV@ 40°C (four significant figure)",
             "Average Density 29.5C (Four Significant Figure)",
@@ -1221,9 +1051,17 @@ const showFieldMap = {
             "FBP",
             "IBP",
             "Sulphur (ASTM D4294)",
+        ],
+        "First Filled sample": [
+            "Average Density 29.5C (Four Significant Figure)",
+            "KV@ 40°C",
         ]
     },
     "BASF (Brake Fluid)": {
+        "Tanker Flushing": [
+            "KV@ 100°C",
+            "KV@ 40°C",
+        ],
         "Receipt – SFG": [
             "Average Density 29.5C (Four Significant Figure)",
             "Average Density 20.0C (Four Significant Figure)",
@@ -1251,8 +1089,13 @@ const showFieldMap = {
         ]
     },
     "G S Caltex (Base Oil Trading)": {
+        "Tanker Flushing": [
+            "KV@ 100°C",
+            "KV@ 40°C",
+        ],
         "Receipt - Base oil": [
             "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (ASTM D1298)",
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
@@ -1262,6 +1105,7 @@ const showFieldMap = {
         ],
         "Bulk Filling Tanker OUT - Base oil": [
             "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (ASTM D1298)",
             "Viscosity Index",
             "Average KV@ 100°C (four significant figure)",
             "Average KV@ 40°C (four significant figure)",
@@ -1271,6 +1115,10 @@ const showFieldMap = {
         ]
     },
     "Raj Petro (Blending)": {
+        "Tanker Flushing": [
+            "KV@ 100°C",
+            "KV@ 40°C",
+        ],
         "Receipt - Base oil": [
             "Average Density 29.5C (Four Significant Figure)",
             "KV@ 40°C",
@@ -1331,6 +1179,10 @@ const showFieldMap = {
         ],
     },
     "BASF (Coolant)": {
+        "Tanker Flushing": [
+            "KV@ 100°C",
+            "KV@ 40°C",
+        ],
         "Receipt – SFG": [
             "Average Density 29.5C (Four Significant Figure)",
             "Average Density 20.0C (Four Significant Figure)",
@@ -1393,12 +1245,38 @@ const showFieldMap = {
             "Total Dissolve Solid  (ISO 3696)",
         ],
         "Finished Good Storage Tank Sample": [
+            "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 20.0C (Four Significant Figure)",
+            "Average Density 15.60C (Four Significant Figure)",
+            "pH - (ASTM D1287)",
+            "pH @25˚C- (ASTM D1287)",
             "pH - 50 % Dil.(ASTM D1287)",
+            "Refractive Index 20C",
+            "Reserved Alkalinity 10 ml",
+            "Boiling Point  (ASTM D1120) (Nearest 0.3°C)",
+            "Freezing Point",
+            "Average Moisture Content",
+            "Average @ 88.0 °C Tendency (T)",
+            "Average @ 88.0 °C Stability (S)",
+            "Replicate 1 @ 88.0 °C Tendency (T)",
+            "Replicate 1 @ 88.0 °C Stability (S)",
+            "Replicate 2 @ 88.0 °C Tendency (T)",
+            "Replicate 2 @ 88.0 °C Stability (S)",
+            "Replicate 3 @ 88.0 °C Tendency (T)",
+            "Replicate 3 @ 88.0 °C Stability (S)",
+            "Average @ 88.0 °C Results (T/S)",
+            "Chloride Content   = (BRS-BRBXNormalityX7100)",
+            "Silicate (ASTM D6130)",
         ],
     },
     "Petronas": {
+        "Tanker Flushing": [
+            "KV@ 100°C",
+            "KV@ 40°C",
+        ],
         "Receipt – SFG": [
-            "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 29.5C (ASTM D1298)",
             "Average KV@ 100°C (four significant figure)",
             "Phosphorus (ASTM D5185)",
             "Sulphur (ASTM D5185)",
@@ -1409,7 +1287,8 @@ const showFieldMap = {
             "Molybdenum (ASTM D5185)",
         ],
         "Finished Good Storage Tank Sample": [
-            "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 29.5C (ASTM D1298)",
             "Average KV@ 40°C (four significant figure)",
             "Average KV@ 100°C (four significant figure)",
             "Viscosity Index",
@@ -1417,6 +1296,7 @@ const showFieldMap = {
             "Reported Pour point (Observed Pour point+3) (Nearest 1°C)",
             "TAN (ASTM D664)",
             "Copper Corrosion (ASTM D130) @ 100°C for 3hrs",
+            "Brookfield Viscosity @ -40C (ASTM D2983)",
             "Sequence I @ 24.0°C Tendency",
             "Sequence I @ 24.0°C Stability",
             "Sequence I @ 24.0°C Result",
@@ -1445,7 +1325,8 @@ const showFieldMap = {
             "Average Total Base Number",
         ],
         "First Filled sample": [
-            "Average Density 29.5C (Four Significant Figure)",
+            // "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 29.5C (ASTM D1298)",
             "Average KV@ 100°C (four significant figure)",
             "Phosphorus (ASTM D5185)",
             "Sulphur (ASTM D5185)",
@@ -1494,13 +1375,19 @@ const showFieldMap = {
         ],
     },
     "Nynas": {
+        "Tanker Flushing": [
+            "KV@ 100°C",
+            "KV@ 40°C",
+        ],
         "Receipt - Base oil": [
             "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 29.5C (ASTM D1298)",
             "Average KV@ 40°C (four significant figure)",
             "Average KV@ 100°C (four significant figure)",
         ],
         "Bulk Filling Tanker OUT - Base oil": [
             "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 29.5C (ASTM D1298)",
             "Average KV@ 40°C (four significant figure)",
             "Average KV@ 100°C (four significant figure)",
         ],
@@ -1526,8 +1413,13 @@ const showFieldMap = {
         ]
     },
     "ENSOOILS": {
+        "Tanker Flushing": [
+            "KV@ 100°C",
+            "KV@ 40°C",
+        ],
         "Blending": [
             "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 29.5C (ASTM D1298)",
             "Average KV@ 40°C (four significant figure)",
             "Average KV@ 100°C (four significant figure)",
             "Viscosity Index",
@@ -1562,6 +1454,7 @@ const showFieldMap = {
         ],
         "First Filled sample": [
             "Average Density 29.5C (Four Significant Figure)",
+            "Average Density 29.5C (ASTM D1298)",
             "Average KV@ 40°C (four significant figure)",
             "Average KV@ 100°C (four significant figure)",
             "Average Total Base Number",
@@ -1570,6 +1463,12 @@ const showFieldMap = {
         "Blending- Premix": [
             "Average KV@ 40°C (four significant figure)",
             "Average KV@ 100°C (four significant figure)",
+        ],
+    },
+    "Sperry": {
+        "Tanker Flushing": [
+            "KV@ 100°C",
+            "KV@ 40°C",
         ],
     }
 };
@@ -1700,32 +1599,22 @@ frappe.ui.form.on("Raw Data Sample", {
     sample_name: async function (frm) {
         await ensureTables(frm);
         // frm.refresh_fields();
-    },
-    // pass_or_fail(frm){
-    //     if(frm.ignore_confirm) return;
 
-    //     if(frm.doc.pass_or_fail && frm.doc.status_field !== ""){
-    //         frappe.confirm(
-    //             "Sure you to submit Raw Data?",
-    //             ()=>{
-    //                 frm.set_value('date_of_analysis_completed', frappe.datetime.now_datetime());
-    //                 frm.save('Submit');
-    //             },
-    //             () => {
-    //                 // User clicked CANCEL → clear field without retrigger
-    //                 frm.ignore_confirm = true;
-    //                 frm.set_value("pass_or_fail", '');
-    //                 frm.ignore_confirm = false;
-    //             }
-    //         )
-    //     }
-    // },
+        frm.set_df_property("other_1_section", "hidden", 0);
+        frm.set_df_property("other_2_section", "hidden", 0);
+        frm.set_df_property("section_break_zifa", "hidden", 0);
+    },
+    
 });
 
 async function getAllTables(frm) {
     if (!frm.doc.sample_name || !frm.doc.type_of_sample || !frm.doc.name_of_customer) {
         return;
     }
+
+    frm.set_df_property("other_1_section", "hidden", 0);
+    frm.set_df_property("other_2_section", "hidden", 0);
+    frm.set_df_property("section_break_zifa", "hidden", 0);
 
     const sampleType = frm.doc.type_of_sample;
 
@@ -1743,12 +1632,17 @@ async function getAllTables(frm) {
     const name_of_sample = frm.doc.sample_name;
 
 
-    if (sampleType == "Other" || isInternalClient == 1) {
+    if (sampleType == "Other" || isInternalClient == 1 || sampleType == "Lab Blend" || sampleType == "Tanker Flushing") {
         const response = await frm.call("preload_all_tables_for_internal", {
             showFieldMap: JSON.stringify(showFieldMap)
         });
 
-        allowedParameters = showFieldMap["Internal Client"]["Other"];
+        if(sampleType == "Tanker Flushing"){
+            allowedParameters = showFieldMap[frm.doc.name_of_customer][sampleType];
+        }
+        else{
+            allowedParameters = showFieldMap["Internal Client"]["Other"];
+        }
 
         const tableMap = response.message;
 
@@ -1893,6 +1787,12 @@ async function getAllTables(frm) {
             const hide = !sampleVal || sampleVal.toLowerCase() === "na";
 
             frm.set_df_property(fieldTab, "hidden", hide ? 1 : 0);
+
+            if(!hide){
+                frm.set_df_property("other_1_section", "hidden", 0);
+                frm.set_df_property("other_2_section", "hidden", 0);
+                frm.set_df_property("section_break_zifa", "hidden", 0);
+            }
         }
     })
 

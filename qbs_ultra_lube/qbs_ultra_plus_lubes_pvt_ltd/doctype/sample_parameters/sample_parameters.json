@@ -193,37 +193,37 @@
   {
    "fieldname": "ccs",
    "fieldtype": "Small Text",
-   "label": "CCS @ -20 (ASTM D5293) (cP)"
+   "label": "CCS @ -20 (ASTM D5293) (mPa.s)"
   },
   {
    "fieldname": "ccs3",
    "fieldtype": "Small Text",
-   "label": "CCS @ -30 (ASTM D5293) (cP)"
+   "label": "CCS @ -30 (ASTM D5293) (mPa.s)"
   },
   {
    "fieldname": "ccs_1",
    "fieldtype": "Small Text",
-   "label": "CCS @ -15 (ASTM D5293) (cP)"
+   "label": "CCS @ -15 (ASTM D5293) (mPa.s)"
   },
   {
    "fieldname": "ccs_2",
    "fieldtype": "Small Text",
-   "label": "CCS @ -25 (ASTM D5293) (cP)"
+   "label": "CCS @ -25 (ASTM D5293) (mPa.s)"
   },
   {
    "fieldname": "ccs_9",
    "fieldtype": "Small Text",
-   "label": "CCS @ -35 (ASTM D5293) (cP)"
+   "label": "CCS @ -35 (ASTM D5293) (mPa.s)"
   },
   {
    "fieldname": "ti_astm_d4951_",
    "fieldtype": "Small Text",
-   "label": "Ti (ASTM D4951) (%)"
+   "label": "Ti (ASTM D4951) (%mass )"
   },
   {
    "fieldname": "water_content_karl_fischer_volumetricastm_d1123_",
    "fieldtype": "Small Text",
-   "label": "Water Content Karl Fischer (volumetric)(ASTM D1123) (%)"
+   "label": "Water Content Karl Fischer (volumetric)(ASTM D1123) (%wt)"
   },
   {
    "fieldname": "boiling_point",
@@ -263,7 +263,7 @@
   {
    "fieldname": "water_content_astm_d6304",
    "fieldtype": "Small Text",
-   "label": "Water Content (ASTM D6304)(%)"
+   "label": "Water Content (ASTM D6304)(mg/kg)"
   },
   {
    "fieldname": "appearance_visual",
@@ -278,37 +278,37 @@
   {
    "fieldname": "calcium",
    "fieldtype": "Small Text",
-   "label": "Calcium, % wt (ASTM D4951)"
+   "label": "Calcium, %mass (ASTM D4951)"
   },
   {
    "fieldname": "zinc",
    "fieldtype": "Small Text",
-   "label": "Zinc, % wt (ASTM D4951)"
+   "label": "Zinc, %mass (ASTM D4951)"
   },
   {
    "fieldname": "phosphorus",
    "fieldtype": "Small Text",
-   "label": "Phosphorus, % wt (ASTM D4951)"
+   "label": "Phosphorus, %mass (ASTM D4951)"
   },
   {
    "fieldname": "boron",
    "fieldtype": "Small Text",
-   "label": "Boron, % wt (ASTM D4951)"
+   "label": "Boron, %mass (ASTM D4951)"
   },
   {
    "fieldname": "magnesium",
    "fieldtype": "Small Text",
-   "label": "Magnesium, % wt (ASTM D4951)"
+   "label": "Magnesium, %mass (ASTM D4951)"
   },
   {
    "fieldname": "molybdenum",
    "fieldtype": "Small Text",
-   "label": "Molybdenum, % (ASTM D4951)"
+   "label": "Molybdenum, %mass  (ASTM D4951)"
   },
   {
    "fieldname": "colour_visual",
    "fieldtype": "Small Text",
-   "label": "color (Visual)"
+   "label": "Color (Visual)"
   },
   {
    "fieldname": "ftir_comparison_with_std",
@@ -323,7 +323,7 @@
   {
    "fieldname": "sequence_ii_935c_stability",
    "fieldtype": "Small Text",
-   "label": "Foam Sequence II, Stability (ml)"
+   "label": "Foam Sequence II, Stability (ml/min)"
   },
   {
    "fieldname": "data_rkpq",
@@ -368,7 +368,7 @@
   {
    "fieldname": "sequence_i_240c_stability",
    "fieldtype": "Small Text",
-   "label": "Foam Sequence I, Stability (ml)"
+   "label": "Foam Sequence I, Stability (ml/min)"
   },
   {
    "fieldname": "reported_pour_point_nearest_1c",
@@ -378,7 +378,7 @@
   {
    "fieldname": "sequence_ii_935c_tendency",
    "fieldtype": "Small Text",
-   "label": "Foam Sequence II, Tendency (ml)"
+   "label": "Foam Sequence II, Tendency (ml/min)"
   },
   {
    "fieldname": "hths",
@@ -388,22 +388,22 @@
   {
    "fieldname": "sequence_iii_240c_tendency",
    "fieldtype": "Small Text",
-   "label": "Foam Sequence III, Tendency (ml)"
+   "label": "Foam Sequence III, Tendency (ml/min)"
   },
   {
    "fieldname": "sequence_iii_240c_stability",
    "fieldtype": "Small Text",
-   "label": "Foam Sequence III, Stability (ml)"
+   "label": "Foam Sequence III, Stability (ml/min)"
   },
   {
    "fieldname": "seq1",
    "fieldtype": "Small Text",
-   "label": "Foam Sequence IV, Tendency (ml)"
+   "label": "Foam Sequence IV, Tendency (ml/min)"
   },
   {
    "fieldname": "seq2",
    "fieldtype": "Small Text",
-   "label": "Foam Sequence IV, Stability (ml)"
+   "label": "Foam Sequence IV, Stability (ml/min)"
   },
   {
    "fieldname": "reported_flash_point_nearest_1c",
@@ -413,12 +413,12 @@
   {
    "fieldname": "sequence_i_240c_tendency",
    "fieldtype": "Small Text",
-   "label": "Foam Sequence I, Tendency (ml)"
+   "label": "Foam Sequence I, Tendency (ml/min)"
   },
   {
    "fieldname": "noack_volatality",
    "fieldtype": "Small Text",
-   "label": "Noack Volatality (ASTM D5800)"
+   "label": "Noack Volatality (ASTM D5800) (% wt)"
   },
   {
    "fieldname": "sample_types",
@@ -447,12 +447,12 @@
   {
    "fieldname": "average_total_base_number",
    "fieldtype": "Small Text",
-   "label": "TBN (ASTM D2896) (mg of koH/g)"
+   "label": "TBN (ASTM D2896) (mg of KOH/g)"
   },
   {
    "fieldname": "average_total_acid_number",
    "fieldtype": "Small Text",
-   "label": "TAN (ASTM D664) (mg of koH/gm)"
+   "label": "TAN (ASTM D664) (mg of KOH/gm)"
   },
   {
    "fieldname": "iso_4406",
@@ -467,12 +467,12 @@
   {
    "fieldname": "saponification_value_astm_d94",
    "fieldtype": "Small Text",
-   "label": "Saponification Value (ASTM D94)"
+   "label": "Saponification Value (ASTM D94) (mg of KOH/g)"
   },
   {
    "fieldname": "total_acid_number_astm_d974_mg_of_kog",
    "fieldtype": "Small Text",
-   "label": "Total Acid Number (ASTM D974) (mg of Ko/g)"
+   "label": "Total Acid Number (ASTM D974) (mg of KOH/g)"
   },
   {
    "fieldname": "viscosity9",
@@ -482,22 +482,22 @@
   {
    "fieldname": "mrv",
    "fieldtype": "Small Text",
-   "label": "MRV  Yield Stress -35C (ASTM D4684) (Pa)"
+   "label": "MRV  Yield Stress -35C (ASTM D4684) (cP)"
   },
   {
    "fieldname": "mrv1",
    "fieldtype": "Small Text",
-   "label": "MRV  Yield Stress -30C (ASTM D4684) (Pa)"
+   "label": "MRV  Yield Stress -30C (ASTM D4684) (cp)"
   },
   {
    "fieldname": "m",
    "fieldtype": "Small Text",
-   "label": "MRV  Yield Stress -20C (ASTM D4684) (Pa)"
+   "label": "MRV  Yield Stress -20C (ASTM D4684) (cp)"
   },
   {
    "fieldname": "m2",
    "fieldtype": "Small Text",
-   "label": "MRV  Yield Stress -25C (ASTM D4684) (Pa)"
+   "label": "MRV  Yield Stress -25C (ASTM D4684) (cp)"
   },
   {
    "fieldname": "air_release_astm_d3427_min",
@@ -522,12 +522,12 @@
   {
    "fieldname": "sulphated_ash__wt_astm_d874",
    "fieldtype": "Small Text",
-   "label": "Sulphated Ash, % wt (ASTM D874)"
+   "label": "Sulphated Ash, %mass (ASTM D874)"
   },
   {
    "fieldname": "brookfield",
    "fieldtype": "Small Text",
-   "label": "Brookfield Viscosity @-26C (ASTM D2983) (m.pas)"
+   "label": "Brookfield Viscosity @-26C (ASTM D2983) (mPa.s)"
   },
   {
    "fieldname": "rust_preventive_astm_d665b",
@@ -542,22 +542,22 @@
   {
    "fieldname": "ash_astm_d482",
    "fieldtype": "Small Text",
-   "label": "Ash (ASTM D482)"
+   "label": "Ash (ASTM D482) (%mass)"
   },
   {
    "fieldname": "silicon",
    "fieldtype": "Small Text",
-   "label": "Silicon, % wt (ASTM D4951)"
+   "label": "Silicon, %mass (ASTM D4951)"
   },
   {
    "fieldname": "sulphur_wt_astm_d4951",
    "fieldtype": "Small Text",
-   "label": "Sulphur,  % wt (ASTM D4951)"
+   "label": "Sulphur,  %mass (ASTM D4951)"
   },
   {
    "fieldname": "lubad_1128",
    "fieldtype": "Small Text",
-   "label": "Lubad 1128 (LQS025)"
+   "label": "Lubad 1128 (LQS025) (%)"
   },
   {
    "fieldname": "rpvot_astm_d2272_min",
@@ -567,7 +567,7 @@
   {
    "fieldname": "demulsibility_ip_19_sec",
    "fieldtype": "Small Text",
-   "label": "Demulsibility (IP 19) (Sec)"
+   "label": "Demulsibility (IP 19) (Sec.)"
   },
   {
    "fieldname": "filterability_factor_stage_1wet_iso_13357_1",
@@ -607,27 +607,27 @@
   {
    "fieldname": "brookfield_viscosity_20c_astm_d2983_mpas",
    "fieldtype": "Small Text",
-   "label": "Brookfield Viscosity @ -20C (ASTM D2983) (mPa-s) "
+   "label": "Brookfield Viscosity @ -20C (ASTM D2983) (mPa.s) "
   },
   {
    "fieldname": "brookfield_viscosity_12c_astm_d2983_mpas",
    "fieldtype": "Small Text",
-   "label": "Brookfield Viscosity @ -12C (ASTM D2983) (mPa-s) "
+   "label": "Brookfield Viscosity @ -12C (ASTM D2983) (mPa.s) "
   },
   {
    "fieldname": "brookfield_viscosity_40c_astm_d2983_mpas",
    "fieldtype": "Small Text",
-   "label": "Brookfield Viscosity @ -40C (ASTM D2983) (mPa-s)"
+   "label": "Brookfield Viscosity @ -40C (ASTM D2983) (mPa.s)"
   },
   {
    "fieldname": "brookfield_viscosity_55c_astm_d2983_mpas",
    "fieldtype": "Small Text",
-   "label": "Brookfield Viscosity @ -55C (ASTM D2983) (mPa-s)"
+   "label": "Brookfield Viscosity @ -55C (ASTM D2983) (mPa.s)"
   },
   {
    "fieldname": "chlorine_content_astm_d4927_ppm",
    "fieldtype": "Small Text",
-   "label": "Chlorine Content (ASTM D4927) (ppm) "
+   "label": "Chlorine Content (ASTM D4927) (mg/kg) "
   },
   {
    "fieldname": "kinematic_viscosity_after_100hrs_krl_astm_d445_mm\u00b2s",
@@ -657,52 +657,52 @@
   {
    "fieldname": "brookfield_viscosity_18c_astm_d2983_mpas",
    "fieldtype": "Small Text",
-   "label": "Brookfield Viscosity @-18C (ASTM D2983) (m.pas)"
+   "label": "Brookfield Viscosity @-18C (ASTM D2983) (mPa.s)"
   },
   {
    "fieldname": "brookfield_viscosity_35c_astm_d2983_mpas",
    "fieldtype": "Small Text",
-   "label": "Brookfield Viscosity @-35C (ASTM D2983) (m.pas)"
+   "label": "Brookfield Viscosity @-35C (ASTM D2983) (mPa.s)"
   },
   {
    "fieldname": "calcium__wt_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Calcium, % wt (ASTM D5185)"
+   "label": "Calcium, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "zinc__wt_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Zinc, % wt (ASTM D5185)"
+   "label": "Zinc, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "phosphorous__wt_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Phosphorous, % wt (ASTM D5185)"
+   "label": "Phosphorous, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "boron__wt_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Boron, % wt (ASTM D5185)"
+   "label": "Boron, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "sulphur__wt_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Sulphur, % wt (ASTM D5185)"
+   "label": "Sulphur, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "magnessium__wt_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Magnessium, % wt (ASTM D5185)"
+   "label": "Magnessium, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "molybdenum__wt_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Molybdenum, % wt (ASTM D5185)"
+   "label": "Molybdenum, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "silicon__wt_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Silicon, % wt (ASTM D5185)"
+   "label": "Silicon, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "aniline_point_astm_d611_c",
@@ -807,17 +807,17 @@
   {
    "fieldname": "foaming_replicate_880_c_astm_d1881_tendency",
    "fieldtype": "Small Text",
-   "label": "Foaming Replicate @ 88.0 \u00b0C Tendency (ASTM D1881)"
+   "label": "Foaming Replicate @ 88.0 \u00b0C Tendency (ASTM D1881) (ml/sec)"
   },
   {
    "fieldname": "foaming_replicate_880_c_astm_d1881_stability",
    "fieldtype": "Small Text",
-   "label": "Foaming Replicate @ 88.0 \u00b0C Stability (ASTM D1881)"
+   "label": "Foaming Replicate @ 88.0 \u00b0C Stability (ASTM D1881) (ml/sec)"
   },
   {
    "fieldname": "silicon_astm_d6130_ppm",
    "fieldtype": "Small Text",
-   "label": "Silicon (ASTM D6130) (ppm) "
+   "label": "Silicon (ASTM D6130) (%mass) "
   },
   {
    "description": "\u00b0C",
@@ -828,12 +828,12 @@
   {
    "fieldname": "dewatering_property_with_dm_water_ihtp_q13",
    "fieldtype": "Small Text",
-   "label": "Dewatering Property with DM Water (IHTP Q13)"
+   "label": "Dewatering Property with DM Water (IHTP Q13) (minute)"
   },
   {
    "fieldname": "viscosity__100_deg_c_astm_d6278",
    "fieldtype": "Small Text",
-   "label": "Viscosity @ 100 Deg C (ASTM D6278)"
+   "label": "Viscosity @ 100 Deg C (ASTM D6278) (mm2/s)"
   },
   {
    "description": "\u00b0C",
@@ -851,7 +851,7 @@
    "description": "ppm",
    "fieldname": "sulphur_astm_d_4294",
    "fieldtype": "Small Text",
-   "label": "Sulphur (ASTM D4294)"
+   "label": "Sulphur (ASTM D4294) (mg/kg)"
   },
   {
    "fieldname": "solubility_in_water_inhouse",
@@ -867,7 +867,7 @@
   {
    "fieldname": "dewatering_property_with_3_nacl_solution_ihtp_q13",
    "fieldtype": "Small Text",
-   "label": "Dewatering Property with 3% Nacl Solution (IHTP Q13)"
+   "label": "Dewatering Property with 3% Nacl Solution (IHTP Q13) (minute)"
   },
   {
    "description": "\u00b0C",
@@ -890,22 +890,22 @@
   {
    "fieldname": "titanium__wt_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Titanium, % wt (ASTM D5185)"
+   "label": "Titanium, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "viscosity__100c_astm_d7042",
    "fieldtype": "Small Text",
-   "label": "Viscosity @ 100C (ASTM D7042)"
+   "label": "Viscosity @ 100C (ASTM D7042) (mm2/s)"
   },
   {
    "fieldname": "viscosity__40c_astm_d7042",
    "fieldtype": "Small Text",
-   "label": "Viscosity @ 40C (ASTM D7042)"
+   "label": "Viscosity @ 40C (ASTM D7042) (mm2/s)"
   },
   {
    "fieldname": "ccs__10_astm_d5293_cp",
    "fieldtype": "Small Text",
-   "label": "CCS @ -10 (ASTM D5293) (cP)"
+   "label": "CCS @ -10 (ASTM D5293) (mPa.s)"
   },
   {
    "fieldname": "viscosity_mrv__yield_stress_40c_astm_d4684_cp",
@@ -930,12 +930,12 @@
   {
    "fieldname": "silicate_astm_d6130_ppm",
    "fieldtype": "Small Text",
-   "label": "Silicate (ASTM D6130) (ppm)"
+   "label": "Silicate (ASTM D6130) (%mass)"
   },
   {
    "fieldname": "nitrogen_mass_astm_d5185",
    "fieldtype": "Small Text",
-   "label": "Nitrogen, %mass (ASTM D5185)"
+   "label": "Nitrogen, mg/kg (ASTM D5185)"
   },
   {
    "fieldname": "density__15c_astm_d1298_gml",
@@ -978,7 +978,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-12-03 15:06:43.973925",
+ "modified": "2025-12-12 19:21:44.195399",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Sample Parameters",

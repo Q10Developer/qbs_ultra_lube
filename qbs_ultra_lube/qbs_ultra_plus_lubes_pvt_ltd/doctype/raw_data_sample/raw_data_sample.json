@@ -16,7 +16,7 @@
   "colour_visual_html",
   "crackle",
   "crackle_html",
-  "customer_name",
+  "name_of_customer",
   "column_break_qxkv",
   "sample_registration_no",
   "tankervehiclebktankfilling_line_no",
@@ -27,7 +27,6 @@
   "sr_no_html",
   "odour",
   "odour_html",
-  "name_of_customer",
   "type_of_sample",
   "frequency",
   "company",
@@ -43,6 +42,7 @@
   "date_of_filling",
   "date_of_mfg",
   "coa_date",
+  "material_code",
   "column_break_sdim",
   "date_of_analysis_completed",
   "is_verified",
@@ -105,29 +105,44 @@
   "density_tab",
   "density__150c_astm_d4052astm_d1298_section",
   "density_15_template",
-  "method",
   "density_15c",
   "density_15c_html",
+  "density_15c_astm_d1298_section",
+  "density_15c_1298_template",
+  "density_15c_1298",
+  "density_15c_1298_html",
   "density__200c_astm_d4052astm_d1298_section",
   "density_20_template",
-  "density_20c_method",
   "density_20c",
   "density_20c_html",
+  "density_20c_astm_d1298_section",
+  "density_20c_1298_template",
+  "density_20c_astm_1298",
+  "density_20c_1298_html",
   "density_295c_tab_section",
   "density_295_template",
-  "density_295c_method",
   "density_295c",
   "density_295c_html",
+  "density_295c_astm_1298_section",
+  "density_295c_1298_template",
+  "density_295c_astm_d1298",
+  "density_295c_1298_html",
   "density_1560c_astm_d4052astm_d1298_section",
   "density_1560_template",
-  "density_1560_method",
   "density_1560c",
   "density_1560c_html",
+  "density_1560c_astm_d1298_section",
+  "density_1560c_1298_template",
+  "density_1560c_astm_d1298",
+  "density_1560c_1298_html",
   "density_1550c_astm_d4052astm_d1298_section",
   "density_1550c_template",
-  "density_1550c_method",
   "density_1550c",
   "density_1550c_html",
+  "density_1550c_astm_d1298_section",
+  "density_1550c_1298_template",
+  "density_1550c_astm_d1298",
+  "density_1550c_1298_html",
   "tan_and_tbn_tab",
   "total_base_number_astm_d2896_b_section",
   "tbn_template",
@@ -360,7 +375,7 @@
    "reqd": 1
   },
   {
-   "depends_on": "eval: !(\r\n    (doc.customer_name == \"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\") ||\r\n    (doc.customer_name == \"Exxon Mobil\" && [\"Receipt \u2013 Additive\", \"Blending- Premix\"].includes(doc.type_of_sample)) ||\r\n    (doc.customer_name == \"G S Caltex\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.customer_name == \"Shell India Marketing Pvt. Ltd.\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.customer_name == \"BASF (Coolant)\")\r\n)",
+   "depends_on": "eval: !(\r\n    (doc.name_of_customer == \"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\") ||\r\n    (doc.name_of_customer == \"Exxon Mobil\" && [\"Receipt \u2013 Additive\", \"Blending- Premix\"].includes(doc.type_of_sample)) ||\r\n    (doc.name_of_customer == \"G S Caltex\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.name_of_customer == \"Shell India Marketing Pvt. Ltd.\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.name_of_customer == \"BASF (Coolant)\")\r\n)",
    "fieldname": "colour_astm_d1500",
    "fieldtype": "Select",
    "label": "Color (ASTM D1500)",
@@ -368,6 +383,7 @@
    "options": "\nL0.5\nL1.0\nL1.5\nL2.0\nL2.5\nL3.0\nL3.5\nL4.0\nL4.5\nL5.0\nL5.5\nL6.0\nL6.5\nL7.0\nL7.5\nL8.0"
   },
   {
+   "depends_on": "eval: doc.type_of_sample!=\"Empty Tanker IN\"",
    "fieldname": "colour_visual",
    "fieldtype": "Data",
    "label": "Colour (Visual)",
@@ -383,6 +399,7 @@
    "label": "Sample Registration No.",
    "length": 40,
    "options": "Sample Registration",
+   "read_only": 1,
    "unique": 1
   },
   {
@@ -481,7 +498,7 @@
    "options": "Raw Data Sample Table"
   },
   {
-   "depends_on": "eval: (doc.customer_name == \"Castrol (I) Pvt. Ltd.\" && [\"Bulk Filling Tanker OUT- Blending\", \"Storage Tank flushing\", \"First Filled Sample\", \"Filling Line Lunch Break Sample\", \"Filling Line Tea Break Sample\", \"Filling Line End Sample\", \"Filling Line Break Sample\", \"Tanker Flushing\", \"First Filled sample\",\"Other\"].includes(doc.type_of_sample) ||\r\n    ([\"West Coast Lubricants & Asphalts Pvt. Ltd.\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 1\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 4\"].includes(doc.customer_name))\r\n)",
+   "depends_on": "eval: (doc.name_of_customer == \"Castrol (I) Pvt. Ltd.\" && [\"Bulk Filling Tanker OUT- Blending\", \"Storage Tank flushing\", \"First Filled sample\", \"Filling Line Lunch Break Sample\", \"Filling Line Tea Break Sample\", \"Filling Line End Sample\", \"Filling Line Break Sample\", \"Tanker Flushing\",\"Other\"].includes(doc.type_of_sample) ||\r\n    ([\"West Coast Lubricants & Asphalts Pvt. Ltd.\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 1\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 4\"].includes(doc.name_of_customer))\r\n)",
    "fieldname": "container_sr_no",
    "fieldtype": "Data",
    "label": "Container Sr. No.",
@@ -492,16 +509,20 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "pass_or_fail",
    "fieldtype": "Select",
    "label": "Sample Status",
    "length": 10,
-   "options": "\nApproved\nReject"
+   "options": "\nApproved\nReject",
+   "permlevel": 1
   },
   {
+   "allow_on_submit": 1,
    "fieldname": "remark_if_any",
    "fieldtype": "Small Text",
-   "label": "Remark if any"
+   "label": "Remark if any",
+   "permlevel": 1
   },
   {
    "allow_on_submit": 1,
@@ -526,7 +547,8 @@
   {
    "fieldname": "date_of_analysis_completed",
    "fieldtype": "Datetime",
-   "label": "Date of Analysis Completed"
+   "label": "Date of Analysis Completed",
+   "read_only": 1
   },
   {
    "allow_on_submit": 1,
@@ -656,7 +678,7 @@
   {
    "fieldname": "density__150c_astm_d4052astm_d1298_section",
    "fieldtype": "Section Break",
-   "label": "Density @ 15.0\u02daC (ASTM D4052/ASTM D1298)"
+   "label": "Density @ 15.0\u02daC (ASTM D4052)"
   },
   {
    "default": "Density 15C Table",
@@ -667,13 +689,6 @@
    "options": "Child Table Template"
   },
   {
-   "fieldname": "method",
-   "fieldtype": "Select",
-   "label": "Method",
-   "length": 12,
-   "options": "\nASTM D4052\nASTM D1298"
-  },
-  {
    "fieldname": "density_15c",
    "fieldtype": "Table",
    "label": "Density @ 15\u02daC",
@@ -682,7 +697,7 @@
   {
    "fieldname": "density__200c_astm_d4052astm_d1298_section",
    "fieldtype": "Section Break",
-   "label": "Density @ 20.0\u02daC (ASTM D4052/ASTM D1298)"
+   "label": "Density @ 20.0\u02daC (ASTM D4052)"
   },
   {
    "default": "Density 20C Table",
@@ -693,13 +708,6 @@
    "options": "Child Table Template"
   },
   {
-   "fieldname": "density_20c_method",
-   "fieldtype": "Select",
-   "label": "Density @ 20\u02daC  Method",
-   "length": 10,
-   "options": "\nASTM D4052\nASTM D1298"
-  },
-  {
    "fieldname": "density_20c",
    "fieldtype": "Table",
    "label": "Density @ 20\u02daC ",
@@ -708,7 +716,7 @@
   {
    "fieldname": "density_295c_tab_section",
    "fieldtype": "Section Break",
-   "label": "Density@ 29.5\u00b0C (ASTM D4052/ASTM D1298)"
+   "label": "Density@ 29.5\u00b0C (ASTM D4052)"
   },
   {
    "default": "Density 29.5C Table",
@@ -717,13 +725,6 @@
    "hidden": 1,
    "label": "Density 29.5 Template",
    "options": "Child Table Template"
-  },
-  {
-   "fieldname": "density_295c_method",
-   "fieldtype": "Select",
-   "label": "Density @29.5\u02daC  Method",
-   "length": 10,
-   "options": "\nASTM D4052\nASTM D1298"
   },
   {
    "fieldname": "density_295c",
@@ -1162,7 +1163,7 @@
    "options": "Template Fields"
   },
   {
-   "depends_on": "eval: (\r\n    (doc.customer_name == \"Exxon Mobil\" && [\"Receipt - Base oil\", \"Blending\", \"Bulk Filling Tanker OUT- Blending\", \"First Filled sample\"].includes(doc.type_of_sample)) ||\r\n    (doc.customer_name == \"Castrol (I) Pvt. Ltd.\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.type_of_sample ==\"Other\") ||\r\n    (doc.customer_name == \"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\" && doc.type_of_sample == \"Receipt - MEG\") ||\r\n    (doc.customer_name == \"Raj Petro (Blending)\" && [\"Blending- Premix\", \"Blending\", \"Bulk Filling Tanker OUT- Blending\", \"First Filled sample\"].includes(doc.type_of_sample)) ||\r\n    ([\"West Coast Lubricants & Asphalts Pvt. Ltd.\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 1\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 4\"].includes(doc.customer_name))\r\n)\r\n&& !(\r\n    [\"Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)\", \"G S Caltex\", \"Shell India Marketing Pvt. Ltd.\"].includes(doc.customer_name)\r\n)",
+   "depends_on": "eval: (\r\n    (doc.name_of_customer == \"Exxon Mobil\" && [\"Receipt - Base oil\", \"Blending\", \"Bulk Filling Tanker OUT- Blending\", \"First Filled sample\"].includes(doc.type_of_sample)) ||\r\n    (doc.name_of_customer == \"Castrol (I) Pvt. Ltd.\" && doc.type_of_sample == \"Receipt \u2013 Additive\") ||\r\n    (doc.type_of_sample ==\"Other\") ||\r\n    (doc.name_of_customer == \"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\" && doc.type_of_sample == \"Receipt - MEG\") ||\r\n    (doc.name_of_customer == \"Raj Petro (Blending)\" && [\"Blending- Premix\", \"Blending\", \"Bulk Filling Tanker OUT- Blending\", \"First Filled sample\"].includes(doc.type_of_sample)) ||\r\n    ([\"West Coast Lubricants & Asphalts Pvt. Ltd.\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 1\", \"Ultra Plus Lubes Pvt. Ltd.- Unit 4\"].includes(doc.name_of_customer))\r\n)\r\n&& !(\r\n    [\"Valvoline Cummins (I) Pvt. Ltd.  (Lube oil)\", \"G S Caltex\", \"Shell India Marketing Pvt. Ltd.\"].includes(doc.name_of_customer)\r\n)",
    "fieldname": "odour",
    "fieldtype": "Select",
    "label": "Odour",
@@ -1344,7 +1345,7 @@
   {
    "fieldname": "density_1560c_astm_d4052astm_d1298_section",
    "fieldtype": "Section Break",
-   "label": "Density @ 15.60C (ASTM D4052/ASTM D1298)"
+   "label": "Density @ 15.60C (ASTM D4052)"
   },
   {
    "default": "Density 15.60C Table",
@@ -1353,13 +1354,6 @@
    "hidden": 1,
    "label": "Density 15.60 Template",
    "options": "Child Table Template"
-  },
-  {
-   "fieldname": "density_1560_method",
-   "fieldtype": "Select",
-   "label": "Density 15.60 Method",
-   "length": 12,
-   "options": "\nASTM D4052\nASTM D1298"
   },
   {
    "default": "Density Table",
@@ -1371,14 +1365,7 @@
   {
    "fieldname": "density_1550c_astm_d4052astm_d1298_section",
    "fieldtype": "Section Break",
-   "label": "Density @ 15.50\u02daC (ASTM D4052/ASTM D1298)"
-  },
-  {
-   "fieldname": "density_1550c_method",
-   "fieldtype": "Select",
-   "label": "Density @ 15.50\u02daC Method",
-   "length": 12,
-   "options": "\nASTM D4052\nASTM D1298"
+   "label": "Density @ 15.50\u02daC (ASTM D4052)"
   },
   {
    "default": "Density 15.50C Table",
@@ -1809,22 +1796,16 @@
   {
    "fetch_from": "sample_registration_no.name_of_customer",
    "fieldname": "name_of_customer",
-   "fieldtype": "Data",
-   "hidden": 1,
-   "label": "Name of Customer"
+   "fieldtype": "Link",
+   "label": "Name of Customer",
+   "options": "Customer"
   },
   {
    "fetch_from": "sample_registration_no.type_of_sample",
    "fieldname": "type_of_sample",
-   "fieldtype": "Data",
-   "label": "Type of Sample"
-  },
-  {
-   "fetch_from": "sample_registration_no.name_of_customer",
-   "fieldname": "customer_name",
-   "fieldtype": "Data",
-   "label": "Customer Name",
-   "length": 80
+   "fieldtype": "Link",
+   "label": "Type of Sample",
+   "options": "Sample Types"
   },
   {
    "fieldname": "appearance_visual",
@@ -1832,7 +1813,7 @@
    "label": "Appearance"
   },
   {
-   "depends_on": "eval: !(\r\n    [\"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\", \"BASF (Coolant)\"].includes(doc.customer_name)\r\n)",
+   "depends_on": "eval: !(\r\n    [\"Valvoline Cummins (I) Pvt. Ltd.  (coolant)\", \"BASF (Coolant)\"].includes(doc.name_of_customer)\r\n)",
    "fieldname": "crackle",
    "fieldtype": "Select",
    "label": "Crackle Test",
@@ -2300,14 +2281,143 @@
    "default": "0",
    "fieldname": "is_verified",
    "fieldtype": "Check",
-   "label": "Is Verified"
+   "label": "Is Verified",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "density_15c_astm_d1298_section",
+   "fieldtype": "Section Break",
+   "label": "Density @ 15.0\u02daC (ASTM D1298)"
+  },
+  {
+   "default": "Density 15C ASTM D1298 Table",
+   "fieldname": "density_15c_1298_template",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Density 15C 1298 Template",
+   "options": "Child Table Template"
+  },
+  {
+   "fieldname": "density_15c_1298",
+   "fieldtype": "Table",
+   "label": "Density 15\u02daC ASTM D1298",
+   "options": "Raw Data Sample Table"
+  },
+  {
+   "fieldname": "density_15c_1298_html",
+   "fieldtype": "HTML",
+   "label": "Density 15C 1298 HTML"
+  },
+  {
+   "fieldname": "density_20c_astm_d1298_section",
+   "fieldtype": "Section Break",
+   "label": "Density @ 20.0\u02daC (ASTM D1298)"
+  },
+  {
+   "default": "Density 20C ASTM D1298 Table",
+   "fieldname": "density_20c_1298_template",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Density 20C 1298 Template",
+   "options": "Child Table Template"
+  },
+  {
+   "fieldname": "density_20c_astm_1298",
+   "fieldtype": "Table",
+   "label": "Density 20\u02daC ASTM D1298",
+   "options": "Raw Data Sample Table"
+  },
+  {
+   "fieldname": "density_20c_1298_html",
+   "fieldtype": "HTML",
+   "label": "Density 20C 1298 HTML"
+  },
+  {
+   "fieldname": "density_295c_astm_1298_section",
+   "fieldtype": "Section Break",
+   "label": "Density@ 29.5\u00b0C (ASTM D1298)"
+  },
+  {
+   "default": "Density 29.5C ASTM D1298 Table",
+   "fieldname": "density_295c_1298_template",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Density 29.5C 1298 Template",
+   "options": "Child Table Template"
+  },
+  {
+   "fieldname": "density_295c_astm_d1298",
+   "fieldtype": "Table",
+   "label": "Density 29.5\u02daC ASTM D1298",
+   "options": "Raw Data Sample Table"
+  },
+  {
+   "fieldname": "density_295c_1298_html",
+   "fieldtype": "HTML",
+   "label": "Density 29.5C 1298 HTML"
+  },
+  {
+   "fieldname": "density_1560c_astm_d1298_section",
+   "fieldtype": "Section Break",
+   "label": "Density @ 15.60\u02daC (ASTM D1298)"
+  },
+  {
+   "default": "Density 15.60C ASTM D1298 Table",
+   "fieldname": "density_1560c_1298_template",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Density 15.60C 1298 Template",
+   "options": "Child Table Template"
+  },
+  {
+   "fieldname": "density_1560c_astm_d1298",
+   "fieldtype": "Table",
+   "label": "Density 15.60\u02daC ASTM D1298",
+   "options": "Raw Data Sample Table"
+  },
+  {
+   "fieldname": "density_1560c_1298_html",
+   "fieldtype": "HTML",
+   "label": "Density 15.60C 1298 HTML"
+  },
+  {
+   "fieldname": "density_1550c_astm_d1298_section",
+   "fieldtype": "Section Break",
+   "label": "Density @ 15.50\u02daC (ASTM D1298)"
+  },
+  {
+   "default": "Density 15.50C ASTM D1298 Table",
+   "fieldname": "density_1550c_1298_template",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Density 15.50C 1298 Template",
+   "options": "Child Table Template"
+  },
+  {
+   "fieldname": "density_1550c_astm_d1298",
+   "fieldtype": "Table",
+   "label": "Density 15.50\u02daC ASTM D1298",
+   "options": "Raw Data Sample Table"
+  },
+  {
+   "fieldname": "density_1550c_1298_html",
+   "fieldtype": "HTML",
+   "label": "Density 15.50C 1298 HTML"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "material_code",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Material Code",
+   "length": 20
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-12-03 18:37:25.438858",
+ "modified": "2025-12-17 11:48:28.011904",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Raw Data Sample",

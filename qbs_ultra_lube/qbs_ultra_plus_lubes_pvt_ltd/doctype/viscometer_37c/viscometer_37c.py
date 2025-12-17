@@ -16,7 +16,7 @@ def get_viscometer37_filtered(doctype, txt, searchfield, start, page_len, filter
         SELECT DISTINCT v.name
         FROM `tabViscometer 37C` v
         JOIN `tabMulti Company` mc ON mc.parent = v.name
-        WHERE mc.company_name = %s
+        WHERE mc.company_name = %s AND v.is_active = 1
         AND v.name LIKE %s
         LIMIT %s OFFSET %s
     """, (company, f"%{txt}%", page_len, start), as_dict=True)

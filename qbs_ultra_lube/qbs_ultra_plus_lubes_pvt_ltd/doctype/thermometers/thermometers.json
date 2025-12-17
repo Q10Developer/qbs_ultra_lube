@@ -9,7 +9,8 @@
  "field_order": [
   "equipment_id",
   "name_of_equipment",
-  "company"
+  "company",
+  "is_obsolete"
  ],
  "fields": [
   {
@@ -28,12 +29,18 @@
    "fieldtype": "Link",
    "label": "Company",
    "options": "Company"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_obsolete",
+   "fieldtype": "Check",
+   "label": "Is Active"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-21 14:32:39.814012",
+ "modified": "2025-12-15 10:20:26.885224",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Thermometers",

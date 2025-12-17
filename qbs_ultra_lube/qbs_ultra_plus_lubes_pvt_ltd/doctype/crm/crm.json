@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-09 10:37:52.600001",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "crm",
+  "certified_value",
+  "batch_no",
+  "expiry",
+  "column_break_jwjl",
+  "producersupplier",
+  "mu",
+  "traceability",
+  "stock_in_hand",
+  "active"
+ ],
+ "fields": [
+  {
+   "fieldname": "crm",
+   "fieldtype": "Data",
+   "label": "CRM Name",
+   "length": 50
+  },
+  {
+   "fieldname": "certified_value",
+   "fieldtype": "Data",
+   "label": "Certified Value",
+   "length": 40
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Data",
+   "label": "Batch No.",
+   "length": 30
+  },
+  {
+   "fieldname": "expiry",
+   "fieldtype": "Data",
+   "label": "Expiry Date",
+   "length": 20
+  },
+  {
+   "fieldname": "column_break_jwjl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "producersupplier",
+   "fieldtype": "Data",
+   "label": "Producer/Supplier Name",
+   "length": 40
+  },
+  {
+   "fieldname": "mu",
+   "fieldtype": "Data",
+   "label": "MU(+/-)",
+   "length": 40
+  },
+  {
+   "fieldname": "traceability",
+   "fieldtype": "Data",
+   "label": "Traceability",
+   "length": 30
+  },
+  {
+   "fieldname": "stock_in_hand",
+   "fieldtype": "Data",
+   "label": "Stock In Hand",
+   "length": 10
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "default": "1",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-12-12 11:01:51.688907",
+ "modified_by": "Administrator",
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "CRM",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

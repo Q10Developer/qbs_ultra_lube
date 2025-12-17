@@ -8,7 +8,8 @@
  "engine": "InnoDB",
  "field_order": [
   "viscometer_id",
-  "viscometer_constant"
+  "viscometer_constant",
+  "is_active"
  ],
  "fields": [
   {
@@ -21,12 +22,18 @@
    "fieldname": "viscometer_constant",
    "fieldtype": "Data",
    "label": "Viscometer Constant"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-11-25 11:03:35.276147",
+ "modified": "2025-12-15 10:42:43.525812",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Viscometer 100C",

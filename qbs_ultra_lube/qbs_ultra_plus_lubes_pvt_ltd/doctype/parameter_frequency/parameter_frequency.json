@@ -1,34 +1,70 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
- "creation": "2025-09-18 18:17:37.248706",
+ "creation": "2025-11-07 18:56:53.691126",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "name_of_parameter",
+  "code",
+  "parameter",
+  "company",
+  "customer",
   "column_break_ovoq",
-  "frequency"
+  "item",
+  "frequency",
+  "sample_type"
  ],
  "fields": [
-  {
-   "fieldname": "name_of_parameter",
-   "fieldtype": "Data",
-   "label": "Name Of Parameter"
-  },
   {
    "fieldname": "column_break_ovoq",
    "fieldtype": "Column Break"
   },
   {
+   "fieldname": "code",
+   "fieldtype": "Link",
+   "label": "Code",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "code.item_name",
+   "fieldname": "item",
+   "fieldtype": "Data",
+   "label": "Item"
+  },
+  {
+   "fieldname": "parameter",
+   "fieldtype": "Small Text",
+   "label": "Parameter"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
    "fieldname": "frequency",
    "fieldtype": "Data",
    "label": "Frequency"
+  },
+  {
+   "fieldname": "sample_type",
+   "fieldtype": "Link",
+   "label": "Sample Type",
+   "options": "Sample Types"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-18 18:18:14.446304",
+ "modified": "2025-12-11 10:57:49.158182",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Parameter Frequency",

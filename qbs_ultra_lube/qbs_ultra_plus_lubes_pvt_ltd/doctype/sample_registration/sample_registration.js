@@ -14,6 +14,7 @@ refresh(frm) {
                     callback: function (r) {
                         if (!r.exc) {
                             let new_doc = r.message;
+                            new_doc.sample_received_by =  frappe.session.user_fullname;
                             frappe.msgprint('Resample Record created: ' + new_doc.name);
                             frappe.set_route('Form', 'Sample Registration', new_doc.name);
                         }

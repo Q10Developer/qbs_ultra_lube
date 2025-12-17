@@ -18,7 +18,7 @@ def get_viscometer40_filtered(doctype, txt, searchfield, start, page_len, filter
         FROM `tabViscometer 40C` v
         JOIN `tabMulti Company` mc ON mc.parent = v.name
         WHERE mc.company_name = %s
-        AND v.name LIKE %s
+        AND v.name LIKE %s AND v.is_active = 1
         LIMIT %s OFFSET %s
     """, (company, f"%{txt}%", page_len, start), as_dict=True)
 

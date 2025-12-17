@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"8E5p0pOTQI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ultralube</span>\",\"col\":12}},{\"id\":\"HE_7hl1Xr5\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"TeL4d5XVl6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sample Registration Analytics Dashboard\",\"col\":3}},{\"id\":\"-WohEdc_dQ\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"J6xA3Sbc_w\",\"type\":\"card\",\"data\":{\"card_name\":\"Sample\",\"col\":4}},{\"id\":\"Dx_Je5qep9\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
+ "content": "[{\"id\":\"8E5p0pOTQI\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Ultralube</span>\",\"col\":12}},{\"id\":\"bPJBEtXovZ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Drive\",\"col\":3}},{\"id\":\"HE_7hl1Xr5\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"TeL4d5XVl6\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sample Registration Analytics Dashboard\",\"col\":5}},{\"id\":\"-WohEdc_dQ\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"J6xA3Sbc_w\",\"type\":\"card\",\"data\":{\"card_name\":\"Sample\",\"col\":4}},{\"id\":\"Dx_Je5qep9\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
  "creation": "2025-11-07 18:56:57.373277",
  "custom_blocks": [],
  "docstatus": 0,
@@ -92,28 +92,9 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Sample Summary",
-   "link_count": 1,
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Sample Summary Report",
-   "link_count": 0,
-   "link_to": "Sample Reg",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
   }
  ],
- "modified": "2025-11-22 07:41:11.297739",
+ "modified": "2025-12-13 20:58:28.120981",
  "modified_by": "Administrator",
  "module": "QBS Ultra Plus Lubes Pvt Ltd",
  "name": "Ultralube",
@@ -131,6 +112,13 @@
    "label": "Sample Registration Analytics Dashboard",
    "link_to": "Sample Registration Analytics",
    "type": "Dashboard"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Drive",
+   "type": "URL",
+   "url": "/drive"
   }
  ],
  "title": "Ultralube"

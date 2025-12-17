@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2025-12-08 16:47:09.203144",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company",
+  "calibration_schedule_list",
+  "calibration_list",
+  "humidity",
+  "glass_therometer",
+  "time_measuring_devices",
+  "manual_density_measuring_devices",
+  "master_glassware",
+  "pressure_monitoring_device",
+  "dimensions_measuring_tool",
+  "weighing_balance_verification_tool",
+  "internal_verification_schedule_list",
+  "internal_verification_schedule"
+ ],
+ "fields": [
+  {
+   "fieldname": "calibration_list",
+   "fieldtype": "Table",
+   "label": "Instruments",
+   "options": "Instruments Of Calibration"
+  },
+  {
+   "fieldname": "humidity",
+   "fieldtype": "Table",
+   "label": "Humidity & Temp. Monitor Equipments",
+   "options": "Humidity Of Calibration"
+  },
+  {
+   "fieldname": "glass_therometer",
+   "fieldtype": "Table",
+   "label": "Glass Therometer",
+   "options": "Glass Therometer Of Calibration"
+  },
+  {
+   "fieldname": "time_measuring_devices",
+   "fieldtype": "Table",
+   "label": "Time Measuring Devices",
+   "options": "Time Measuring Devices Of Calibration"
+  },
+  {
+   "fieldname": "manual_density_measuring_devices",
+   "fieldtype": "Table",
+   "label": "Manual Density Measuring Devices",
+   "options": "Manual Density Measuring Equipment Of Calibration"
+  },
+  {
+   "fieldname": "master_glassware",
+   "fieldtype": "Table",
+   "label": "Master Glassware",
+   "options": "Master Glassware Of Calibration"
+  },
+  {
+   "fieldname": "pressure_monitoring_device",
+   "fieldtype": "Table",
+   "label": "Pressure Monitoring Device",
+   "options": "Pressure Monitoring Device Of Calibration"
+  },
+  {
+   "fieldname": "dimensions_measuring_tool",
+   "fieldtype": "Table",
+   "label": "Dimensions Measuring Tool",
+   "options": "Dimensions Measuring Tool of Calibration"
+  },
+  {
+   "fieldname": "weighing_balance_verification_tool",
+   "fieldtype": "Table",
+   "label": "Weighing Balance verification tool",
+   "options": "Weighing Balance Verification Tool Of Calibration"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "calibration_schedule_list",
+   "fieldtype": "Heading",
+   "label": "Calibration Schedule List"
+  },
+  {
+   "fieldname": "internal_verification_schedule_list",
+   "fieldtype": "Heading",
+   "label": "Internal Verification Schedule List"
+  },
+  {
+   "fieldname": "internal_verification_schedule",
+   "fieldtype": "Table",
+   "label": "Internal Verification Schedule",
+   "options": "Internal Verification Schedule"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-17 13:41:48.377796",
+ "modified_by": "Administrator",
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "Calibration List",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,36 +1,64 @@
 // Copyright (c) 2025, Astha and contributors
 // For license information, please see license.txt
 
+
+
 frappe.query_reports["Sample Reg"] = {
     "filters": [
-        {
-            "fieldname": "customer",
-            "label": __("Customer"),
-            "fieldtype": "Link",
-            "options": "Customer"
-        }
-    ],
-    "onload": function(report) {
-        report.page.add_inner_button(__("Sample Registration Report"), function() {
-            const filters = report.get_values();
-            frappe.call({
-                method: "rentals.rentals.report.sample_registration.sample_registration.execute",
-                args: {
-                    filters: filters
-                },
-                callback: function(r) {
-                    const data = r.message && r.message[1];
-
-                    if (data) {
-                        open_custom_report_window(data);
-                    } else {
-                        frappe.msgprint(__("Could not fetch report data."));
-                    }
-                }
-            });
-        });
+{
+    "fieldname": "customer",
+    "label": __("Customer"),
+    "fieldtype": "MultiSelectList",
+    "options": "Customer",
+    "get_data": function(txt) {
+        return frappe.db.get_link_options("Customer", txt);
     }
+},
+
+        {
+            "fieldname": "from_date",
+            "label": __("From Date"),
+            "fieldtype": "Date"
+        },
+        {
+            "fieldname": "to_date",
+            "label": __("To Date"),
+            "fieldtype": "Date"
+        },
+        {
+    "fieldname": "type_of_sample",
+    "label": __("Sample Type"),
+    "fieldtype": "Link",
+    "options": "Sample Types",
+    
+}
+
+    ],
+
+    // onload(report) {
+    //     // Reset dates on every load  
+    //     report.set_filter_value("from_date", null);
+    //     report.set_filter_value("to_date", null);
+
+    //     // Add button  
+    //     report.page.add_inner_button(__("Sample Registration Report"), function() {
+    //         const filters = report.get_values();
+    //         frappe.call({
+    //             method: "rentals.rentals.report.sample_registration.sample_registration.execute",
+    //             args: { filters },
+    //             callback: function(r) {
+    //                 const data = r.message && r.message[1];
+    //                 if (data) {
+    //                     open_custom_report_window(data);
+    //                 } else {
+    //                     frappe.msgprint(__("Could not fetch report data."));
+    //                 }
+    //             }
+    //         });
+    //     });
+    // }
 };
+
 
 function open_custom_report_window(data) {
     if (!data || data.length === 0) {
@@ -112,5 +140,3 @@ function open_custom_report_window(data) {
 
 
 
-
-    // <button class="print-button" onclick="window.print()">Print</button>

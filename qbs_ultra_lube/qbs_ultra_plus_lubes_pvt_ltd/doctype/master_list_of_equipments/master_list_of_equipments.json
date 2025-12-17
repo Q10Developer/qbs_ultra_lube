@@ -1,0 +1,166 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "creation": "2025-11-07 18:56:54.191773",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "name1_section",
+  "company",
+  "list_of_equipments",
+  "instruments",
+  "temperature_and_humidity_monitor_equipments",
+  "time_measuring_devices",
+  "manual_density_measuring_equipment",
+  "master_glassware",
+  "pressure_monitoring_device",
+  "marwel",
+  "dimensions_measuring_tool",
+  "weighing_balance_verification_tool",
+  "viscosity_measuring_equipment",
+  "list_of_crm",
+  "crm_marvel",
+  "list_of_rm",
+  "rm_marvel",
+  "list_of_chemicals",
+  "chemicals_list"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "instruments",
+   "fieldtype": "Table",
+   "label": "Instruments",
+   "options": "Instruments"
+  },
+  {
+   "fieldname": "temperature_and_humidity_monitor_equipments",
+   "fieldtype": "Table",
+   "label": "Temperature and Humidity Monitor Equipments",
+   "options": "Temperature and Humidity Monitor Equipments"
+  },
+  {
+   "fieldname": "manual_density_measuring_equipment",
+   "fieldtype": "Table",
+   "label": "Manual Density measuring equipment",
+   "options": "Manual Density measuring equipment"
+  },
+  {
+   "fieldname": "master_glassware",
+   "fieldtype": "Table",
+   "label": "Master Glassware",
+   "options": "Master Glassware"
+  },
+  {
+   "fieldname": "pressure_monitoring_device",
+   "fieldtype": "Table",
+   "label": "Pressure Monitoring Device",
+   "options": "Pressure Monitoring Device"
+  },
+  {
+   "fieldname": "time_measuring_devices",
+   "fieldtype": "Table",
+   "label": "Time measuring Devices",
+   "options": "Time measuring Devices"
+  },
+  {
+   "depends_on": "eval:doc.company==\"Ultra Plus Lubes Pvt. Ltd Unit IV\"",
+   "fieldname": "marwel",
+   "fieldtype": "Table",
+   "label": "Ultra Plus Lubes Pvt. Ltd Unit IV",
+   "options": "Unit IV"
+  },
+  {
+   "fieldname": "dimensions_measuring_tool",
+   "fieldtype": "Table",
+   "label": "Dimensions Measuring Tool",
+   "options": "Dimensions Measuring Tool"
+  },
+  {
+   "fieldname": "weighing_balance_verification_tool",
+   "fieldtype": "Table",
+   "label": "Weighing Balance verification tool",
+   "options": "Weighing Balance verification tool"
+  },
+  {
+   "fieldname": "viscosity_measuring_equipment",
+   "fieldtype": "Table",
+   "label": "Viscosity measuring equipment",
+   "options": "Viscosity measuring equipment"
+  },
+  {
+   "fieldname": "crm_marvel",
+   "fieldtype": "Table",
+   "label": "CRM",
+   "options": "CRM"
+  },
+  {
+   "fieldname": "rm_marvel",
+   "fieldtype": "Table",
+   "label": "RM",
+   "options": "RM"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "list_of_equipments",
+   "fieldtype": "Heading",
+   "label": "List Of Equipments"
+  },
+  {
+   "fieldname": "list_of_crm",
+   "fieldtype": "Heading",
+   "label": "List Of CRM"
+  },
+  {
+   "fieldname": "list_of_rm",
+   "fieldtype": "Heading",
+   "label": "List Of RM"
+  },
+  {
+   "fieldname": "list_of_chemicals",
+   "fieldtype": "Heading",
+   "label": "List Of Chemicals"
+  },
+  {
+   "fieldname": "chemicals_list",
+   "fieldtype": "Table",
+   "label": "Chemical",
+   "options": "Chemicals List"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-17 13:24:22.933492",
+ "modified_by": "Administrator",
+ "module": "QBS Ultra Plus Lubes Pvt Ltd",
+ "name": "Master List Of Equipments",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

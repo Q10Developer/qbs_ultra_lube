@@ -1,6 +1,8 @@
 import frappe
 from frappe.model.document import Document
 import json
+import re
+from frappe.utils import getdate, add_months
 
 TEMPLATE_FIELD_MAP = {
     "iso_template_name": "iso_and_nas",
@@ -35,6 +37,11 @@ TEMPLATE_FIELD_MAP = {
     "chloride_content_template": "chloride_content",
     "density_1560_template": "density_1560c",
     "density_1550c_template": "density_1550c",
+    "density_15c_1298_template": "density_15c_1298",
+    "density_20c_1298_template": "density_20c_astm_1298",
+    "density_295c_1298_template": "density_295c_astm_d1298",
+    "density_1560c_1298_template": "density_1560c_astm_d1298",
+    "density_1550c_1298_template": "density_1550c_astm_d1298",
     "foaming_2_template": "foaming_table",
     "erbp_template": "erbp",
     "ra_10_template": "reserved_alkalinity_10ml",
@@ -88,11 +95,17 @@ mapping_parameters = {
 	"Brookfield Viscosity @ -40C (ASTM D2983)": "brookfield_viscosity_40c_astm_d2983_mpas",
 	"Brookfield Viscosity @ -55C (ASTM D2983)": "brookfield_viscosity_55c_astm_d2983_mpas",
 	"Average KV (Four Significant Figure)": "kinematic_viscosity_378c_astm_d445_mm²s",
-	"Average Density 15.0C (Four Significant Figure)": "density_15c",
+	# "Average Density 15.0C (Four Significant Figure)": "density_15c",
+    "Average Density 15.0C (Four Significant Figure)": "a",
 	"Average Density 20.0C (Four Significant Figure)": "average",
 	"Average Density 29.5C (Four Significant Figure)": "average_four_significant_figure",
 	"Average Density 15.50C (Four Significant Figure)": "density_1550c_astm_d4052_gml",
 	"Average Density 15.60C (Four Significant Figure)": "density_1560c_astm_d4052_gml",
+    "Average Density 29.5C (ASTM D1298)": "density_295c_astm_d1298_gml",
+    "Average Density 20.0C (ASTM D1298)": "density_200c_astm_d1298_gml",
+    "Average Density 15.50C (ASTM D1298)": "density_1550c_astm_d1298_gml",
+    "Average Density 15.60C (ASTM D1298)": "density_1560c_astm_d1298_gml",
+    "Average Density 15.0C (ASTM D1298)": "density__15c_astm_d1298_gml",
 	"Average Total Base Number": "average_total_base_number",
 	"Average Total Acid Number": "total_acid_number_astm_d974_mg_of_kog",
 	"Sequence I @ 24.0°C Tendency": "sequence_i_240c_tendency",
@@ -201,6 +214,11 @@ only_last_row_tables =[
     "density_15c",
     "density_20c",
     "density_295c",
+    "density_15c_1298",
+    "density_20c_astm_1298",
+    "density_295c_astm_d1298",
+    "density_1560c_astm_d1298",
+    "density_1550c_astm_d1298",
     "tbn",
     "tan",
     "pour_point",
@@ -216,22 +234,44 @@ only_last_row_tables =[
     "reserved_alkalinity_10mg"
 ]
 
+def calculate_disposal_date(analysis_date, retention_period):
+    if not analysis_date or not retention_period or retention_period == "NA":
+        return None
+
+    base_date =getdate(analysis_date);
+
+    # Normalize retention period
+    normalized = normalize_retention_period(retention_period)
+
+    match = re.match(r"(\d+(?:\.\d+)?)\s*(MONTHS?|YEARS?)", normalized, re.I)
+    if not match:
+        frappe.log_error(f"Unable to parse retention period: {retention_period}")
+        return None
+
+    value = float(match.group(1))
+    unit = match.group(2).upper()
+
+    if unit.startswith("MONTH"):
+        disposal_date = add_months(base_date, int(value))
+    elif unit.startswith("YEAR"):
+        disposal_date = add_months(base_date, int(value * 12))
+    else:
+        return None
+
+    return disposal_date
+    
+def normalize_retention_period(period):
+    if not period or period.strip().upper() == "NA":
+        return "NA"
+    
+    return period.strip().upper()
+
 
 class RawDataSample(Document):
     def on_submit(self):
         """Push final sample status & completion date to the linked Sample Registration."""
         if not self.sample_registration_no:
             return
-
-        # frappe.db.set_value(
-        #     "Sample Registration",
-        #     self.sample_registration_no,
-        #     {
-        #         "sample_status": self.pass_or_fail,
-        #         "date_of_analysis_completed": self.date_of_analysis_completed,
-        #         "remark": self.remark_if_any
-        #     },
-        # )
 
         # Fetch the linked Sample Registration doc
         doc = frappe.get_doc("Sample Registration", self.sample_registration_no)
@@ -240,6 +280,18 @@ class RawDataSample(Document):
         doc.sample_status = self.pass_or_fail
         doc.date_of_analysis_completed = self.date_of_analysis_completed
         doc.remark = self.remark_if_any
+
+        disposal_date=calculate_disposal_date(self.date_of_analysis_completed, doc.sample_retention_period)
+
+
+        doc.date_of_disposal=disposal_date
+        # if(disposal_date):
+        #     doc.date_of_disposal=disposal_date
+        # else:
+        #     # clear the field if NA or cannot be calculated
+        #     doc.date_of_disposal = None
+
+        
 
         # Save and submit properly
         # doc.save(ignore_permissions=True)  # ensures changes persist
@@ -391,6 +443,9 @@ class RawDataSample(Document):
     @frappe.whitelist()
     def preload_all_tables_for_internal(self, showFieldMap):
         showField_map=json.loads(showFieldMap)
+
+        customer_name = self.name_of_customer
+        sample_type = self.type_of_sample
         
         result = {}
         
@@ -400,7 +455,11 @@ class RawDataSample(Document):
                 continue
             
             template = frappe.get_doc("Child Table Template", template_name)
-            allowed_parameters = showField_map.get("Internal Client", {}).get("Other", [])
+            
+            if(sample_type == "Tanker Flushing"):
+                allowed_parameters= showField_map.get(customer_name, {}).get("Tanker Flushing", [])
+            else:
+                allowed_parameters = showField_map.get("Internal Client", {}).get("Other", [])
             # foamingList=[];
 
             def is_row_valid(entry):
